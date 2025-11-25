@@ -1,0 +1,22 @@
+# <type>: <subject>
+#
+# <body>
+#
+# <footer>
+#
+# --- COMMIT FORMAT ---
+# type: feat|fix|docs|style|refactor|perf|test|chore
+#
+# feat: 新機能
+# fix: バグ修正
+# docs: ドキュメントのみの変更
+# style: コードの意味に影響を与えない変更(空白、フォーマット、セミコロン等)
+# refactor: バグ修正や機能追加を含まないコードの変更
+# perf: パフォーマンス向上のための変更
+# test: テストの追加や既存テストの修正
+# chore: ビルドプロセスやツール、ライブラリの変更
+#
+# 例:
+# feat: ユーザー登録機能を追加
+# fix: ログイン時のバリデーションエラーを修正
+# docs: READMEにセットアップ手順を追加
