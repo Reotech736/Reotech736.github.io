@@ -1,42 +1,32 @@
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reotech - ホームページ</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Reotechへようこそ</h1>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-    </header>
+---
+layout: default
+title: Home
+---
 
-    <main>
-        <section id="about">
-            <h2>About</h2>
-            <p>エンジニアの学習記録 兼 備忘録 です。</p>
-        </section>
+<section id="about">
+    <h2>About</h2>
+    <p>エンジニアの学習記録 兼 備忘録 です。</p>
+</section>
 
-        <section id="projects">
-            <h2>Projects</h2>
-            <p>テストproject</p>
-        </section>
+<section id="recent-posts">
+    <h2>最近の投稿</h2>
+    <ul class="post-list">
+    {% for post in site.posts limit:5 %}
+        <li>
+            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+        </li>
+    {% endfor %}
+    </ul>
+    <p><a href="{{ '/blog' | relative_url }}">すべての記事を見る →</a></p>
+</section>
 
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>お問い合わせ先：https://qiita.com/Reotech</p>
-        </section>
-    </main>
+<section id="projects">
+    <h2>Projects</h2>
+    <p>テストproject</p>
+</section>
 
-    <footer>
-        <p>&copy; 2025 Reotech. All rights reserved.</p>
-    </footer>
-</body>
-</html>
+<section id="contact">
+    <h2>Contact</h2>
+    <p>お問い合わせ先：<a href="https://qiita.com/Reotech" target="_blank">https://qiita.com/Reotech</a></p>
+</section>

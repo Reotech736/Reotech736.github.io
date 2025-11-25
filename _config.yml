@@ -1,0 +1,48 @@
+# サイト設定
+title: Reotech
+email: your-email@example.com
+description: >-
+  エンジニアの学習記録 兼 備忘録
+baseurl: ""
+url: "https://reotech736.github.io"
+github_username: Reotech736
+
+# ビルド設定
+theme: minima
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+  - jekyll-sitemap
+
+# デフォルト設定
+defaults:
+  - scope:
+      path: ""
+      type: "posts"
+    values:
+      layout: "post"
+      author: "Reo"
+
+# Markdown設定
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+
+# 除外ファイル
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+
+# タイムゾーン
+timezone: Asia/Tokyo
+
+# ページネーション
+paginate: 10
+paginate_path: "/blog/page:num/"

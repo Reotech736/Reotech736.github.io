@@ -1,0 +1,247 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #333;
+    background-color: #f8f9fa;
+}
+
+header {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    padding: 1.5rem 0;
+    text-align: center;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-bottom: 0.8rem;
+    font-size: 1.8rem;
+}
+
+header h1 a {
+    color: white;
+    text-decoration: none;
+}
+
+nav ul {
+    list-style: none;
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    font-size: 0.95rem;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    transition: opacity 0.3s;
+}
+
+nav a:hover {
+    opacity: 0.8;
+}
+
+main {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 2rem 1.5rem;
+    background: white;
+    min-height: 60vh;
+}
+
+section {
+    margin-bottom: 3rem;
+}
+
+section h2 {
+    color: #667eea;
+    margin-bottom: 1rem;
+    font-size: 1.75rem;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.5rem;
+}
+
+section p {
+    margin-bottom: 1rem;
+}
+
+/* 投稿記事用のスタイル */
+.post {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.post-header {
+    text-align: center;
+    padding: 2rem 0 1.5rem;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    color: white;
+    margin: -2rem -1.5rem 2rem;
+    border-radius: 0;
+}
+
+.post-title {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+}
+
+.post-meta {
+    font-size: 0.9rem;
+    opacity: 0.9;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    align-items: center;
+}
+
+.post-content {
+    font-size: 1rem;
+    line-height: 1.8;
+}
+
+.post-content h1 {
+    font-size: 1.75rem;
+    margin: 2rem 0 1rem;
+    color: #2c3e50;
+}
+
+.post-content h2 {
+    font-size: 1.5rem;
+    margin: 1.75rem 0 0.75rem;
+    color: #34495e;
+    border-bottom: 2px solid #e9ecef;
+    padding-bottom: 0.3rem;
+}
+
+.post-content h3 {
+    font-size: 1.25rem;
+    margin: 1.5rem 0 0.5rem;
+    color: #495057;
+}
+
+.post-content ul, .post-content ol {
+    margin-left: 2rem;
+    margin-bottom: 1rem;
+}
+
+.post-content li {
+    margin-bottom: 0.5rem;
+}
+
+.post-tags {
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.tag {
+    display: inline-block;
+    background: #e9ecef;
+    padding: 0.25rem 0.75rem;
+    border-radius: 1rem;
+    font-size: 0.85rem;
+    margin-right: 0.5rem;
+    color: #495057;
+}
+
+/* 投稿ナビゲーション */
+.post-navigation {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid #e9ecef;
+}
+
+.post-navigation a {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.post-navigation a:hover {
+    text-decoration: underline;
+}
+
+/* ブログ一覧 */
+.post-list {
+    list-style: none;
+    margin-left: 0;
+}
+
+.post-list li {
+    margin-bottom: 0.75rem;
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.post-date {
+    color: #6c757d;
+    font-size: 0.9rem;
+    min-width: 100px;
+}
+
+.post-preview {
+    margin-bottom: 3rem;
+    padding-bottom: 2rem;
+    border-bottom: 1px solid #e9ecef;
+}
+
+.post-preview h2 {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}
+
+.post-preview h2 a {
+    color: #2c3e50;
+    text-decoration: none;
+}
+
+.post-preview h2 a:hover {
+    color: #667eea;
+}
+
+.post-excerpt {
+    color: #6c757d;
+    margin: 1rem 0;
+}
+
+.read-more {
+    color: #667eea;
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+footer {
+    background: #2c3e50;
+    color: white;
+    text-align: center;
+    padding: 2rem 0;
+    margin-top: 3rem;
+}
+
+footer a {
+    color: #667eea;
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+footer p {
+    margin-bottom: 0.5rem;
+}
