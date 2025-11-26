@@ -1,6 +1,7 @@
 # サイト設定
-title: Reotech
-email: your-email@example.com
+title: Reo's Tech Blog
+author: Reo Komatsubara
+contact: "/contact/"
 description: >-
   エンジニアの学習記録 兼 備忘録
 baseurl: ""
@@ -21,7 +22,7 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      author: "Reo"
+      author: "Reo Komatsubara"
 
 # Markdown設定
 markdown: kramdown

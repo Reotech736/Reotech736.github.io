@@ -2,7 +2,7 @@
 
 ## コミットメッセージ規約
 
-このプロジェクトでは [Conventional Commits](https://www.conventionalcommits.org/) に従ったコミットメッセージを使用します。
+このプロジェクトでは [Conventional Commits](https://www.conventionalcommits.org/) に従ったコミットメッセージを使用します
 
 ### フォーマット
 
@@ -57,7 +57,7 @@ git config commit.template .gitmessage
 
 ## ブランチ戦略
 
-このプロジェクトでは **GitHub Flow** ベースのシンプルなブランチ戦略を採用します。
+このプロジェクトでは **GitHub Flow** ベースのシンプルなブランチ戦略を採用します
 
 ### ブランチの種類
 
