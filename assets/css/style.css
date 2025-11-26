@@ -20,6 +20,7 @@ html {
     --bg-light: #f5f7f9;
     --white: #ffffff;
     --border: #dde2e6;
+    --focus-outline: 2px solid var(--accent);
 }
 
 body {
@@ -51,8 +52,10 @@ header h1 a {
     transition: opacity 0.3s;
 }
 
-header h1 a:hover {
+header h1 a:hover,
+header h1 a:focus {
     opacity: 0.9;
+    outline: none;
 }
 
 nav ul {
@@ -72,9 +75,11 @@ nav a {
     border-bottom: 2px solid transparent;
 }
 
-nav a:hover {
+nav a:hover,
+nav a:focus {
     border-bottom-color: var(--white);
     opacity: 0.9;
+    outline: none;
 }
 
 main {

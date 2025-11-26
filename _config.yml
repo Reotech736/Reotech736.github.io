@@ -1,7 +1,7 @@
 # サイト設定
-title: Reotech
+title: Reo's Tech Blog
 author: Reo Komatsubara
-email: relion911@gmail.com
+contact: "/contact/"
 description: >-
   エンジニアの学習記録 兼 備忘録
 baseurl: ""
