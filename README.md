@@ -1,6 +1,6 @@
 # Reotech Homepage
 
-Jekyll + GitHub Pagesで構築された技術ブログサイトです。
+Jekyll + GitHub Pagesで構築された技術ブログサイトです
 
 ## URL
 https://reotech736.github.io/
@@ -52,7 +52,8 @@ bundle exec jekyll serve --host 0.0.0.0 --drafts
 JEKYLL_ENV=production bundle exec jekyll build
 ```
 
-**注意:** WSL環境で開発する場合は `--host 0.0.0.0` オプションが必要です。これによりWindowsホスト側からもアクセスできるようになります。
+**注意:** WSL環境で開発する場合は `--host 0.0.0.0` オプションが必要です
+これによりWindowsホスト側からもアクセスできるようになります
 
 ## 記事の作成方法
 
@@ -76,4 +77,4 @@ tags: [tag1, tag2]
 
 ## ブランチ戦略
 
-詳細は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください。
+詳細は [CONTRIBUTING.md](CONTRIBUTING.md) を参照してください

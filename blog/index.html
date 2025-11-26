@@ -24,11 +24,10 @@ title: Blog
         <div class="post-excerpt">
             {{ post.excerpt }}
         </div>
-        <a href="{{ post.url | relative_url }}" class="read-more">続きを読む →</a>
     </article>
     {% endfor %}
     
     {% if site.posts.size == 0 %}
-    <p>まだ投稿がありません。</p>
+    <p>まだ投稿がありません</p>
     {% endif %}
 </div>
