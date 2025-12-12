@@ -3,7 +3,8 @@ name: Update contributions SVG
 on:
   workflow_dispatch:
   schedule:
-    - cron: "17 3 * * *"
+    # Runs daily at 03:00 JST (18:00 UTC)
+    - cron: "0 18 * * *"
 
 permissions:
   contents: write
@@ -41,4 +42,3 @@ jobs:
           git add assets/images/contributions.svg
           git commit -m "chore: update contributions svg"
           git push
-
