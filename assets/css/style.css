@@ -563,8 +563,102 @@ footer p {
 
 /* プロジェクトセクション */
 .projects-content {
+    padding: 1.5rem 0 2rem;
+}
+
+.projects-intro {
     text-align: center;
-    padding: 2rem 0;
+    margin-bottom: 1rem;
+    color: var(--text-light);
+}
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.25rem 0 1.5rem;
+}
+
+.project-card {
+    text-align: left;
+    padding: 1rem 1.1rem;
+    background: var(--bg-light);
+    border-radius: 0.75rem;
+    border: 1px solid var(--border);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 18px rgba(8, 123, 138, 0.12);
+    border-color: rgba(8, 123, 138, 0.25);
+}
+
+.project-title {
+    margin-bottom: 0.5rem;
+    font-size: 1.05rem;
+    line-height: 1.3;
+}
+
+.project-title a {
+    color: var(--dark);
+    text-decoration: none;
+}
+
+.project-title a:hover,
+.project-title a:focus {
+    color: var(--primary);
+    outline: none;
+}
+
+.project-description {
+    margin-bottom: 0.75rem;
+    color: var(--text-light);
+    font-size: 0.95rem;
+    line-height: 1.55;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--primary);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.project-link:hover,
+.project-link:focus {
+    text-decoration: underline;
+    outline: none;
+}
+
+.projects-extras {
+    margin-top: 1.25rem;
+}
+
+.projects-contributions {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 0.75rem;
+    padding: 0.9rem 1rem 1rem;
+}
+
+.projects-subtitle {
+    font-size: 0.95rem;
+    color: var(--dark);
+    margin-bottom: 0.6rem;
+}
+
+.contributions-image {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.projects-actions {
+    margin-top: 1rem;
+    text-align: center;
 }
 
 .projects-content p {
@@ -762,6 +856,38 @@ footer p {
     .projects-content p,
     .contact-list li {
         font-size: 0.85rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+        grid-template-columns: 1fr;
+        gap: 0.75rem;
+        margin: 1rem 0 1.25rem;
+    }
+
+    .project-card {
+        padding: 0.85rem 0.95rem;
+    }
+
+    .project-title {
+        font-size: 1rem;
+    }
+
+    .project-description {
+        font-size: 0.85rem;
+    }
+
+    .projects-extras {
+        margin-top: 1rem;
+    }
+
+    .projects-contributions {
+        padding: 0.8rem 0.9rem 0.95rem;
+    }
+
+    .github-link {
+        width: 100%;
+        text-align: center;
     }
     
     /* ブログ一覧 */
