@@ -3,7 +3,7 @@
 Jekyll + GitHub Pagesで構築された技術ブログサイトです
 
 ## URL
-https://reotech736.github.io/
+https://reotech736.com/
 
 ## 技術スタック
 - Jekyll (静的サイトジェネレーター)
