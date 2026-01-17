@@ -1,0 +1,188 @@
+---
+layout: default
+title: Tags
+permalink: /tags/
+---
+
+<div class="tags-page">
+    <header class="tags-header">
+        <h1>Tags</h1>
+        <p>複数タグで絞り込みできます。OR / AND を切り替えて確認してください。</p>
+    </header>
+
+    <div class="tag-filter-bar">
+        <div class="tag-mode">
+            <span class="tag-mode-label">絞り込み</span>
+            <label class="tag-mode-option">
+                <input type="radio" name="tag-mode" value="or" checked>
+                OR
+            </label>
+            <label class="tag-mode-option">
+                <input type="radio" name="tag-mode" value="and">
+                AND
+            </label>
+        </div>
+        <button class="tag-clear" type="button" data-tag-clear>クリア</button>
+    </div>
+
+    <div class="tag-options" data-tag-options>
+        {% assign tags_sorted = site.tags | sort %}
+        {% for tag in tags_sorted %}
+        {% assign tag_name = tag[0] %}
+        {% assign tag_count = tag[1].size %}
+        <label class="tag-option">
+            <input type="checkbox" value="{{ tag_name | escape }}" data-tag-checkbox>
+            <span class="tag">{{ tag_name }}</span>
+            <span class="tag-count">{{ tag_count }}</span>
+        </label>
+        {% endfor %}
+    </div>
+
+    <div class="tag-results">
+        <p class="tag-results-summary" data-tag-summary aria-live="polite">
+            全{{ site.posts | size }}件
+        </p>
+        <p class="tag-results-empty" data-tag-empty hidden>該当する記事がありません</p>
+
+        <div class="tag-posts">
+            {% for post in site.posts %}
+            <article class="post-preview tag-post" data-tags="{% if post.tags %}{{ post.tags | join: '|' | downcase | escape }}{% endif %}">
+                <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <div class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%Y年%m月%d日" }}
+                    </time>
+                    {% include tag-links.html tags=post.tags %}
+                </div>
+            </article>
+            {% endfor %}
+
+            {% if site.posts.size == 0 %}
+            <p>まだ投稿がありません</p>
+            {% endif %}
+        </div>
+    </div>
+</div>
+
+<script>
+(() => {
+    const tagCheckboxes = Array.from(document.querySelectorAll('[data-tag-checkbox]'));
+    const modeInputs = Array.from(document.querySelectorAll('input[name="tag-mode"]'));
+    const clearButton = document.querySelector('[data-tag-clear]');
+    const posts = Array.from(document.querySelectorAll('.tag-posts [data-tags]'));
+    const summary = document.querySelector('[data-tag-summary]');
+    const emptyMessage = document.querySelector('[data-tag-empty]');
+
+    if (!tagCheckboxes.length || !posts.length) {
+        return;
+    }
+
+    const tagLabelMap = new Map();
+    tagCheckboxes.forEach((checkbox) => {
+        tagLabelMap.set(checkbox.value.toLowerCase(), checkbox.value);
+    });
+
+    const getMode = () => {
+        const selectedMode = modeInputs.find((input) => input.checked);
+        return selectedMode ? selectedMode.value : 'or';
+    };
+
+    const getSelectedTags = () => {
+        return tagCheckboxes
+            .filter((checkbox) => checkbox.checked)
+            .map((checkbox) => checkbox.value.toLowerCase());
+    };
+
+    const updateUrl = (selectedTags, mode) => {
+        const params = new URLSearchParams();
+        if (selectedTags.length > 0) {
+            const tagLabels = selectedTags.map((tag) => tagLabelMap.get(tag) || tag);
+            params.set('tags', tagLabels.join(','));
+            params.set('mode', mode);
+        }
+        const query = params.toString();
+        const newUrl = query ? `${window.location.pathname}?${query}` : window.location.pathname;
+        window.history.replaceState({}, '', newUrl);
+    };
+
+    const updateView = () => {
+        const selectedTags = getSelectedTags();
+        const mode = getMode();
+        let visibleCount = 0;
+
+        posts.forEach((post) => {
+            const tagList = post.dataset.tags
+                .split('|')
+                .map((tag) => tag.trim())
+                .filter(Boolean);
+
+            const isMatch = selectedTags.length === 0
+                ? true
+                : mode === 'and'
+                    ? selectedTags.every((tag) => tagList.includes(tag))
+                    : selectedTags.some((tag) => tagList.includes(tag));
+
+            post.hidden = !isMatch;
+            if (isMatch) {
+                visibleCount += 1;
+            }
+        });
+
+        if (summary) {
+            if (selectedTags.length === 0) {
+                summary.textContent = `全${posts.length}件`;
+            } else {
+                const labels = selectedTags.map((tag) => tagLabelMap.get(tag) || tag);
+                summary.textContent = `${labels.join(' / ')} (${mode.toUpperCase()})：${visibleCount}件`;
+            }
+        }
+
+        if (emptyMessage) {
+            emptyMessage.hidden = visibleCount !== 0;
+        }
+
+        updateUrl(selectedTags, mode);
+    };
+
+    const applyFromQuery = () => {
+        const params = new URLSearchParams(window.location.search);
+        const tagParam = params.get('tags');
+        const modeParam = params.get('mode');
+        if (modeParam === 'and' || modeParam === 'or') {
+            modeInputs.forEach((input) => {
+                input.checked = input.value === modeParam;
+            });
+        }
+
+        if (tagParam) {
+            const requested = tagParam.split(',').map((tag) => tag.trim().toLowerCase()).filter(Boolean);
+            tagCheckboxes.forEach((checkbox) => {
+                checkbox.checked = requested.includes(checkbox.value.toLowerCase());
+            });
+        }
+    };
+
+    tagCheckboxes.forEach((checkbox) => {
+        checkbox.addEventListener('change', updateView);
+    });
+
+    modeInputs.forEach((input) => {
+        input.addEventListener('change', updateView);
+    });
+
+    if (clearButton) {
+        clearButton.addEventListener('click', () => {
+            tagCheckboxes.forEach((checkbox) => {
+                checkbox.checked = false;
+            });
+            modeInputs.forEach((input) => {
+                input.checked = input.value === 'or';
+            });
+            updateView();
+        });
+    }
+
+    applyFromQuery();
+    updateView();
+})();
+</script>
