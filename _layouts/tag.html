@@ -1,0 +1,36 @@
+---
+layout: default
+---
+
+<div class="tag-page">
+    <header class="tag-header">
+        <p class="tag-eyebrow">Tag</p>
+        <h1>{{ page.title }}</h1>
+        {% if page.tag %}
+        <p class="tag-description">{{ page.tag }} の記事一覧です</p>
+        {% endif %}
+    </header>
+
+    {% assign tag_posts = site.tags[page.tag] %}
+    {% if tag_posts and tag_posts.size > 0 %}
+    <div class="tag-posts">
+        {% for post in tag_posts %}
+        <article class="post-preview tag-post" data-tags="{% if post.tags %}{{ post.tags | join: '|' | downcase | escape }}{% endif %}">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%Y年%m月%d日" }}
+                </time>
+                {% include tag-links.html tags=post.tags %}
+            </div>
+        </article>
+        {% endfor %}
+    </div>
+    {% else %}
+    <p class="tag-empty">まだ投稿がありません</p>
+    {% endif %}
+
+    <div class="tag-back">
+        <a href="{{ '/tags/' | relative_url }}">タグ一覧へ戻る</a>
+    </div>
+</div>
