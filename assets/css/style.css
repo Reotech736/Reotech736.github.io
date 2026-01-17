@@ -220,6 +220,31 @@ section p {
     margin-bottom: 0.5rem;
 }
 
+.post-content pre {
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1rem 1.1rem;
+    margin: 1rem 0 1.5rem;
+    overflow-x: auto;
+    line-height: 1.6;
+}
+
+.post-content code {
+    font-family: "SFMono-Regular", "Menlo", "Consolas", "Liberation Mono", monospace;
+    font-size: 0.9em;
+    background: #eef3f6;
+    color: var(--secondary);
+    padding: 0.1rem 0.35rem;
+    border-radius: 4px;
+}
+
+.post-content pre code {
+    background: transparent;
+    padding: 0;
+    color: inherit;
+}
+
 .post-tags {
     display: flex;
     gap: 0.5rem;
@@ -1195,6 +1220,15 @@ footer p {
     .post-content {
         font-size: 0.9rem;
         line-height: 1.7;
+    }
+
+    .post-content pre {
+        padding: 0.75rem;
+        font-size: 0.85rem;
+    }
+
+    .post-content code {
+        font-size: 0.85em;
     }
     
     .post-content h1,
