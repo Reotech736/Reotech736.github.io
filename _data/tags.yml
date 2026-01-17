@@ -1,0 +1,8 @@
+- name: Ubuntu
+  slug: ubuntu
+- name: Jekyll
+  slug: jekyll
+- name: GitHub Pages
+  slug: github-pages
+- name: ブログ
+  slug: blog

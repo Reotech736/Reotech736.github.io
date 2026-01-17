@@ -33,7 +33,7 @@ body {
     flex-direction: column;
 }
 
-header {
+.site-header {
     background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
     color: var(--white);
     padding: 1.5rem 0;
@@ -41,24 +41,24 @@ header {
     box-shadow: 0 2px 8px rgba(8, 123, 138, 0.2);
 }
 
-header h1 {
+.site-header h1 {
     margin-bottom: 0.8rem;
     font-size: 1.8rem;
 }
 
-header h1 a {
+.site-header h1 a {
     color: var(--white);
     text-decoration: none;
     transition: opacity 0.3s;
 }
 
-header h1 a:hover,
-header h1 a:focus {
+.site-header h1 a:hover,
+.site-header h1 a:focus {
     opacity: 0.9;
     outline: none;
 }
 
-nav ul {
+.site-header nav ul {
     list-style: none;
     display: flex;
     justify-content: center;
@@ -66,7 +66,7 @@ nav ul {
     font-size: 0.95rem;
 }
 
-nav a {
+.site-header nav a {
     color: var(--white);
     text-decoration: none;
     font-weight: 500;
@@ -75,8 +75,8 @@ nav a {
     border-bottom: 2px solid transparent;
 }
 
-nav a:hover,
-nav a:focus {
+.site-header nav a:hover,
+.site-header nav a:focus {
     border-bottom-color: var(--white);
     opacity: 0.9;
     outline: none;
@@ -147,6 +147,7 @@ section p {
     display: flex;
     gap: 1rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .post-meta time {
@@ -223,6 +224,7 @@ section p {
     display: flex;
     gap: 0.5rem;
     align-items: center;
+    flex-wrap: wrap;
 }
 
 .post .post-tags {
@@ -239,12 +241,218 @@ section p {
     font-size: 0.75rem;
     margin-right: 0.5rem;
     color: var(--white);
+    text-decoration: none;
+    cursor: pointer;
     transition: all 0.3s ease;
 }
 
 .tag:hover {
     background: var(--primary);
     transform: translateY(-2px);
+}
+
+.tag:visited {
+    color: var(--white);
+}
+
+.blog-header {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 1rem;
+}
+
+.tag-index-link {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+}
+
+.tag-index-link:hover {
+    color: var(--primary);
+    transform: translateY(-1px);
+}
+
+.tags-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tags-header {
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    text-align: center;
+}
+
+.tags-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.35rem;
+}
+
+.tags-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.tag-filter-bar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    padding: 0.85rem 1rem;
+    background: var(--bg-light);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+}
+
+.tag-mode {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    flex-wrap: wrap;
+}
+
+.tag-mode-label {
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.tag-mode-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.tag-clear {
+    border: 1px solid var(--border);
+    background: var(--white);
+    color: var(--secondary);
+    padding: 0.4rem 0.9rem;
+    border-radius: 999px;
+    font-size: 0.85rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-clear:hover {
+    border-color: var(--accent);
+    color: var(--accent);
+    transform: translateY(-1px);
+}
+
+.tag-options {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+}
+
+.tag-option {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    padding: 0.35rem 0.6rem;
+    border-radius: 999px;
+    border: 1px solid var(--border);
+    background: #f8fafa;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tag-option input {
+    accent-color: var(--accent);
+}
+
+.tag-option .tag {
+    margin-right: 0;
+}
+
+.tag-option input:checked + .tag {
+    background: var(--primary);
+}
+
+.tag-count {
+    font-size: 0.75rem;
+    color: var(--text-light);
+    font-weight: 600;
+}
+
+.tag-results {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tag-results-summary {
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: var(--secondary);
+}
+
+.tag-results-empty {
+    color: var(--text-light);
+}
+
+.tag-posts {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.tag-page {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.tag-header {
+    padding: 1.25rem 1.5rem;
+    background: var(--bg-light);
+    border-radius: 12px;
+    border: 1px solid var(--border);
+}
+
+.tag-header h1 {
+    font-size: 1.8rem;
+    margin-bottom: 0.35rem;
+}
+
+.tag-eyebrow {
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    font-size: 0.75rem;
+    color: var(--text-light);
+    margin-bottom: 0.25rem;
+}
+
+.tag-description {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+.tag-back {
+    text-align: right;
+}
+
+.tag-back a {
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+.tag-back a:hover {
+    color: var(--primary);
+}
+
+.tag-empty {
+    color: var(--text-light);
 }
 
 /* 投稿ナビゲーション */
@@ -920,6 +1128,12 @@ footer p {
         font-size: 1.3rem;
         margin-bottom: 0.8rem;
     }
+
+    .blog-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.35rem;
+    }
     
     .post-preview {
         padding: 0.6rem 0.75rem;
@@ -947,6 +1161,16 @@ footer p {
         font-size: 0.6rem;
         padding: 0.12rem 0.4rem;
         margin-right: 0;
+    }
+
+    .tag-filter-bar {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .tag-clear {
+        width: 100%;
+        text-align: center;
     }
     
     /* 記事ページ */
