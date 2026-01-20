@@ -4,5 +4,9 @@
   slug: jekyll
 - name: GitHub Pages
   slug: github-pages
+- name: Samba
+  slug: samba
+- name: Windows
+  slug: windows
 - name: ブログ
   slug: blog

@@ -73,6 +73,39 @@ tags: [tag1, tag2]
 ここに記事の内容を書く
 ```
 
+## タグ運用（専用ページを作る方針）
+
+このサイトでは、記事内のタグクリック時に **タグ専用ページ**（`/tags/<slug>/`）へ遷移する運用にしています  
+そのため、新しいタグを使うときは **タグ定義** と **タグページ** を必ず追加します
+
+### 1) タグ定義を追加（_data/tags.yml）
+
+`_data/tags.yml` に `name`（記事で使うタグ名）と `slug`（URL用）を追加します
+
+例（Docker の場合）:
+
+```yml
+- name: Docker
+  slug: docker
+```
+
+※ `name` は Front Matter の `tags: [...]` と **完全一致**させます（大小文字/スペースも含む）
+
+### 2) タグページを追加（tags/<slug>.html）
+
+`tags/<slug>.html` を作成します（中身は Front Matter のみでOK）
+
+例（Docker の場合）:
+
+```markdown
+---
+layout: tag
+title: "Docker"
+tag: Docker
+permalink: /tags/docker/
+---
+```
+
 3. ローカルで確認後、コミット＆プッシュ
 
 ## ブランチ戦略
