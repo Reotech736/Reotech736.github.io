@@ -81,7 +81,7 @@ function renderSvg({ login, weeks }) {
   const height = rows * (cell + gap) + gap + 18;
 
   const palette = [
-    "#e6f2f4", // level 0 (very light, matches bg)
+    "#f3fbfc", // level 0 (extra light, matches bg)
     "#bfe1e8", // level 1
     "#7eb3bf", // level 2 (site --light)
     "#3ba3c5", // level 3 (site --accent)
@@ -139,4 +139,3 @@ main().catch((err) => {
   console.error(err);
   process.exit(1);
 });
-
