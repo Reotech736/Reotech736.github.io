@@ -2,6 +2,8 @@
   slug: ubuntu
 - name: Docker
   slug: docker
+- name: Discord
+  slug: discord
 - name: Jekyll
   slug: jekyll
 - name: GitHub Pages
