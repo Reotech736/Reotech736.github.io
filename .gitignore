@@ -25,3 +25,6 @@ vendor/
 # Environment
 .env
 .env.local
+
+# workspace files
+workspace/
