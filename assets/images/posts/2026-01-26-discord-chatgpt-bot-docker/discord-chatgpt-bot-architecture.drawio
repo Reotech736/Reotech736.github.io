@@ -1,0 +1,107 @@
+<mxfile host="Electron" agent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) draw.io/29.3.0 Chrome/140.0.7339.249 Electron/38.7.2 Safari/537.36" version="29.3.0">
+  <diagram id="discord-chatgpt-bot-architecture" name="Page-1">
+    <mxGraphModel dx="1188" dy="701" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1169" pageHeight="827" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="4" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;arcSize=5;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="" vertex="1">
+          <mxGeometry height="310" width="240" x="420" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-16" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Discord Users" vertex="1">
+          <mxGeometry height="60" width="160" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-17" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Discord Platform&#xa;(Gateway / REST API)" vertex="1">
+          <mxGeometry height="60" width="160" x="180" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-19" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Ubuntu Server&lt;br&gt;(Docker Engine)" vertex="1">
+          <mxGeometry height="40" width="110" x="490" y="260" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-20" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="discord-chatgpt-bot container&#xa;(Node.js 18 + app)" vertex="1">
+          <mxGeometry height="70" width="200" x="440" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-25" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="OpenAI API" vertex="1">
+          <mxGeometry height="60" width="160" x="780" y="25" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-26" parent="1" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="Web Sites&#xa;(URL fetch / summarize)" vertex="1">
+          <mxGeometry height="60" width="160" x="780" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-27" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points" />
+            <mxPoint x="160" y="49.579999999999984" as="sourcePoint" />
+            <mxPoint x="180" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-28" edge="1" parent="1" source="_FssvfZY2cqz_6-csLIX-17" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=0;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;startArrow=classic;startFill=1;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points" />
+            <mxPoint x="360" y="50" as="sourcePoint" />
+            <mxPoint x="440" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-29" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;curved=0;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="620" y="140" />
+            </Array>
+            <mxPoint x="600" y="140" as="sourcePoint" />
+            <mxPoint x="620" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-30" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;curved=0;startArrow=classic;startFill=1;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="630" y="220" />
+            </Array>
+            <mxPoint x="600" y="220" as="sourcePoint" />
+            <mxPoint x="630" y="90" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-31" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;curved=0;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points" />
+            <mxPoint x="640" y="50" as="sourcePoint" />
+            <mxPoint x="780" y="50" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-32" edge="1" parent="1" style="edgeStyle=none;orthogonalLoop=1;jettySize=auto;html=1;rounded=1;movable=1;resizable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;curved=0;" value="">
+          <mxGeometry relative="1" width="100" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="50" />
+              <mxPoint x="690" y="130" />
+            </Array>
+            <mxPoint x="640" y="50" as="sourcePoint" />
+            <mxPoint x="780" y="130" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-34" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="events /&amp;nbsp;&lt;div&gt;commands&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="80" x="345" y="10" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-35" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="reply" vertex="1">
+          <mxGeometry height="30" width="50" x="360" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-36" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="read /&amp;nbsp;&lt;div&gt;write&lt;/div&gt;" vertex="1">
+          <mxGeometry height="40" width="60" x="600" y="220" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-37" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="chat / completions" vertex="1">
+          <mxGeometry height="30" width="120" x="660" y="20" as="geometry" />
+        </mxCell>
+        <mxCell id="_FssvfZY2cqz_6-csLIX-38" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=1;movable=1;rotatable=1;deletable=1;editable=1;locked=0;connectable=1;" value="HTTP GET" vertex="1">
+          <mxGeometry height="30" width="80" x="690" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="AksDC3zIpgHV3Ae1Fy2Q-5" parent="1" style="shape=card;whiteSpace=wrap;html=1;size=20;rotation=90;fillColor=#f8cecc;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="160" width="60" x="490" y="60" as="geometry" />
+        </mxCell>
+        <mxCell id="AksDC3zIpgHV3Ae1Fy2Q-6" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value=".env&lt;br&gt;(env-file at runtime)" vertex="1">
+          <mxGeometry height="40" width="130" x="455" y="120" as="geometry" />
+        </mxCell>
+        <mxCell id="AksDC3zIpgHV3Ae1Fy2Q-8" parent="1" style="shape=card;whiteSpace=wrap;html=1;size=20;rotation=90;fillColor=#f8cecc;strokeColor=#b85450;" value="" vertex="1">
+          <mxGeometry height="160" width="60" x="490" y="130" as="geometry" />
+        </mxCell>
+        <mxCell id="AksDC3zIpgHV3Ae1Fy2Q-7" parent="1" style="text;html=1;whiteSpace=wrap;strokeColor=none;fillColor=none;align=center;verticalAlign=middle;rounded=0;autosize=1;resizable=0;" value="settings.json&lt;br&gt;(bind mount / persistent)" vertex="1">
+          <mxGeometry height="40" width="150" x="445" y="190" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
