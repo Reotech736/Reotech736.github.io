@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Ubuntuの特定ディレクトリをWindowsエクスプローラーで開く（Samba/SMB）"
+thumbnail: /assets/images/posts/2026-01-18-samba-windows-share/thumbnail.svg
 date: 2026-01-18 02:30:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu, Samba, Windows]

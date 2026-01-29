@@ -1,0 +1,30 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ba3c5"/>
+      <stop offset="100%" stop-color="#087b8a"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="90" width="220" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">DOCKER</text>
+  <circle cx="1040" cy="110" r="90" fill="#ffffff" fill-opacity="0.16"/>
+  <circle cx="1060" cy="520" r="140" fill="#ffffff" fill-opacity="0.1"/>
+  <text x="80" y="250" fill="#ffffff" font-size="58" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Docker環境の構築</text>
+  <text x="80" y="320" fill="#ffffff" font-size="48" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">開発スタート手順</text>
+  <text x="80" y="390" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">基本用語からセットアップまで</text>
+  <g transform="translate(760 190)">
+    <path d="M50 220Q50 150 130 140H300Q350 140 380 170Q405 190 430 190H470Q500 190 510 205Q500 220 470 220H430Q410 270 340 300Q270 336 200 336Q120 336 80 300Q50 260 50 220Z" fill="#ffffff" fill-opacity="0.92"/>
+    <circle cx="205" cy="210" r="8" fill="#024450" fill-opacity="0.5"/>
+    
+    <path d="M470 166c32-28 72-34 106-22-24 14-38 34-40 56-26-6-46-14-66-34z" fill="#ffffff" fill-opacity="0.9"/>
+    <path d="M470 166c6 20 22 34 40 46-30 4-56-4-78-22 14-12 26-18 38-24z" fill="#ffffff" fill-opacity="0.9"/>
+    <g transform="translate(120 86)" fill="none" stroke="#ffffff" stroke-width="8" stroke-linejoin="round" stroke-linecap="round" stroke-opacity="0.75">
+      <rect x="0" y="0" width="52" height="40" rx="6"/>
+      <rect x="62" y="0" width="52" height="40" rx="6"/>
+      <rect x="32" y="-52" width="52" height="40" rx="6"/>
+      <rect x="94" y="-52" width="52" height="40" rx="6"/>
+      <rect x="124" y="0" width="52" height="40" rx="6"/>
+    </g>
+  </g>
+</svg>
