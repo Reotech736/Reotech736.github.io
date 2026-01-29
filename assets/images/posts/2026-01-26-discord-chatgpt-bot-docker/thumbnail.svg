@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#7eb3bf"/>
+      <stop offset="100%" stop-color="#3ba3c5"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="90" width="260" height="40" rx="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">DISCORD BOT</text>
+  <circle cx="1040" cy="110" r="90" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="1060" cy="520" r="140" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="80" y="250" fill="#ffffff" font-size="58" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Discord Bot を Docker で</text>
+  <text x="80" y="320" fill="#ffffff" font-size="52" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">常駐運用する</text>
+  <text x="80" y="390" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">ChatGPT 連携ボットの運用</text>
+  <g transform="translate(845 190)">
+    <rect x="40" y="50" width="220" height="200" rx="36" fill="#ffffff" fill-opacity="0.92"/>
+    <rect x="120" y="10" width="60" height="50" rx="14" fill="#ffffff" fill-opacity="0.92"/>
+    <circle cx="150" cy="10" r="8" fill="#ffffff" fill-opacity="0.92"/>
+    <circle cx="110" cy="150" r="20" fill="#087b8a" fill-opacity="0.6"/>
+    <circle cx="190" cy="150" r="20" fill="#087b8a" fill-opacity="0.6"/>
+    <rect x="120" y="190" width="60" height="12" rx="6" fill="#087b8a" fill-opacity="0.6"/>
+  </g>
+</svg>

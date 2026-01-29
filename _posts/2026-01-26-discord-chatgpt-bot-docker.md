@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Discord Bot を Docker で常駐運用する"
+thumbnail: /assets/images/posts/2026-01-26-discord-chatgpt-bot-docker/thumbnail.svg
 date: 2026-01-26 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu, Docker, Discord]

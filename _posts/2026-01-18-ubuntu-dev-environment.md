@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Ubuntu開発環境の構築"
+thumbnail: /assets/images/posts/2026-01-18-ubuntu-dev-env/thumbnail.svg
 date: 2026-01-18 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu]

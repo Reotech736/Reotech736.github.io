@@ -1,0 +1,26 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#087b8a"/>
+      <stop offset="100%" stop-color="#036982"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <rect x="80" y="90" width="220" height="40" rx="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">Samba / SMB</text>
+  <circle cx="1040" cy="110" r="90" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="1060" cy="520" r="140" fill="#ffffff" fill-opacity="0.12"/>
+  <text x="80" y="250" fill="#ffffff" font-size="58" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Ubuntuの共有フォルダを</text>
+  <text x="80" y="320" fill="#ffffff" font-size="52" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Windowsで開く</text>
+  <text x="80" y="390" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">エクスプローラーからアクセス</text>
+  <g transform="translate(820 210)">
+    <rect x="0" y="60" width="280" height="160" rx="18" fill="#ffffff" fill-opacity="0.92"/>
+    <rect x="20" y="30" width="130" height="60" rx="12" fill="#ffffff" fill-opacity="0.7"/>
+    <g transform="translate(170 95)" fill="#3ba3c5">
+      <rect x="0" y="0" width="38" height="38" rx="4"/>
+      <rect x="46" y="0" width="38" height="38" rx="4"/>
+      <rect x="0" y="46" width="38" height="38" rx="4"/>
+      <rect x="46" y="46" width="38" height="38" rx="4"/>
+    </g>
+  </g>
+</svg>
