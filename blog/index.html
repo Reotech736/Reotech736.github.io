@@ -10,16 +10,24 @@ title: Blog
     </div>
     
     {% for post in site.posts %}
+    {% assign thumbnail = post.thumbnail | default: post.image %}
     <article class="post-preview">
-        <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-        <div class="post-meta">
-            <time datetime="{{ post.date | date_to_xmlschema }}">
-                {{ post.date | date: "%Y年%m月%d日" }}
-            </time>
-            {% include tag-links.html tags=post.tags %}
-        </div>
-        <div class="post-excerpt">
-            {{ post.excerpt }}
+        {% if thumbnail %}
+        <a class="post-thumbnail" href="{{ post.url | relative_url }}">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }} のサムネイル" loading="lazy" width="1200" height="630">
+        </a>
+        {% endif %}
+        <div class="post-preview-body">
+            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+            <div class="post-meta">
+                <time datetime="{{ post.date | date_to_xmlschema }}">
+                    {{ post.date | date: "%Y年%m月%d日" }}
+                </time>
+                {% include tag-links.html tags=post.tags %}
+            </div>
+            <div class="post-excerpt">
+                {{ post.excerpt }}
+            </div>
         </div>
     </article>
     {% endfor %}

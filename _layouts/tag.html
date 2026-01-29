@@ -15,13 +15,21 @@ layout: default
     {% if tag_posts and tag_posts.size > 0 %}
     <div class="tag-posts">
         {% for post in tag_posts %}
+        {% assign thumbnail = post.thumbnail | default: post.image %}
         <article class="post-preview tag-post" data-tags="{% if post.tags %}{{ post.tags | join: '|' | downcase | escape }}{% endif %}">
-            <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
-            <div class="post-meta">
-                <time datetime="{{ post.date | date_to_xmlschema }}">
-                    {{ post.date | date: "%Y年%m月%d日" }}
-                </time>
-                {% include tag-links.html tags=post.tags %}
+            {% if thumbnail %}
+            <a class="post-thumbnail" href="{{ post.url | relative_url }}">
+                <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }} のサムネイル" loading="lazy" width="1200" height="630">
+            </a>
+            {% endif %}
+            <div class="post-preview-body">
+                <h2><a href="{{ post.url | relative_url }}">{{ post.title }}</a></h2>
+                <div class="post-meta">
+                    <time datetime="{{ post.date | date_to_xmlschema }}">
+                        {{ post.date | date: "%Y年%m月%d日" }}
+                    </time>
+                    {% include tag-links.html tags=post.tags %}
+                </div>
             </div>
         </article>
         {% endfor %}

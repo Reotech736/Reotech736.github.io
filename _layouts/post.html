@@ -15,6 +15,13 @@ layout: default
         </div>
     </header>
 
+    {% assign thumbnail = page.thumbnail | default: page.image %}
+    {% if thumbnail %}
+    <figure class="post-hero">
+        <img src="{{ thumbnail | relative_url }}" alt="{{ page.title }} のサムネイル" loading="lazy" width="1200" height="630">
+    </figure>
+    {% endif %}
+
     <div class="post-content">
         {{ content }}
     </div>

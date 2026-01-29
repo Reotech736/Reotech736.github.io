@@ -72,10 +72,18 @@ title: Home
 <section id="recent-posts">
     <h2>Recent Posts</h2>
     <ul class="post-list">
-    {% for post in site.posts limit:5 %}
+    {% for post in site.posts limit:3 %}
+        {% assign thumbnail = post.thumbnail | default: post.image %}
         <li>
-            <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
-            <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            {% if thumbnail %}
+            <a class="post-list-thumbnail" href="{{ post.url | relative_url }}">
+                <img src="{{ thumbnail | relative_url }}" alt="{{ post.title }} のサムネイル" loading="lazy" width="1200" height="630">
+            </a>
+            {% endif %}
+            <div class="post-list-body">
+                <span class="post-date">{{ post.date | date: "%Y-%m-%d" }}</span>
+                <a href="{{ post.url | relative_url }}">{{ post.title }}</a>
+            </div>
         </li>
     {% endfor %}
     </ul>
