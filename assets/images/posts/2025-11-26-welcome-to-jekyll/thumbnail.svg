@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#024450"/>
+      <stop offset="100%" stop-color="#7eb3bf"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1040" cy="110" r="90" fill="#ffffff" fill-opacity="0.18"/>
+  <circle cx="1080" cy="520" r="140" fill="#ffffff" fill-opacity="0.12"/>
+  <rect x="70" y="85" width="240" height="40" rx="20" fill="#ffffff" fill-opacity="0.2"/>
+  <text x="90" y="112" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">BLOG START</text>
+  <text x="80" y="260" fill="#ffffff" font-size="58" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Jekyll + GitHub Pages</text>
+  <text x="80" y="330" fill="#ffffff" font-size="52" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">でブログを始めました</text>
+  <text x="80" y="400" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">開設の背景と今後の方針</text>
+  <g transform="translate(820 170)">
+    <polygon points="180,0 260,100 180,200 100,100" fill="#ffffff" fill-opacity="0.9"/>
+    <polygon points="180,25 235,100 180,175 125,100" fill="#ffffff" fill-opacity="0.65"/>
+    <circle cx="248" cy="36" r="10" fill="#ffffff" fill-opacity="0.85"/>
+  </g>
+</svg>

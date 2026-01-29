@@ -1,6 +1,7 @@
 ---
 layout: post
 title: "Docker環境の構築"
+thumbnail: /assets/images/posts/2026-01-21-docker-dev-setup/thumbnail.svg
 date: 2026-01-21 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu, Docker]
