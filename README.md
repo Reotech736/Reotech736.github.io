@@ -31,7 +31,7 @@ bundle install
 
 3. ローカルサーバーを起動（WSL環境推奨）
 ```bash
-bundle exec jekyll serve --host 0.0.0.0 --livereload
+bundle exec jekyll serve --host 0.0.0.0 --drafts
 ```
 
 4. ブラウザで確認
@@ -42,11 +42,11 @@ http://localhost:4000
 ### よく使うコマンド
 
 ```bash
-# ローカルサーバー起動（自動リロード有効、WSL対応）
-bundle exec jekyll serve --host 0.0.0.0 --livereload
-
-# ドラフトも含めてビルド
+# LAN確認向け（推奨: 高速）
 bundle exec jekyll serve --host 0.0.0.0 --drafts
+
+# ローカルPCのみで自動リロードしたい場合
+bundle exec jekyll serve --livereload
 
 # 本番環境と同じ設定でビルド
 JEKYLL_ENV=production bundle exec jekyll build
@@ -54,6 +54,9 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 **注意:** WSL環境で開発する場合は `--host 0.0.0.0` オプションが必要です
 これによりWindowsホスト側からもアクセスできるようになります
+
+**補足:** `--livereload` は環境によっては遅延や不安定化の原因になります。  
+LAN内の別PCから確認する用途では、`--livereload` なし（上記の推奨コマンド）を使ってください。
 
 ## 記事の作成方法
 
