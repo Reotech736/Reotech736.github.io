@@ -22,9 +22,9 @@
   <text x="80" y="390" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">Tailscale + 制限SSH + 2ワールド分離</text>
 
   <g transform="translate(790 150)">
-    <rect x="60" y="40" width="300" height="300" rx="10" fill="url(#card)"/>
-    <rect x="60" y="40" width="300" height="300" rx="10" fill="#000000" fill-opacity="0.08"/>
-    <rect x="60" y="40" width="300" height="300" rx="10" fill="none" stroke="#000000" stroke-width="10"/>
+    <rect x="60" y="40" width="300" height="300" rx="10" fill="#ffffff" fill-opacity="0.92"/>
+    <rect x="60" y="40" width="300" height="300" rx="10" fill="#ffffff" fill-opacity="0.08"/>
+    <rect x="60" y="40" width="300" height="300" rx="10" fill="none" stroke="#ffffff" stroke-width="6" stroke-opacity="0.35"/>
 
     <!-- 8x8 pattern (1=eyes/mouth, 0=other)
          00000000
@@ -35,11 +35,11 @@
          00111100
          00111100
          00100100 -->
-    <rect x="120" y="130" width="60" height="60" fill="#000000"/>
-    <rect x="240" y="130" width="60" height="60" fill="#000000"/>
-    <rect x="180" y="190" width="60" height="30" fill="#000000"/>
-    <rect x="150" y="220" width="120" height="60" fill="#000000"/>
-    <rect x="150" y="280" width="30" height="30" fill="#000000"/>
-    <rect x="240" y="280" width="30" height="30" fill="#000000"/>
+    <rect x="120" y="130" width="60" height="60" fill="#087b8a" fill-opacity="0.62"/>
+    <rect x="240" y="130" width="60" height="60" fill="#087b8a" fill-opacity="0.62"/>
+    <rect x="180" y="190" width="60" height="30" fill="#087b8a" fill-opacity="0.62"/>
+    <rect x="150" y="220" width="120" height="60" fill="#087b8a" fill-opacity="0.62"/>
+    <rect x="150" y="280" width="30" height="30" fill="#087b8a" fill-opacity="0.62"/>
+    <rect x="240" y="280" width="30" height="30" fill="#087b8a" fill-opacity="0.62"/>
   </g>
 </svg>
