@@ -455,6 +455,10 @@ section p {
     gap: 1rem;
 }
 
+.tag-post[hidden] {
+    display: none !important;
+}
+
 .tag-page {
     display: flex;
     flex-direction: column;
