@@ -1,0 +1,30 @@
+---
+layout: default
+---
+
+<article class="post">
+    <header class="post-header term-header">
+        {% if page.category %}
+        <p class="tag-eyebrow">{{ page.category }}</p>
+        {% endif %}
+        <h1 class="post-title">{{ page.title }}</h1>
+        <div class="post-meta">
+            {% if page.updated %}
+            <time datetime="{{ page.updated | date: '%Y-%m-%d' }}">
+                更新日 {{ page.updated | date: "%Y年%m月%d日" }}
+            </time>
+            {% endif %}
+            {% if page.author %}
+            <span class="post-author">by {{ page.author }}</span>
+            {% endif %}
+        </div>
+    </header>
+
+    <div class="post-content">
+        {{ content }}
+    </div>
+</article>
+
+<div class="tag-back term-back">
+    <a href="{{ '/terms/' | relative_url }}">技術メモ一覧へ戻る</a>
+</div>

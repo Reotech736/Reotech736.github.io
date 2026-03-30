@@ -1,0 +1,40 @@
+---
+layout: default
+title: 学習記録
+permalink: /study-logs/
+---
+
+<div class="page-hero">
+    <p class="tag-eyebrow">Study Logs</p>
+    <h1>学習記録</h1>
+    <p class="page-intro">日々の学びをラフに残したログです。学んだ内容や引っかかった点を残しています。</p>
+</div>
+
+{% assign study_logs = site.study_logs | sort: "date" | reverse %}
+<ul class="journal-list">
+    {% for log in study_logs %}
+    <li>
+        <a class="journal-entry-link" href="{{ log.url | relative_url }}">
+            <div class="journal-date" aria-hidden="true">
+                <span class="journal-day">{{ log.date | date: "%d" }}</span>
+                <span class="journal-month">{{ log.date | date: "%Y.%m" }}</span>
+            </div>
+            <div class="journal-body">
+                <h2 class="journal-title">{{ log.title }}</h2>
+                <p class="journal-meta">
+                    <time datetime="{{ log.date | date_to_xmlschema }}">
+                        {{ log.date | date: "%Y年%m月%d日" }}
+                    </time>
+                </p>
+                {% if log.summary %}
+                <p class="journal-summary">{{ log.summary }}</p>
+                {% endif %}
+            </div>
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+{% if study_logs.size == 0 %}
+<p>まだ学習記録がありません</p>
+{% endif %}
