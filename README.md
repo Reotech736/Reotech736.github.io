@@ -10,6 +10,11 @@ https://reotech736.com/
 - GitHub Pages (ホスティング)
 - Markdown (記事作成)
 
+## コンテンツ構成
+- `_posts/`: 個人開発記録として扱う整理済みのブログ記事
+- `_study_logs/`: `knowledge-vault-work/03_study_logs` から変換される学習記録
+- `_terms/`: `knowledge-vault-work/01_terms` から変換される技術メモ
+
 ## ローカル開発環境のセットアップ
 
 ### 必要な環境
@@ -42,6 +47,12 @@ http://localhost:4000
 ### よく使うコマンド
 
 ```bash
+# knowledge-vault の学習記録を取り込む
+ruby scripts/import-study-logs.rb
+
+# knowledge-vault の技術メモを取り込む
+ruby scripts/import-terms.rb
+
 # LAN確認向け（推奨: 高速）
 bundle exec jekyll serve --host 0.0.0.0 --drafts
 
@@ -51,6 +62,26 @@ bundle exec jekyll serve --livereload
 # 本番環境と同じ設定でビルド
 JEKYLL_ENV=production bundle exec jekyll build
 ```
+
+## knowledge-vault 連携
+
+このリポジトリは、Linux server 上の `knowledge-vault-work` を公開用 Markdown に変換して取り込む想定です。
+
+- 学習記録: `knowledge-vault-work/03_study_logs/*.md`
+- 技術メモ: `knowledge-vault-work/01_terms/*.md`
+
+変換対象は、どちらも `publish: true` のノートだけです。
+
+基本手順:
+
+```bash
+ruby scripts/import-study-logs.rb
+ruby scripts/import-terms.rb
+JEKYLL_ENV=production bundle exec jekyll build
+```
+
+変換スクリプトは vault 側の front matter を見て、Jekyll 用 front matter を付与した Markdown を `_study_logs/` と `_terms/` に書き出します。
+source of truth は `knowledge-vault-work` 側です。ブログ repo 側の生成ファイルを手で編集する前提にはしません。
 
 **注意:** WSL環境で開発する場合は `--host 0.0.0.0` オプションが必要です
 これによりWindowsホスト側からもアクセスできるようになります
