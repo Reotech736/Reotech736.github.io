@@ -17,6 +17,9 @@ if [[ "$should_run" -ne 1 ]]; then
   exit 0
 fi
 
+# Clear git hook environment before touching other repositories.
+unset $(git rev-parse --local-env-vars)
+
 {
   printf '=== %s post-receive start ===\n' "$(date -Iseconds)"
   BLOG_BRANCH="$BLOG_BRANCH" "$PUBLISH_SCRIPT"
