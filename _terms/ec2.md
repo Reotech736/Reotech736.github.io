@@ -25,6 +25,6 @@ OS、ネットワーク、ストレージ、セキュリティ設定を組み合
 
 ## 関連
 - [EBS](/terms/ebs/)
-- <span class="pending-term" title="技術メモ準備中">AMI</span>
+- [AMI](/terms/ami/)
 - <span class="pending-term" title="技術メモ準備中">Security Group</span>
 - <span class="pending-term" title="技術メモ準備中">IAM</span>
