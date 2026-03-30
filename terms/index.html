@@ -1,0 +1,76 @@
+---
+layout: default
+title: 技術メモ
+permalink: /terms/
+---
+
+<div class="page-hero">
+    <p class="tag-eyebrow">Technical Notes</p>
+    <h1>技術メモ</h1>
+    <p class="page-intro">用語や概念を引くための個人用辞書です。まずは名前から辿れることを優先しています。</p>
+</div>
+
+{% assign terms = site.terms | sort: "title" %}
+<div class="terms-toolbar">
+    <label class="terms-search" for="term-search">
+        <span class="terms-search-label">検索</span>
+        <input id="term-search" type="search" placeholder="用語名で検索" autocomplete="off">
+    </label>
+    <p class="terms-count" data-terms-count>{{ terms.size }}件</p>
+</div>
+
+<ul class="terms-dictionary">
+    {% for term in terms %}
+    <li class="term-entry" data-term-item data-term-title="{{ term.title | downcase | escape }}" data-term-category="{{ term.category | default: '' | downcase | escape }}">
+        <a class="term-entry-link" href="{{ term.url | relative_url }}">
+            {% if term.category %}
+            <span class="term-entry-category">{{ term.category }}</span>
+            {% endif %}
+            <h2 class="term-entry-title">{{ term.title }}</h2>
+            {% if term.updated %}
+            <p class="term-entry-meta">更新日 {{ term.updated | date: "%Y年%m月%d日" }}</p>
+            {% endif %}
+        </a>
+    </li>
+    {% endfor %}
+</ul>
+
+<p class="terms-empty" data-terms-empty hidden>該当する技術メモがありません</p>
+
+{% if terms.size == 0 %}
+<p>まだ技術メモがありません</p>
+{% endif %}
+
+<script>
+    (() => {
+        const input = document.getElementById('term-search');
+        const items = Array.from(document.querySelectorAll('[data-term-item]'));
+        const count = document.querySelector('[data-terms-count]');
+        const empty = document.querySelector('[data-terms-empty]');
+
+        if (!input || !count || !empty) return;
+
+        const renderCount = (visibleCount) => {
+            count.textContent = `${visibleCount}件`;
+        };
+
+        const applyFilter = () => {
+            const query = input.value.trim().toLowerCase();
+            let visibleCount = 0;
+
+            items.forEach((item) => {
+                const title = item.dataset.termTitle || '';
+                const category = item.dataset.termCategory || '';
+                const matches = query === '' || title.includes(query) || category.includes(query);
+                item.hidden = !matches;
+                if (matches) visibleCount += 1;
+            });
+
+            renderCount(visibleCount);
+            empty.hidden = visibleCount !== 0;
+        };
+
+        input.addEventListener('input', applyFilter);
+        applyFilter();
+    })();
+</script>

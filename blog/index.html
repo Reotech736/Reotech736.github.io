@@ -4,9 +4,13 @@ title: Blog
 ---
 
 <div class="blog-list">
-    <div class="blog-header">
-        <h1>Blog</h1>
-        <a class="tag-index-link" href="{{ '/tags/' | relative_url }}">タグ一覧</a>
+    <div class="page-hero">
+        <p class="tag-eyebrow">Blog</p>
+        <div class="blog-header">
+            <h1>ブログ</h1>
+            <a class="tag-index-link" href="{{ '/tags/' | relative_url }}">タグ一覧</a>
+        </div>
+        <p class="page-intro">個人開発や技術的な試行錯誤を、備忘録も兼ねて記録しています。</p>
     </div>
     
     {% for post in site.posts %}
