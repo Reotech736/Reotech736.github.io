@@ -54,7 +54,7 @@ body {
 }
 
 .site-header h1 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     font-size: 1.8rem;
 }
 
@@ -68,6 +68,12 @@ body {
 .site-header h1 a:focus {
     opacity: 0.9;
     outline: none;
+}
+
+.site-header nav {
+    width: min(100%, 640px);
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--white);
 }
 
 .site-header nav ul {
@@ -758,6 +764,254 @@ footer p {
     margin-bottom: 0;
 }
 
+.feature-link {
+    display: inline-block;
+    margin-top: 0.8rem;
+    color: var(--accent);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.feature-link:hover,
+.feature-link:focus {
+    color: var(--primary);
+    text-decoration: underline;
+    outline: none;
+}
+
+.page-intro {
+    color: var(--text-light);
+    margin-bottom: 1.5rem;
+}
+
+.page-hero {
+    margin-bottom: 1.75rem;
+    padding: 1.35rem 1.5rem;
+    background: linear-gradient(135deg, rgba(8, 123, 138, 0.1) 0%, rgba(59, 163, 197, 0.12) 100%);
+    border: 1px solid rgba(8, 123, 138, 0.18);
+    border-radius: 14px;
+}
+
+.page-hero h1 {
+    font-size: 2rem;
+    margin-bottom: 0.4rem;
+    color: var(--emphasis);
+}
+
+.page-hero .page-intro {
+    margin-bottom: 0;
+}
+
+.journal-list {
+    list-style: none;
+    margin-left: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.journal-entry-link {
+    display: grid;
+    grid-template-columns: 96px minmax(0, 1fr);
+    gap: 1rem;
+    align-items: center;
+    padding: 1rem 1.1rem;
+    background: #f8fafa;
+    border: 1px solid rgba(8, 123, 138, 0.12);
+    border-radius: 12px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+}
+
+.journal-entry-link:hover,
+.journal-entry-link:focus {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(8, 123, 138, 0.12);
+    background: #ffffff;
+    outline: none;
+}
+
+.journal-date {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.15rem;
+    min-height: 96px;
+    padding: 0.75rem 0.5rem;
+    background: linear-gradient(160deg, var(--secondary) 0%, var(--primary) 100%);
+    color: var(--white);
+    border-radius: 10px;
+    box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+}
+
+.journal-day {
+    font-size: 2rem;
+    font-weight: 700;
+    line-height: 1;
+}
+
+.journal-month {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    opacity: 0.9;
+}
+
+.journal-body {
+    min-width: 0;
+}
+
+.journal-title {
+    font-size: 1.25rem;
+    color: var(--dark);
+    margin-bottom: 0.3rem;
+}
+
+.journal-meta {
+    color: var(--text-light);
+    font-size: 0.9rem;
+    margin-bottom: 0.45rem;
+}
+
+.journal-summary {
+    color: var(--text-dark);
+    margin-bottom: 0;
+}
+
+.study-log-header .post-meta {
+    margin-bottom: 0.9rem;
+}
+
+.study-log-header .page-intro {
+    font-size: 1rem;
+    max-width: 42rem;
+}
+
+.study-log-back {
+    margin-top: 2rem;
+}
+
+.page-hero .blog-header {
+    margin-bottom: 0.45rem;
+}
+
+.page-hero .blog-header h1 {
+    margin-bottom: 0;
+}
+
+.terms-toolbar {
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 1rem;
+    margin-bottom: 0.85rem;
+}
+
+.terms-search {
+    display: flex;
+    flex-direction: column;
+    gap: 0.35rem;
+    min-width: min(26rem, 100%);
+}
+
+.terms-search-label {
+    color: var(--secondary);
+    font-size: 0.85rem;
+    font-weight: 700;
+}
+
+.terms-search input {
+    width: 100%;
+    padding: 0.7rem 0.85rem;
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    font: inherit;
+    color: var(--text-dark);
+    background: #fbfcfd;
+}
+
+.terms-search input:focus {
+    outline: var(--focus-outline);
+    outline-offset: 1px;
+    border-color: var(--accent);
+}
+
+.terms-count {
+    color: var(--text-light);
+    font-size: 0.92rem;
+    margin-bottom: 0;
+}
+
+.terms-dictionary {
+    list-style: none;
+    margin-left: 0;
+    border-top: 1px solid var(--border);
+}
+
+.term-entry-link {
+    display: grid;
+    grid-template-columns: 90px minmax(0, 1fr) auto;
+    gap: 1rem;
+    align-items: baseline;
+    padding: 0.95rem 0.25rem;
+    border-bottom: 1px solid var(--border);
+    text-decoration: none;
+    transition: background-color 0.2s ease, color 0.2s ease;
+}
+
+.term-entry-link:hover,
+.term-entry-link:focus {
+    background: rgba(8, 123, 138, 0.05);
+    outline: none;
+}
+
+.term-entry[hidden] {
+    display: none !important;
+}
+
+.term-entry-category {
+    color: var(--primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+}
+
+.term-entry-title {
+    color: var(--dark);
+    font-size: 1.08rem;
+    margin-bottom: 0;
+}
+
+.term-entry-meta {
+    color: var(--text-light);
+    font-size: 0.82rem;
+    white-space: nowrap;
+}
+
+.term-header .post-meta {
+    margin-bottom: 0.9rem;
+}
+
+.term-back {
+    margin-top: 2rem;
+}
+
+.terms-empty {
+    margin-top: 1rem;
+    color: var(--text-light);
+}
+
+.pending-term {
+    display: inline-block;
+    padding: 0 0.1rem;
+    color: var(--text-light);
+    border-bottom: 1px dotted var(--text-light);
+    text-decoration: none;
+    cursor: help;
+}
+
 /* プロフィールセクション */
 .profile-top {
     display: flex;
@@ -1049,26 +1303,56 @@ footer p {
 @media (max-width: 768px) {
     /* ヘッダー */
     header {
-        padding: 1rem 0;
+        padding: 0.75rem 0;
     }
     
     header h1 {
-        font-size: 1.5rem;
+        font-size: 1.2rem;
     }
     
-    nav ul {
-        gap: 0.5rem;
-    }
-    
-    nav a {
-        font-size: 0.9rem;
-        padding: 0.3rem 0.5rem;
+    .site-header-inner {
+        width: calc(100% - 1rem);
+        padding: 0.65rem 0.8rem;
+        border-width: 1.5px;
+        gap: 0.55rem;
     }
 
-    .site-header-inner {
-        width: calc(100% - 1.5rem);
-        padding: 0.75rem 1rem;
-        border-width: 1.5px;
+    .site-header nav {
+        width: 100%;
+        padding-top: 0.65rem;
+        border-top-color: rgba(255, 255, 255, 0.24);
+    }
+
+    .site-header nav ul {
+        width: 100%;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 0.4rem;
+    }
+
+    .site-header nav li {
+        min-width: 0;
+    }
+    
+    .site-header nav a {
+        min-height: 2.35rem;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-size: 0.78rem;
+        line-height: 1.15;
+        padding: 0.3rem 0.25rem;
+        border: 1px solid rgba(255, 255, 255, 0.28);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.08);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.28);
+    }
+
+    .site-header nav a:hover,
+    .site-header nav a:focus {
+        border-bottom-color: rgba(255, 255, 255, 0.28);
+        background: rgba(255, 255, 255, 0.16);
     }
     
     /* メインコンテンツ */
@@ -1322,6 +1606,29 @@ footer p {
     .post-hero {
         margin: 0 0 1.5rem;
     }
+
+    .terms-toolbar {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .term-entry-link {
+        grid-template-columns: 1fr;
+        gap: 0.2rem;
+        padding: 0.9rem 0;
+    }
+
+    .journal-entry-link {
+        grid-template-columns: 76px minmax(0, 1fr);
+    }
+
+    .journal-date {
+        min-height: 76px;
+    }
+
+    .journal-day {
+        font-size: 1.6rem;
+    }
     
     .post-meta time {
         font-size: 0.75rem;
@@ -1370,5 +1677,11 @@ footer p {
     .post .post-tags {
         margin-top: 1.75rem;
         padding-top: 1rem;
+    }
+}
+
+@media (max-width: 340px) {
+    .site-header nav ul {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
     }
 }
