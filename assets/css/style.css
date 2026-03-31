@@ -54,7 +54,7 @@ body {
 }
 
 .site-header h1 {
-    margin-bottom: 0.8rem;
+    margin-bottom: 0;
     font-size: 1.8rem;
 }
 
@@ -68,6 +68,12 @@ body {
 .site-header h1 a:focus {
     opacity: 0.9;
     outline: none;
+}
+
+.site-header nav {
+    width: min(100%, 640px);
+    padding-top: 0.85rem;
+    border-top: 1px solid var(--white);
 }
 
 .site-header nav ul {
@@ -1313,6 +1319,8 @@ footer p {
 
     .site-header nav {
         width: 100%;
+        padding-top: 0.65rem;
+        border-top-color: rgba(255, 255, 255, 0.24);
     }
 
     .site-header nav ul {
