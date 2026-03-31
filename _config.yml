@@ -15,6 +15,14 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
 
+collections:
+  study_logs:
+    output: true
+    permalink: /study-logs/:slug/
+  terms:
+    output: true
+    permalink: /terms/:slug/
+
 # デフォルト設定
 defaults:
   - scope:
@@ -22,6 +30,18 @@ defaults:
       type: "posts"
     values:
       layout: "post"
+      author: "Reo Komatsubara"
+  - scope:
+      path: ""
+      type: "study_logs"
+    values:
+      layout: "study-log"
+      author: "Reo Komatsubara"
+  - scope:
+      path: ""
+      type: "terms"
+    values:
+      layout: "term"
       author: "Reo Komatsubara"
 
 # Markdown設定
