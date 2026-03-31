@@ -91,16 +91,20 @@ class TermImporter
   def render_output(data, body)
     title = required_string!(data, "title")
     slug = required_string!(data, "slug")
+    sort_key = optional_string(data["sort_key"]) || slug
     summary = optional_string(data["summary"])
     category = optional_string(data["category"])
+    aliases = Array(data["aliases"]).filter_map { |alias_name| optional_string(alias_name) }
     updated = extract_date(data["updated"] || data["created"], "updated or created")
     output_body = convert_wiki_links(strip_matching_h1(body, title))
 
     lines = ["---"]
     lines << %(title: #{yaml_string(title)})
     lines << %(slug: #{yaml_string(slug)})
+    lines << %(sort_key: #{yaml_string(sort_key)})
     lines << %(summary: #{yaml_string(summary)}) unless summary.nil? || summary.empty?
     lines << %(category: #{yaml_string(category)}) unless category.nil? || category.empty?
+    lines << %(aliases: #{JSON.generate(aliases)}) unless aliases.empty?
     lines << %(updated: #{updated.strftime("%Y-%m-%d")})
     lines << "---"
     lines << ""
