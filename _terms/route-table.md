@@ -1,7 +1,7 @@
 ---
 title: "ルートテーブル"
 slug: "route-table"
-sort_key: "route-table"
+sort_key: "るーとてーぶる"
 summary: "サブネットの通信経路を決めるルール表"
 category: "aws"
 aliases: ["Route Table","route table"]
