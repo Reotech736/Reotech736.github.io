@@ -8,6 +8,7 @@ https://reotech736.com/
 ## 技術スタック
 - Jekyll (静的サイトジェネレーター)
 - GitHub Pages (ホスティング)
+- GitHub Actions (Pages deploy / contributions SVG 更新)
 - Markdown (記事作成)
 
 ## コンテンツ構成
@@ -82,6 +83,16 @@ JEKYLL_ENV=production bundle exec jekyll build
 
 変換スクリプトは vault 側の front matter を見て、Jekyll 用 front matter を付与した Markdown を `_study_logs/` と `_terms/` に書き出します。
 source of truth は `knowledge-vault-work` 側です。ブログ repo 側の生成ファイルを手で編集する前提にはしません。
+
+## デプロイ
+
+`main` ブランチへの push を契機に、GitHub Actions で Jekyll build と GitHub Pages への deploy を行います。
+Pages の公開元は branch deploy ではなく `GitHub Actions` を使う前提です。
+
+関連 workflow:
+
+- `.github/workflows/deploy-pages.yml`
+- `.github/workflows/update-contributions.yml`
 
 **注意:** WSL環境で開発する場合は `--host 0.0.0.0` オプションが必要です
 これによりWindowsホスト側からもアクセスできるようになります
