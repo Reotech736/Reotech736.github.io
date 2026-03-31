@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 
-BLOG_BRANCH="${BLOG_BRANCH:-feature/obsidian}"
+BLOG_BRANCH="${BLOG_BRANCH:-main}"
 LOG_FILE="${LOG_FILE:-/tmp/knowledge-vault-publish.log}"
 PUBLISH_SCRIPT="/home/relion911/git-repositories/Reotech736.github.io/scripts/publish-knowledge-vault.sh"
 

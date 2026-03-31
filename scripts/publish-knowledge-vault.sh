@@ -6,7 +6,7 @@ BLOG_ROOT="${BLOG_ROOT:-/home/relion911/git-repositories/Reotech736.github.io}"
 KNOWLEDGE_REMOTE="${KNOWLEDGE_REMOTE:-origin}"
 KNOWLEDGE_BRANCH="${KNOWLEDGE_BRANCH:-main}"
 BLOG_REMOTE="${BLOG_REMOTE:-origin}"
-BLOG_BRANCH="${BLOG_BRANCH:-feature/obsidian}"
+BLOG_BRANCH="${BLOG_BRANCH:-main}"
 LOCK_FILE="${LOCK_FILE:-/tmp/knowledge-vault-publish.lock}"
 COMMIT_MESSAGE="${COMMIT_MESSAGE:-chore: sync published notes from knowledge vault}"
 
