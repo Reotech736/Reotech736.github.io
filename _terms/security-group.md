@@ -1,7 +1,7 @@
 ---
 title: "セキュリティグループ"
 slug: "security-group"
-sort_key: "security-group"
+sort_key: "せきゅりてぃぐるーぷ"
 summary: "AWSリソースに対する通信の許可ルールを管理する仮想ファイアウォール"
 category: "aws"
 aliases: ["Security Group","security group"]

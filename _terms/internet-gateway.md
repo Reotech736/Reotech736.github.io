@@ -1,7 +1,7 @@
 ---
 title: "インターネットゲートウェイ"
 slug: "internet-gateway"
-sort_key: "internet-gateway"
+sort_key: "いんたーねっとげーとうぇい"
 summary: "VPCをインターネットに接続するためのゲートウェイ"
 category: "aws"
 aliases: ["Internet Gateway","internet gateway"]

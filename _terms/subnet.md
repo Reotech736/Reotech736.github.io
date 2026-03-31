@@ -1,7 +1,7 @@
 ---
 title: "サブネット"
 slug: "subnet"
-sort_key: "subnet"
+sort_key: "さぶねっと"
 summary: "VPCの中を用途ごとに分割したネットワーク範囲"
 category: "aws"
 aliases: ["Subnet","subnet"]
