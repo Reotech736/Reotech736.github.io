@@ -1,3 +1,12 @@
+---
+thumbnail_title_lines:
+  - text: "Discord Bot を Docker で"
+    size: 58
+  - text: "常駐運用する"
+    size: 52
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 70
+---
 <svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
   <defs>
     <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
@@ -10,8 +19,7 @@
   <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">DISCORD BOT</text>
   <circle cx="1040" cy="110" r="90" fill="#ffffff" fill-opacity="0.18"/>
   <circle cx="1060" cy="520" r="140" fill="#ffffff" fill-opacity="0.12"/>
-  <text x="80" y="250" fill="#ffffff" font-size="58" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Discord Bot を Docker で</text>
-  <text x="80" y="320" fill="#ffffff" font-size="52" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">常駐運用する</text>
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
   <text x="80" y="390" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">ChatGPT 連携ボットの運用</text>
   <g transform="translate(845 190)">
     <rect x="40" y="50" width="220" height="200" rx="36" fill="#ffffff" fill-opacity="0.92"/>

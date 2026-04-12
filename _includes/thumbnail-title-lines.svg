@@ -1,0 +1,16 @@
+{%- assign title_x = include.x | default: 80 -%}
+{%- assign start_y = include.start_y | default: 250 -%}
+{%- assign line_gap = include.line_gap | default: 70 -%}
+{%- assign font_family = include.font_family | default: "Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" -%}
+{%- assign font_weight = include.font_weight | default: 700 -%}
+{%- assign fill = include.fill | default: "#ffffff" -%}
+{%- assign default_font_size = include.font_size | default: 58 -%}
+{%- for line in include.lines -%}
+  {%- if line.y -%}
+    {%- assign line_y = line.y -%}
+  {%- else -%}
+    {%- assign line_offset = forloop.index0 | times: line_gap -%}
+    {%- assign line_y = start_y | plus: line_offset -%}
+  {%- endif -%}
+  <text x="{{ line.x | default: title_x }}" y="{{ line_y }}" fill="{{ line.fill | default: fill }}" font-size="{{ line.size | default: default_font_size }}" font-family="{{ font_family }}" font-weight="{{ line.weight | default: font_weight }}"{% if line.opacity %} opacity="{{ line.opacity }}"{% endif %}>{{ line.text | escape }}</text>
+{%- endfor -%}
