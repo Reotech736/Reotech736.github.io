@@ -12,11 +12,24 @@ permalink: /terms/
 
 {% assign terms = site.terms | sort: "sort_key" %}
 {% assign latin_chars = "abcdefghijklmnopqrstuvwxyz" %}
+{% assign categories = site.terms | map: "category" | compact | uniq | sort %}
 <div class="terms-toolbar">
-    <label class="terms-search" for="term-search">
-        <span class="terms-search-label">検索</span>
-        <input id="term-search" type="search" placeholder="用語名・英語名で検索" autocomplete="off">
-    </label>
+    <div class="terms-controls">
+        <label class="terms-search" for="term-search">
+            <span class="terms-search-label">検索</span>
+            <input id="term-search" type="search" placeholder="用語名・英語名で検索" autocomplete="off">
+        </label>
+        <label class="terms-filter" for="term-category">
+            <span class="terms-search-label">カテゴリ</span>
+            <select id="term-category">
+                <option value="">すべて</option>
+                {% for category in categories %}
+                {% capture category_label %}{% case category %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category | capitalize }}{% endcase %}{% endcapture %}
+                <option value="{{ category }}">{{ category_label | strip }}</option>
+                {% endfor %}
+            </select>
+        </label>
+    </div>
     <p class="terms-count" data-terms-count>{{ terms.size }}件</p>
 </div>
 
@@ -27,11 +40,13 @@ permalink: /terms/
         {% assign term_initial = term.sort_key | default: term.slug | slice: 0, 1 | downcase %}
         {% if latin_chars contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
+        {% assign category_key = term.category | default: "" %}
+        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
         {% capture term_search_text %}{{ term.title }} {{ term.slug }} {{ term.category }} {{ term_aliases }}{% endcapture %}
-        <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}">
+        <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
                 {% if term.category %}
-                <span class="term-entry-category">{{ term.category }}</span>
+                <span class="term-entry-category">{{ category_label | strip }}</span>
                 {% endif %}
                 <h2 class="term-entry-title">{{ term.title }}</h2>
                 {% if term.updated %}
@@ -51,11 +66,13 @@ permalink: /terms/
         {% assign term_initial = term.sort_key | default: term.slug | slice: 0, 1 | downcase %}
         {% unless latin_chars contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
+        {% assign category_key = term.category | default: "" %}
+        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
         {% capture term_search_text %}{{ term.title }} {{ term.slug }} {{ term.category }} {{ term_aliases }}{% endcapture %}
-        <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}">
+        <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
                 {% if term.category %}
-                <span class="term-entry-category">{{ term.category }}</span>
+                <span class="term-entry-category">{{ category_label | strip }}</span>
                 {% endif %}
                 <h2 class="term-entry-title">{{ term.title }}</h2>
                 {% if term.updated %}
@@ -77,12 +94,13 @@ permalink: /terms/
 <script>
     (() => {
         const input = document.getElementById('term-search');
+        const categorySelect = document.getElementById('term-category');
         const items = Array.from(document.querySelectorAll('[data-term-item]'));
         const groups = Array.from(document.querySelectorAll('[data-term-group]'));
         const count = document.querySelector('[data-terms-count]');
         const empty = document.querySelector('[data-terms-empty]');
 
-        if (!input || !count || !empty) return;
+        if (!input || !categorySelect || !count || !empty) return;
 
         const renderCount = (visibleCount) => {
             count.textContent = `${visibleCount}件`;
@@ -90,11 +108,15 @@ permalink: /terms/
 
         const applyFilter = () => {
             const query = input.value.trim().toLowerCase();
+            const selectedCategory = categorySelect.value.trim().toLowerCase();
             let visibleCount = 0;
 
             items.forEach((item) => {
                 const searchText = item.dataset.termSearch || '';
-                const matches = query === '' || searchText.includes(query);
+                const itemCategory = item.dataset.termCategory || '';
+                const matchesSearch = query === '' || searchText.includes(query);
+                const matchesCategory = selectedCategory === '' || itemCategory === selectedCategory;
+                const matches = matchesSearch && matchesCategory;
                 item.hidden = !matches;
                 if (matches) visibleCount += 1;
             });
@@ -109,6 +131,7 @@ permalink: /terms/
         };
 
         input.addEventListener('input', applyFilter);
+        categorySelect.addEventListener('change', applyFilter);
         applyFilter();
     })();
 </script>

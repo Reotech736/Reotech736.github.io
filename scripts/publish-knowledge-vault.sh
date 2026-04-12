@@ -47,6 +47,18 @@ sync_branch() {
   git -C "$repo_path" pull --rebase "$remote_name" "$branch"
 }
 
+sync_branch_hard() {
+  local repo_path="$1"
+  local remote_name="$2"
+  local branch="$3"
+
+  checkout_branch "$repo_path" "$branch"
+  log "fetch $remote_name/$branch in $repo_path"
+  git -C "$repo_path" fetch "$remote_name" "$branch"
+  log "reset --hard $remote_name/$branch in $repo_path"
+  git -C "$repo_path" reset --hard "$remote_name/$branch"
+}
+
 main() {
   exec 9>"$LOCK_FILE"
   if ! flock -n 9; then
@@ -59,7 +71,7 @@ main() {
   ensure_clean_worktree "$BLOG_ROOT"
 
   sync_branch "$KNOWLEDGE_ROOT" "$KNOWLEDGE_REMOTE" "$KNOWLEDGE_BRANCH"
-  sync_branch "$BLOG_ROOT" "$BLOG_REMOTE" "$BLOG_BRANCH"
+  sync_branch_hard "$BLOG_ROOT" "$BLOG_REMOTE" "$BLOG_BRANCH"
 
   log "import study logs"
   (cd "$BLOG_ROOT" && ruby scripts/import-study-logs.rb)
