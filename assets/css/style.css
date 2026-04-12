@@ -1706,7 +1706,7 @@ footer p {
     }
 
     .term-entry-link {
-        grid-template-columns: 74px minmax(0, 1fr);
+        grid-template-columns: 90px minmax(0, 1fr);
         grid-template-areas:
             "category title"
             "category meta";
@@ -1722,6 +1722,7 @@ footer p {
         font-size: 0.64rem;
         letter-spacing: 0.04em;
         white-space: nowrap;
+        padding-left: 1rem;
         transform: translateY(1px);
     }
 
