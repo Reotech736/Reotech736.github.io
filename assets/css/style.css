@@ -194,6 +194,33 @@ section p {
     line-height: 1.8;
 }
 
+.post-content a {
+    color: var(--emphasis);
+    font-weight: 600;
+    text-decoration-line: underline;
+    text-decoration-color: rgba(59, 163, 197, 0.45);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 0.18em;
+    transition: color 0.2s ease, text-decoration-color 0.2s ease, background-color 0.2s ease;
+}
+
+.post-content a:visited {
+    color: var(--primary);
+    text-decoration-color: rgba(8, 123, 138, 0.38);
+}
+
+.post-content a:hover,
+.post-content a:focus {
+    color: var(--secondary);
+    text-decoration-color: rgba(2, 68, 80, 0.55);
+    background: rgba(126, 179, 191, 0.14);
+    outline: none;
+}
+
+.post-content a code {
+    color: inherit;
+}
+
 .post-content img {
     max-width: 100%;
     height: auto;
