@@ -134,6 +134,20 @@ tags: [tag1, tag2]
 - 1記事につき **1ポイントアイコン**を入れる（主題が一目で分かるもの）
 - 既存の配色順に合わせて **次の色セット**を使う
 
+`thumbnail.svg` 自体には front matter を持たせられます。タイトルの改行位置を固定したい場合は、次のように `thumbnail_title_lines` を使って 1 行ずつ指定できます。
+
+```svg
+---
+thumbnail_title_lines:
+  - text: "Minecraft serverを"
+    size: 56
+  - text: "Dockerで安全運用する"
+    size: 52
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 70
+---
+```
+
 ### パレット（ブログのイメージカラー由来）
 
 以下の順で **投稿順にローテーション**します（次の投稿は次の色へ）。
