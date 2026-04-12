@@ -37,8 +37,21 @@ jobs:
             echo "No changes."
             exit 0
           fi
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add assets/images/contributions.svg
-          git commit -m "chore: update contributions svg"
-          git push
+
+          last_subject="$(git log -1 --pretty=%s)"
+          last_author="$(git log -1 --pretty=%ae)"
+          changed_files="$(git show --name-only --pretty='' HEAD | sed '/^$/d')"
+
+          if [ "$last_subject" = "chore: update contributions svg" ] && \
+             [ "$last_author" = "github-actions[bot]@users.noreply.github.com" ] && \
+             [ "$changed_files" = "assets/images/contributions.svg" ]; then
+            git commit --amend --no-edit --reset-author
+            git push --force-with-lease origin HEAD:main
+          else
+            git commit -m "chore: update contributions svg"
+            git push origin HEAD:main
+          fi
