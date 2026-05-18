@@ -19,6 +19,14 @@
     </main>
 
     {% include footer.html %}
+    <script>
+        document.querySelectorAll('.post-content p br').forEach((breakElement) => {
+            const spacer = document.createElement('span');
+            spacer.className = 'post-line-break-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            breakElement.after(spacer);
+        });
+    </script>
     {% if page.mermaid %}
     <script type="module">
         import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';

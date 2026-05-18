@@ -194,6 +194,15 @@ section p {
     line-height: 1.8;
 }
 
+.post-content p br,
+.post-line-break-spacer {
+    display: block;
+}
+
+.post-line-break-spacer {
+    height: 0.75rem;
+}
+
 .post-content a {
     color: var(--emphasis);
     font-weight: 600;
