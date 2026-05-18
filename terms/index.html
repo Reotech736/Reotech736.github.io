@@ -24,7 +24,7 @@ permalink: /terms/
             <select id="term-category">
                 <option value="">すべて</option>
                 {% for category in categories %}
-                {% capture category_label %}{% case category %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category | capitalize }}{% endcase %}{% endcapture %}
+                {% capture category_label %}{% case category %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% when "uncategorized" %}未分類{% else %}{{ category | capitalize }}{% endcase %}{% endcapture %}
                 <option value="{{ category }}">{{ category_label | strip }}</option>
                 {% endfor %}
             </select>
@@ -41,13 +41,12 @@ permalink: /terms/
         {% if latin_chars contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
         {% assign category_key = term.category | default: "" %}
-        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
+        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% when "uncategorized" %}{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
         {% capture term_search_text %}{{ term.title }} {{ term.slug }} {{ term.category }} {{ term_aliases }}{% endcapture %}
         <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
-                {% if term.category %}
-                <span class="term-entry-category">{{ category_label | strip }}</span>
-                {% endif %}
+                {% assign category_label = category_label | strip %}
+                <span class="term-entry-category">{{ category_label }}</span>
                 <h2 class="term-entry-title">{{ term.title }}</h2>
                 {% if term.updated %}
                 <p class="term-entry-meta">更新日 {{ term.updated | date: "%Y年%m月%d日" }}</p>
@@ -67,13 +66,12 @@ permalink: /terms/
         {% unless latin_chars contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
         {% assign category_key = term.category | default: "" %}
-        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
+        {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "shell" %}Shell{% when "uncategorized" %}{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
         {% capture term_search_text %}{{ term.title }} {{ term.slug }} {{ term.category }} {{ term_aliases }}{% endcapture %}
         <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
-                {% if term.category %}
-                <span class="term-entry-category">{{ category_label | strip }}</span>
-                {% endif %}
+                {% assign category_label = category_label | strip %}
+                <span class="term-entry-category">{{ category_label }}</span>
                 <h2 class="term-entry-title">{{ term.title }}</h2>
                 {% if term.updated %}
                 <p class="term-entry-meta">更新日 {{ term.updated | date: "%Y年%m月%d日" }}</p>
