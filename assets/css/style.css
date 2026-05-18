@@ -194,6 +194,15 @@ section p {
     line-height: 1.8;
 }
 
+.post-content p br,
+.post-line-break-spacer {
+    display: block;
+}
+
+.post-line-break-spacer {
+    height: 0.75rem;
+}
+
 .post-content a {
     color: var(--emphasis);
     font-weight: 600;
@@ -300,6 +309,122 @@ section p {
     background: transparent;
     padding: 0;
     color: inherit;
+}
+
+.post-content .mermaid {
+    background: #f8fafa;
+    border: 1px solid rgba(8, 123, 138, 0.14);
+    border-radius: 12px;
+    cursor: zoom-in;
+    margin: 1.25rem 0 1.75rem;
+    padding: 1rem;
+    position: relative;
+    overflow-x: auto;
+    text-align: center;
+}
+
+.post-content .mermaid::after {
+    content: "クリックで拡大";
+    position: absolute;
+    right: 0.75rem;
+    bottom: 0.6rem;
+    background: rgba(2, 68, 80, 0.82);
+    border-radius: 999px;
+    color: #ffffff;
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.04em;
+    line-height: 1;
+    padding: 0.4rem 0.55rem;
+    pointer-events: none;
+}
+
+.post-content .mermaid svg {
+    max-width: 100%;
+    height: auto;
+}
+
+body.mermaid-lightbox-open {
+    overflow: hidden;
+}
+
+.mermaid-lightbox[hidden] {
+    display: none;
+}
+
+.mermaid-lightbox {
+    position: fixed;
+    inset: 0;
+    z-index: 1000;
+}
+
+.mermaid-lightbox__backdrop {
+    position: absolute;
+    inset: 0;
+    background: rgba(4, 24, 32, 0.72);
+}
+
+.mermaid-lightbox__panel {
+    position: absolute;
+    inset: min(4vw, 2rem);
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.mermaid-lightbox__close {
+    align-self: flex-end;
+    background: #ffffff;
+    border: 1px solid rgba(2, 68, 80, 0.16);
+    border-radius: 999px;
+    color: var(--secondary);
+    cursor: pointer;
+    font: inherit;
+    font-weight: 700;
+    padding: 0.55rem 0.9rem;
+    box-shadow: 0 10px 30px rgba(4, 24, 32, 0.18);
+}
+
+.mermaid-lightbox__canvas {
+    background: #f8fafa;
+    border-radius: 16px;
+    box-shadow: 0 22px 70px rgba(4, 24, 32, 0.28);
+    flex: 1;
+    overflow: auto;
+    padding: 1rem;
+}
+
+.mermaid-lightbox__diagram {
+    min-width: min-content;
+    text-align: center;
+}
+
+.mermaid-lightbox__diagram::after {
+    content: none;
+}
+
+.mermaid-lightbox__diagram svg {
+    height: auto;
+    max-width: none;
+    min-width: 960px;
+}
+
+@media (max-width: 768px) {
+    .post-content .mermaid::after {
+        content: "タップで拡大";
+    }
+
+    .mermaid-lightbox__panel {
+        inset: 0.75rem;
+    }
+
+    .mermaid-lightbox__canvas {
+        padding: 0.75rem;
+    }
+
+    .mermaid-lightbox__diagram svg {
+        min-width: 860px;
+    }
 }
 
 .post-tags {

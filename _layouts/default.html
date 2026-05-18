@@ -19,5 +19,93 @@
     </main>
 
     {% include footer.html %}
+    <script>
+        document.querySelectorAll('.post-content p br').forEach((breakElement) => {
+            const spacer = document.createElement('span');
+            spacer.className = 'post-line-break-spacer';
+            spacer.setAttribute('aria-hidden', 'true');
+            breakElement.after(spacer);
+        });
+    </script>
+    {% if page.mermaid %}
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+
+        document.querySelectorAll('pre > code.language-mermaid').forEach((code) => {
+            const pre = document.createElement('pre');
+            pre.className = 'mermaid';
+            pre.textContent = code.textContent;
+            code.closest('pre').replaceWith(pre);
+        });
+
+        mermaid.initialize({ startOnLoad: false, theme: 'neutral' });
+        await mermaid.run({ querySelector: '.mermaid' });
+
+        const diagrams = document.querySelectorAll('.mermaid');
+
+        if (diagrams.length > 0) {
+            const lightbox = document.createElement('div');
+            lightbox.className = 'mermaid-lightbox';
+            lightbox.hidden = true;
+            lightbox.innerHTML = `
+                <div class="mermaid-lightbox__backdrop" data-mermaid-close></div>
+                <div class="mermaid-lightbox__panel" role="dialog" aria-modal="true" aria-label="Mermaid diagram preview">
+                    <button class="mermaid-lightbox__close" type="button" data-mermaid-close>閉じる</button>
+                    <div class="mermaid-lightbox__canvas"></div>
+                </div>
+            `;
+            document.body.appendChild(lightbox);
+
+            const canvas = lightbox.querySelector('.mermaid-lightbox__canvas');
+
+            const closeLightbox = () => {
+                lightbox.hidden = true;
+                document.body.classList.remove('mermaid-lightbox-open');
+                canvas.replaceChildren();
+            };
+
+            diagrams.forEach((diagram) => {
+                diagram.setAttribute('role', 'button');
+                diagram.setAttribute('tabindex', '0');
+                diagram.setAttribute('aria-label', 'Mermaid 図を拡大表示');
+
+                const openLightbox = () => {
+                    const clone = diagram.cloneNode(true);
+                    clone.removeAttribute('role');
+                    clone.removeAttribute('tabindex');
+                    clone.removeAttribute('aria-label');
+                    clone.classList.add('mermaid-lightbox__diagram');
+                    clone.querySelectorAll('svg').forEach((svg) => {
+                        svg.removeAttribute('style');
+                    });
+
+                    canvas.replaceChildren(clone);
+                    lightbox.hidden = false;
+                    document.body.classList.add('mermaid-lightbox-open');
+                };
+
+                diagram.addEventListener('click', openLightbox);
+                diagram.addEventListener('keydown', (event) => {
+                    if (event.key === 'Enter' || event.key === ' ') {
+                        event.preventDefault();
+                        openLightbox();
+                    }
+                });
+            });
+
+            lightbox.addEventListener('click', (event) => {
+                if (event.target.closest('[data-mermaid-close]')) {
+                    closeLightbox();
+                }
+            });
+
+            document.addEventListener('keydown', (event) => {
+                if (event.key === 'Escape' && !lightbox.hidden) {
+                    closeLightbox();
+                }
+            });
+        }
+    </script>
+    {% endif %}
 </body>
 </html>

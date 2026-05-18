@@ -9,17 +9,13 @@ tags: [Ubuntu, Docker]
 
 ## はじめに
 
-Ubuntu に Docker をインストールして、コンテナを動かせる状態にするまでの手順をまとめます  
-Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます  
-<br>
-この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）
+Ubuntu に Docker をインストールして、コンテナを動かせる状態にするまでの手順をまとめます。Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます。  
+この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）。
 
 ## Dockerとは
 
-Docker は、アプリを **「コンテナ」** という単位で動かすための仕組み（ツール群）です  
-アプリの実行に必要なもの（ライブラリや設定など）をまとめて扱えるので、環境差分によるトラブルを減らしやすくなります
-
-Docker を使うときの登場人物は大体この3つです
+Docker は、アプリを **「コンテナ」** という単位で動かすための仕組み（ツール群）です。アプリの実行に必要なもの（ライブラリや設定など）をまとめて扱えるので、環境差分によるトラブルを減らしやすくなります。  
+Docker を使うときの登場人物は大体この3つです。
 
 - **Docker Engine（デーモン）**: バックグラウンドで動いてコンテナを起動・停止する本体
 - **Docker CLI**: `docker` コマンド（エンジンに指示するための操作口）
@@ -27,10 +23,8 @@ Docker を使うときの登場人物は大体この3つです
 
 ## コンテナとは
 
-コンテナは、ざっくり言うと **「隔離された実行環境」** です  
-「別マシンのように見えるプロセス」を作って、その中でアプリを動かします
-
-ポイントはここです
+コンテナは、ざっくり言うと **「隔離された実行環境」** です。「別マシンのように見えるプロセス」を作って、その中でアプリを動かします。  
+ポイントはここです。
 
 - コンテナは **VM（仮想マシン）ではない**（ホストOSのカーネルを共有して動く）
 - その分、起動が速くて軽い
@@ -38,19 +32,17 @@ Docker を使うときの登場人物は大体この3つです
 
 ## Docker Imageとは
 
-Docker Image（イメージ）は、コンテナの元になる **「実行環境のテンプレート」** です  
-イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです
+Docker Image（イメージ）は、コンテナの元になる **「実行環境のテンプレート」** です。イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです。
 
 - **イメージ**: 料理のレシピ（テンプレート）
 - **コンテナ**: できあがった料理（動いている実体）
 
-イメージは手元で作る（`docker build`）こともできますし、配布されているものを取得（`docker pull`）して使うこともできます
+イメージは手元で作る（`docker build`）こともできますし、配布されているものを取得（`docker pull`）して使うこともできます。
 
 ## Dockerのインストール（Ubuntu 24.04 LTS）
 
-今回は、公式のリポジトリ（`download.docker.com`）を追加して Docker Engine を入れます  
-<br>
-前提: `sudo` できるユーザーで作業します
+今回は、公式のリポジトリ（`download.docker.com`）を追加して Docker Engine を入れます。  
+前提: `sudo` できるユーザーで作業します。
 
 ### 1) 既存のDocker関連パッケージを削除（入っている場合）
 
@@ -88,7 +80,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-`docker-compose-plugin` まで入れているので、Compose は `docker compose ...` の形式で使えます
+`docker-compose-plugin` まで入れているので、Compose は `docker compose ...` の形式で使えます。
 
 ## 動作確認
 
@@ -100,18 +92,18 @@ docker --version
 
 ### hello-worldで確認
 
-初回は権限の都合で `sudo docker ...` にしています
+初回は権限の都合で `sudo docker ...` にしています。
 
 ```bash
 sudo docker run hello-world
 ```
 
-`Hello from Docker!` が表示されれば OK です
+`Hello from Docker!` が表示されれば OK です。
 
 ### 実際にコンテナを起動してみる
 
-次の例は、`ubuntu:24.04` イメージを取得して（初回はダウンロードされます）、その中で `bash` を起動します  
-抜けるときは `exit` です
+次の例は、`ubuntu:24.04` イメージを取得して（初回はダウンロードされます）、その中で `bash` を起動します。  
+抜けるときは `exit` です。
 
 ```bash
 sudo docker run --rm -it ubuntu:24.04 bash
@@ -119,25 +111,25 @@ sudo docker run --rm -it ubuntu:24.04 bash
 
 ## （任意）sudoなしでdockerを使う（dockerグループ）
 
-毎回 `sudo` を付けるのが面倒な場合は、ユーザーを `docker` グループに追加します
+毎回 `sudo` を付けるのが面倒な場合は、ユーザーを `docker` グループに追加します。
 
 ```bash
 sudo usermod -aG docker "$USER"
 ```
 
-追加後は、ログアウト→ログイン（または再起動）で反映されます  
-すぐ試したい場合は一時的に `newgrp` でも OK です
+追加後は、ログアウト→ログイン（または再起動）で反映されます。  
+すぐ試したい場合は一時的に `newgrp` でも OK です。
 
 ```bash
 newgrp docker
 docker run --rm hello-world
 ```
 
-※ `docker` グループは実質 root 権限相当の操作ができるため、共有マシンでは付与先に注意します
+※ `docker` グループは実質 root 権限相当の操作ができるため、共有マシンでは付与先に注意します。
 
 ## 最低限覚えるDockerコマンド
 
-環境構築後に「まず困らない」ための最小セットです
+環境構築後に「まず困らない」ための最小セットです。
 
 - イメージ一覧: `docker images`
 - コンテナ一覧: `docker ps` / `docker ps -a`
@@ -152,12 +144,12 @@ docker run --rm hello-world
 
 ### `permission denied` が出る
 
-- `sudo docker ...` で実行する  
-  または `docker` グループ追加後にログインし直してから `docker ...` を実行します
+- `sudo docker ...` で実行する
+  または `docker` グループ追加後にログインし直してから `docker ...` を実行します。
 
 ### `Cannot connect to the Docker daemon` が出る
 
-Docker Engine が起動していない可能性があります
+Docker Engine が起動していない可能性があります。
 
 ```bash
 sudo systemctl enable --now docker
@@ -166,5 +158,5 @@ sudo systemctl status docker --no-pager
 
 ## まとめ
 
-Ubuntu に Docker（Engine / Buildx / Compose）を入れて、コンテナを動かすところまで確認しました  
-次は、適当なイメージ（例: `ubuntu:24.04`）を `docker run --rm -it ...` で動かして、コンテナの操作感に慣れるのがおすすめです
+Ubuntu に Docker（Engine / Buildx / Compose）を入れて、コンテナを動かすところまで確認しました。  
+次は、適当なイメージ（例: `ubuntu:24.04`）を `docker run --rm -it ...` で動かして、コンテナの操作感に慣れるのがおすすめです。

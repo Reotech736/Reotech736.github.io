@@ -1,0 +1,54 @@
+---
+thumbnail_title_lines:
+  - text: "Obsidian & Discord-botで"
+    size: 54
+  - text: "個人用ナレッジベースを"
+    size: 50
+  - text: "構築する"
+    size: 50
+thumbnail_title_start_y: 230
+thumbnail_title_line_gap: 62
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#087b8a"/>
+      <stop offset="100%" stop-color="#036982"/>
+    </linearGradient>
+    <linearGradient id="note" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d8eef2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1010" cy="110" r="90" fill="#ffffff" fill-opacity="0.13"/>
+  <circle cx="1070" cy="510" r="150" fill="#ffffff" fill-opacity="0.1"/>
+
+  <rect x="80" y="90" width="300" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">KNOWLEDGE BASE</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">Obsidian + Discord + Git pipeline</text>
+
+  <g transform="translate(815 190) scale(0.7)">
+    <path d="M92 0H330a36 36 0 0 1 36 36v298a36 36 0 0 1-36 36H36A36 36 0 0 1 0 334V92Z" fill="url(#note)" fill-opacity="0.95"/>
+    <path d="M92 0v66a26 26 0 0 1-26 26H0Z" fill="#bfe1e8"/>
+    <rect x="72" y="96" width="214" height="16" rx="8" fill="#087b8a" fill-opacity="0.35"/>
+    <rect x="72" y="136" width="248" height="16" rx="8" fill="#087b8a" fill-opacity="0.25"/>
+    <rect x="72" y="176" width="174" height="16" rx="8" fill="#087b8a" fill-opacity="0.25"/>
+
+    <g fill="none" stroke="#087b8a" stroke-width="7" stroke-linecap="round" stroke-opacity="0.55">
+      <path d="M104 270L176 230L250 278"/>
+      <path d="M176 230L212 174"/>
+      <path d="M250 278L304 230"/>
+    </g>
+    <g fill="#087b8a" fill-opacity="0.72">
+      <circle cx="104" cy="270" r="16"/>
+      <circle cx="176" cy="230" r="16"/>
+      <circle cx="250" cy="278" r="16"/>
+      <circle cx="212" cy="174" r="16"/>
+      <circle cx="304" cy="230" r="16"/>
+    </g>
+  </g>
+</svg>
