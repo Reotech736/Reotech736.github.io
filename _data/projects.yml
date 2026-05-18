@@ -1,9 +1,9 @@
 - name: discord-chatgpt-bot
   url: https://github.com/Reotech736/discord-chatgpt-bot
   description: Discord上でAPIを叩いてChatGPTを使うBot
-- name: tedesco-gin
-  url: https://github.com/Reotech736/tedesco-gin
-  description: Tedesco-Ginを遊べるWebアプリ（未完成）
+- name: discord-knowledge-vault-bot
+  url: https://github.com/Reotech736/discord-knowledge-vault-bot
+  description: 個人用のナレッジベースにDiscordからアクセスするBot
 - name: Reotech736.github.io
   url: https://github.com/Reotech736/Reotech736.github.io
   description: このブログ（Jekyll + GitHub Pages）
