@@ -2,6 +2,7 @@ require "date"
 require "cgi"
 require "fileutils"
 require "json"
+require "set"
 require "yaml"
 
 module ImporterSupport
@@ -173,6 +174,7 @@ class MarkdownImporterBase
   def run
     FileUtils.mkdir_p(@output_dir) unless @dry_run
     @term_index = @term_index_source_dir ? build_term_index(@term_index_source_dir) : {}
+    current_source_basenames = source_paths.map { |source_path| File.basename(source_path) }.to_set
 
     source_paths.sort.each do |source_path|
       document = parse_document(source_path)
@@ -194,6 +196,8 @@ class MarkdownImporterBase
       end
     end
 
+    remove_stale_outputs(current_source_basenames)
+
     puts "imported=#{@imported} updated=#{@updated} removed=#{@removed} skipped=#{@skipped}"
   end
 
@@ -205,5 +209,19 @@ class MarkdownImporterBase
 
   def render_output(_data, _body)
     raise NotImplementedError, "#{self.class} must implement render_output"
+  end
+
+  def remove_stale_outputs(current_source_basenames)
+    Dir.glob(File.join(@output_dir, "*.md")).sort.each do |output_path|
+      next if current_source_basenames.include?(File.basename(output_path))
+
+      if @dry_run
+        puts "remove #{relative_to_output(output_path)}"
+      else
+        File.delete(output_path)
+        puts "remove #{relative_to_output(output_path)}"
+      end
+      @removed += 1
+    end
   end
 end
