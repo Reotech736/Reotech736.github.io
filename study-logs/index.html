@@ -21,14 +21,9 @@ permalink: /study-logs/
             </div>
             <div class="journal-body">
                 <h2 class="journal-title">{{ log.title }}</h2>
-                <p class="journal-meta">
-                    <time datetime="{{ log.date | date_to_xmlschema }}">
-                        {{ log.date | date: "%Y年%m月%d日" }}
-                    </time>
-                </p>
-                {% if log.summary %}
-                <p class="journal-summary">{{ log.summary }}</p>
-                {% endif %}
+                <time class="visually-hidden" datetime="{{ log.date | date_to_xmlschema }}">
+                    {{ log.date | date: "%Y年%m月%d日" }}
+                </time>
             </div>
         </a>
     </li>
