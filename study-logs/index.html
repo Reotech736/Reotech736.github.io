@@ -11,9 +11,19 @@ permalink: /study-logs/
 </div>
 
 {% assign study_logs = site.study_logs | sort: "date" | reverse %}
+{% if study_logs.size > 0 %}
+<div class="terms-toolbar">
+    <label class="terms-search" for="study-log-search">
+        <span class="terms-search-label">検索</span>
+        <input id="study-log-search" type="search" placeholder="タイトル・概要で検索" autocomplete="off">
+    </label>
+    <p class="terms-count" data-journal-count aria-live="polite">{{ study_logs.size }}件</p>
+</div>
+
 <ul class="journal-list">
     {% for log in study_logs %}
-    <li>
+    {% capture log_search_text %}{{ log.title }} {{ log.summary }}{% endcapture %}
+    <li data-journal-item data-journal-search="{{ log_search_text | strip | escape }}">
         <a class="journal-entry-link" href="{{ log.url | relative_url }}">
             <div class="journal-date" aria-hidden="true">
                 <span class="journal-day">{{ log.date | date: "%d" }}</span>
@@ -30,6 +40,38 @@ permalink: /study-logs/
     {% endfor %}
 </ul>
 
-{% if study_logs.size == 0 %}
+<p class="terms-empty" data-journal-empty role="status" hidden>該当する学習記録がありません</p>
+
+<script>
+    (() => {
+        const input = document.getElementById('study-log-search');
+        const items = Array.from(document.querySelectorAll('[data-journal-item]'));
+        const count = document.querySelector('[data-journal-count]');
+        const empty = document.querySelector('[data-journal-empty]');
+
+        if (!input || !count || !empty) return;
+
+        const normalizeText = (text) => text.normalize('NFKC').toLowerCase();
+
+        const applyFilter = () => {
+            const keywords = normalizeText(input.value).trim().split(/\s+/).filter(Boolean);
+            let visibleCount = 0;
+
+            items.forEach((item) => {
+                const searchText = normalizeText(item.dataset.journalSearch || '');
+                const matches = keywords.every((keyword) => searchText.includes(keyword));
+                item.hidden = !matches;
+                if (matches) visibleCount += 1;
+            });
+
+            count.textContent = `${visibleCount}件`;
+            empty.hidden = visibleCount !== 0;
+        };
+
+        input.addEventListener('input', applyFilter);
+        applyFilter();
+    })();
+</script>
+{% else %}
 <p>まだ学習記録がありません</p>
 {% endif %}
