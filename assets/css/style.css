@@ -4,6 +4,18 @@
     box-sizing: border-box;
 }
 
+.visually-hidden {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
 html {
     overflow-y: scroll;
 }
@@ -964,7 +976,7 @@ footer p {
 
 .journal-entry-link {
     display: grid;
-    grid-template-columns: 96px minmax(0, 1fr);
+    grid-template-columns: 80px minmax(0, 1fr);
     gap: 1rem;
     align-items: center;
     padding: 1rem 1.1rem;
@@ -989,8 +1001,8 @@ footer p {
     align-items: center;
     justify-content: center;
     gap: 0.15rem;
-    min-height: 96px;
-    padding: 0.75rem 0.5rem;
+    min-height: 80px;
+    padding: 0.6rem 0.4rem;
     background: linear-gradient(160deg, var(--secondary) 0%, var(--primary) 100%);
     color: var(--white);
     border-radius: 10px;
@@ -998,13 +1010,13 @@ footer p {
 }
 
 .journal-day {
-    font-size: 2rem;
+    font-size: 1.65rem;
     font-weight: 700;
     line-height: 1;
 }
 
 .journal-month {
-    font-size: 0.8rem;
+    font-size: 0.7rem;
     letter-spacing: 0.08em;
     text-transform: uppercase;
     opacity: 0.9;
@@ -1018,17 +1030,6 @@ footer p {
     font-size: 1.25rem;
     color: var(--dark);
     margin-bottom: 0.3rem;
-}
-
-.journal-meta {
-    color: var(--text-light);
-    font-size: 0.9rem;
-    margin-bottom: 0.45rem;
-}
-
-.journal-summary {
-    color: var(--text-dark);
-    margin-bottom: 0;
 }
 
 .study-log-header .post-meta {
@@ -1890,15 +1891,15 @@ footer p {
     }
 
     .journal-entry-link {
-        grid-template-columns: 76px minmax(0, 1fr);
+        grid-template-columns: 64px minmax(0, 1fr);
     }
 
     .journal-date {
-        min-height: 76px;
+        min-height: 64px;
     }
 
     .journal-day {
-        font-size: 1.6rem;
+        font-size: 1.4rem;
     }
     
     .post-meta time {
