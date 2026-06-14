@@ -1901,6 +1901,11 @@ footer p {
     .journal-day {
         font-size: 1.4rem;
     }
+
+    .journal-title {
+        font-size: 1rem;
+        line-height: 1.35;
+    }
     
     .post-meta time {
         font-size: 0.75rem;
