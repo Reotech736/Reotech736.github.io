@@ -1,0 +1,39 @@
+---
+thumbnail_title_lines:
+  - text: "Nape Proの"
+    size: 62
+  - text: "キーマップ設定方法"
+    size: 54
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 72
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#036982"/>
+      <stop offset="100%" stop-color="#024450"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1050" cy="105" r="95" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="1030" cy="535" r="155" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="80" y="90" width="285" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">KEYCHRON LAUNCHER</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">レイヤー・マクロ・DPIを初心者向けに解説</text>
+
+  <g transform="translate(835 125)">
+    <rect x="65" y="0" width="190" height="380" rx="30" fill="#ffffff" fill-opacity="0.9"/>
+    <rect x="83" y="25" width="154" height="76" rx="14" fill="#087b8a" fill-opacity="0.28"/>
+    <circle cx="160" cy="205" r="76" fill="#024450" fill-opacity="0.88"/>
+    <circle cx="160" cy="205" r="56" fill="#7eb3bf"/>
+    <circle cx="143" cy="184" r="20" fill="#ffffff" fill-opacity="0.28"/>
+    <path d="M92 116H228M92 294H228M160 116V294" fill="none" stroke="#036982" stroke-width="8" stroke-linecap="round" stroke-opacity="0.55"/>
+    <rect x="84" y="315" width="68" height="48" rx="12" fill="#036982" fill-opacity="0.7"/>
+    <rect x="168" y="315" width="68" height="48" rx="12" fill="#036982" fill-opacity="0.7"/>
+    <circle cx="220" cy="63" r="9" fill="#036982"/>
+  </g>
+</svg>
