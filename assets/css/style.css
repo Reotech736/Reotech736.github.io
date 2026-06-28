@@ -289,6 +289,133 @@ section p {
     color: var(--secondary);
 }
 
+.post-content h2,
+.post-content h3 {
+    scroll-margin-top: 1.5rem;
+}
+
+.post-content h2:focus,
+.post-content h3:focus {
+    outline: var(--focus-outline);
+    outline-offset: 0.35rem;
+}
+
+.post-toc {
+    background: #f8fafa;
+    border: 1px solid rgba(8, 123, 138, 0.22);
+    border-radius: 12px;
+    color: var(--text-dark);
+}
+
+.post-toc[hidden] {
+    display: none;
+}
+
+.post-toc--inline {
+    margin: 0 0 2rem;
+    padding: 0.85rem 1rem;
+}
+
+.post-toc--inline summary {
+    color: var(--secondary);
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.post-toc--inline[open] summary {
+    margin-bottom: 0.7rem;
+}
+
+.post-toc--sidebar {
+    display: none;
+}
+
+.post-toc__title {
+    border-bottom: 2px solid var(--accent);
+    color: var(--secondary);
+    font-size: 1rem;
+    font-weight: 700;
+    margin-bottom: 0.75rem;
+    padding-bottom: 0.45rem;
+}
+
+.post-toc__list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.post-toc__list .post-toc__list {
+    border-left: 1px solid var(--border);
+    margin: 0.2rem 0 0.45rem 0.45rem;
+    padding-left: 0.65rem;
+}
+
+.post-toc__item {
+    margin: 0;
+}
+
+.post-toc__link {
+    border-left: 3px solid transparent;
+    color: var(--text-light);
+    display: block;
+    font-size: 0.82rem;
+    font-weight: 500;
+    line-height: 1.45;
+    padding: 0.3rem 0.4rem;
+    text-decoration: none;
+    transition: background-color 0.2s ease, border-color 0.2s ease, color 0.2s ease;
+}
+
+.post-toc__link:hover,
+.post-toc__link:focus {
+    background: rgba(126, 179, 191, 0.14);
+    color: var(--secondary);
+    outline: none;
+}
+
+.post-toc__link[aria-current="location"] {
+    background: rgba(59, 163, 197, 0.12);
+    border-left-color: var(--accent);
+    color: var(--secondary);
+    font-weight: 700;
+}
+
+@media (min-width: 1200px) {
+    main.main-with-toc {
+        max-width: 1200px;
+    }
+
+    .post-layout--with-toc {
+        align-items: start;
+        display: grid;
+        gap: 2rem;
+        grid-template-columns: minmax(0, 800px) minmax(0, 280px);
+    }
+
+    .post-layout--with-toc .post {
+        margin: 0;
+        width: 100%;
+    }
+
+    .post-toc--inline {
+        display: none;
+    }
+
+    .post-toc--sidebar {
+        display: block;
+        max-height: calc(100vh - 3rem);
+        overflow-y: auto;
+        padding: 1rem;
+        position: sticky;
+        top: 1.5rem;
+    }
+
+    .main-with-toc > .post-navigation {
+        max-width: 800px;
+    }
+}
+
 .post-content ul, .post-content ol {
     margin-left: 2rem;
     margin-bottom: 1rem;

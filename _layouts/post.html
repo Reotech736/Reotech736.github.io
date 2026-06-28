@@ -2,32 +2,48 @@
 layout: default
 ---
 
-<article class="post">
-    <header class="post-header">
-        <h1 class="post-title">{{ page.title }}</h1>
-        <div class="post-meta">
-            <time datetime="{{ page.date | date_to_xmlschema }}">
-                {{ page.date | date: "%Y年%m月%d日" }}
-            </time>
-            {% if page.author %}
-            <span class="post-author">by {{ page.author }}</span>
-            {% endif %}
+<div class="post-layout{% if page.toc %} post-layout--with-toc{% endif %}">
+    <article class="post">
+        <header class="post-header">
+            <h1 class="post-title">{{ page.title }}</h1>
+            <div class="post-meta">
+                <time datetime="{{ page.date | date_to_xmlschema }}">
+                    {{ page.date | date: "%Y年%m月%d日" }}
+                </time>
+                {% if page.author %}
+                <span class="post-author">by {{ page.author }}</span>
+                {% endif %}
+            </div>
+        </header>
+
+        {% assign thumbnail = page.thumbnail | default: page.image %}
+        {% if thumbnail %}
+        <figure class="post-hero">
+            <img src="{{ thumbnail | relative_url }}" alt="{{ page.title }} のサムネイル" loading="lazy" width="1200" height="630">
+        </figure>
+        {% endif %}
+
+        {% if page.toc %}
+        <details class="post-toc post-toc--inline" hidden>
+            <summary>目次</summary>
+            <nav data-post-toc aria-label="この記事の目次"></nav>
+        </details>
+        {% endif %}
+
+        <div class="post-content">
+            {{ content }}
         </div>
-    </header>
 
-    {% assign thumbnail = page.thumbnail | default: page.image %}
-    {% if thumbnail %}
-    <figure class="post-hero">
-        <img src="{{ thumbnail | relative_url }}" alt="{{ page.title }} のサムネイル" loading="lazy" width="1200" height="630">
-    </figure>
+        {% include tag-links.html tags=page.tags %}
+    </article>
+
+    {% if page.toc %}
+    <aside class="post-toc post-toc--sidebar" aria-label="この記事の目次" hidden>
+        <p class="post-toc__title">目次</p>
+        <nav data-post-toc></nav>
+    </aside>
     {% endif %}
-
-    <div class="post-content">
-        {{ content }}
-    </div>
-
-    {% include tag-links.html tags=page.tags %}
-</article>
+</div>
 
 <nav class="post-navigation">
     {% if page.previous.url %}

@@ -5,6 +5,7 @@ thumbnail: /assets/images/posts/2026-06-28-nape-pro-keymap-guide/thumbnail.svg
 date: 2026-06-28 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Windows, Keychron, Nape Pro]
+toc: true
 ---
 
 ## はじめに
