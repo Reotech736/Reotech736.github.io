@@ -5,6 +5,7 @@ thumbnail: /assets/images/posts/2026-01-26-discord-chatgpt-bot-docker/thumbnail.
 date: 2026-01-26 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu, Docker, Discord]
+toc: true
 ---
 
 ## はじめに
