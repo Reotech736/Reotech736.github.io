@@ -5,6 +5,7 @@ thumbnail: /assets/images/posts/2025-11-26-welcome-to-jekyll/thumbnail.svg
 date: 2025-11-26 01:30:00 +0900
 author: Reo Komatsubara
 tags: [Jekyll, GitHub Pages, ブログ]
+toc: true
 ---
 
 ## はじめまして

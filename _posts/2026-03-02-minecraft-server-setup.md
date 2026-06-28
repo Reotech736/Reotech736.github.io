@@ -5,6 +5,7 @@ thumbnail: /assets/images/posts/2026-03-02-minecraft-server-setup/thumbnail.svg
 date: 2026-03-02 00:00:00 +0900
 author: Reo Komatsubara
 tags: [Ubuntu, Docker, Minecraft]
+toc: true
 ---
 
 ## はじめに
