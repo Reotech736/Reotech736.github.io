@@ -1,0 +1,56 @@
+---
+thumbnail_title_lines:
+  - text: "tmuxのインストールと"
+    size: 54
+  - text: "基本操作"
+    size: 62
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 76
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ba3c5"/>
+      <stop offset="100%" stop-color="#087b8a"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1045" cy="100" r="95" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="1040" cy="535" r="155" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="80" y="90" width="300" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">TERMINAL MULTIPLEXER</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">SSH作業向けチートシート</text>
+
+  <g transform="translate(800 135)">
+    <rect x="0" y="0" width="320" height="360" rx="24" fill="#ffffff" fill-opacity="0.94"/>
+    <path d="M0 24A24 24 0 0 1 24 0H296A24 24 0 0 1 320 24V58H0Z" fill="#024450" fill-opacity="0.9"/>
+    <circle cx="28" cy="29" r="8" fill="#7eb3bf"/>
+    <circle cx="52" cy="29" r="8" fill="#3ba3c5"/>
+    <circle cx="76" cy="29" r="8" fill="#ffffff" fill-opacity="0.7"/>
+
+    <rect x="18" y="76" width="180" height="166" rx="10" fill="#024450" fill-opacity="0.92"/>
+    <rect x="210" y="76" width="92" height="166" rx="10" fill="#036982" fill-opacity="0.84"/>
+    <rect x="18" y="254" width="284" height="88" rx="10" fill="#087b8a" fill-opacity="0.86"/>
+
+    <g fill="none" stroke="#ffffff" stroke-width="7" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M42 108L61 126L42 144"/>
+      <path d="M75 144H119"/>
+      <path d="M232 108L248 124L232 140"/>
+      <path d="M258 140H282"/>
+      <path d="M42 282L58 298L42 314"/>
+      <path d="M68 314H112"/>
+    </g>
+
+    <g fill="#7eb3bf">
+      <rect x="38" y="178" width="124" height="8" rx="4"/>
+      <rect x="38" y="198" width="94" height="8" rx="4" fill-opacity="0.72"/>
+      <rect x="232" y="178" width="48" height="8" rx="4"/>
+      <rect x="128" y="290" width="142" height="8" rx="4"/>
+      <rect x="128" y="310" width="108" height="8" rx="4" fill-opacity="0.72"/>
+    </g>
+  </g>
+</svg>
