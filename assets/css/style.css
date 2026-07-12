@@ -433,6 +433,7 @@ section p {
     margin: 1rem 0 1.5rem;
     overflow-x: auto;
     line-height: 1.6;
+    position: relative;
 }
 
 .post-content code {
@@ -448,6 +449,55 @@ section p {
     background: transparent;
     padding: 0;
     color: inherit;
+}
+
+.post-content pre > code {
+    display: block;
+    padding-right: 2.5rem;
+}
+
+.copy-code-button {
+    position: absolute;
+    top: 0.55rem;
+    right: 0.55rem;
+    width: 2rem;
+    height: 2rem;
+    padding: 0.35rem;
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    color: var(--secondary);
+    background: rgba(255, 255, 255, 0.9);
+    cursor: pointer;
+    display: grid;
+    place-items: center;
+    transition: background-color 0.2s ease, color 0.2s ease, border-color 0.2s ease;
+}
+
+.copy-code-button:hover,
+.copy-code-button:focus-visible {
+    color: var(--emphasis);
+    background: var(--white);
+    border-color: var(--accent);
+}
+
+.copy-code-button:focus-visible {
+    outline: var(--focus-outline);
+    outline-offset: 2px;
+}
+
+.copy-code-button.is-copied {
+    color: var(--primary);
+    border-color: var(--primary);
+}
+
+.copy-code-button svg {
+    width: 1.1rem;
+    height: 1.1rem;
+    fill: none;
+    stroke: currentColor;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-width: 1.8;
 }
 
 .post-content .mermaid {
