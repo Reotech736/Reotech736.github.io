@@ -13,7 +13,12 @@ updated: 2026-07-14
 ## より具体的には
 Grafanaは、[Prometheus](/terms/prometheus/)などのデータソースへクエリを発行し、CPU使用率やメモリ使用率の推移をパネルとして表示する。現在値だけでなく、時間の経過に伴う変化や複数指標の関係を確認しやすい。
 
-Linux Monitoring GPTでは、短い自然言語の状態確認をCustom GPT、詳細な時系列の確認をGrafanaと役割分担している。
+データソースやダッシュボードを用途ごとに分けることで、概要確認と詳細分析を使い分けられる。
+
+## 関連記事での使用例
+
+### [Custom GPTでLinuxサーバを診断する](/2026/07/14/linux-monitoring-gpt.html)
+短い自然言語の状態確認をCustom GPT、詳細な時系列の確認をGrafanaと役割分担している。
 
 ## 関連
 - [Prometheus](/terms/prometheus/)
