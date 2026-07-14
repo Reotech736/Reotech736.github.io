@@ -5,7 +5,7 @@ sort_key: "こんてな"
 summary: "アプリケーションを隔離して実行する軽量な実行単位"
 category: "container"
 aliases: ["Container"]
-updated: 2026-04-12
+updated: 2026-07-14
 ---
 
 ## 一言でいうと
@@ -18,7 +18,13 @@ updated: 2026-04-12
 コンテナイメージをもとに起動され、必要に応じて複数台に増やしたり破棄したりできる。  
 アプリケーションの配布や再現性の高い実行環境づくりでよく使われる。
 
+## 関連記事での使用例
+
+### [Docker環境の構築](/2026/01/21/docker-dev-setup.html)
+Dockerがアプリケーションを隔離して動かす実行単位として説明している。
+
 ## 関連
+- [Docker](/terms/docker/)
 - [コンテナイメージ](/terms/container-image/)
 - [Dockerfile](/terms/dockerfile/)
 - [ECS](/terms/ecs/)

@@ -10,17 +10,16 @@ toc: true
 
 ## はじめに
 
-Ubuntu に Docker をインストールして、コンテナを動かせる状態にするまでの手順をまとめます。Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます。  
-この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）。
+Ubuntu に [Docker](/terms/docker/) をインストールして、[コンテナ](/terms/container/)を動かせる状態にするまでの手順をまとめます。Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます。この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）。
 
 ## Dockerとは
 
 Docker は、アプリを **「コンテナ」** という単位で動かすための仕組み（ツール群）です。アプリの実行に必要なもの（ライブラリや設定など）をまとめて扱えるので、環境差分によるトラブルを減らしやすくなります。  
 Docker を使うときの登場人物は大体この3つです。
 
-- **Docker Engine（デーモン）**: バックグラウンドで動いてコンテナを起動・停止する本体
+- **[Docker Engine](/terms/docker-engine/)（デーモン）**: バックグラウンドで動いてコンテナを起動・停止する本体
 - **Docker CLI**: `docker` コマンド（エンジンに指示するための操作口）
-- **Docker Registry**: イメージの置き場（Docker Hub など）
+- **[Docker Registry](/terms/container-registry/)**: イメージの置き場（Docker Hub など）
 
 ## コンテナとは
 
@@ -29,11 +28,11 @@ Docker を使うときの登場人物は大体この3つです。
 
 - コンテナは **VM（仮想マシン）ではない**（ホストOSのカーネルを共有して動く）
 - その分、起動が速くて軽い
-- ただし、コンテナの中で作ったデータは **基本的に消えやすい**（必要ならボリュームで永続化する）
+- ただし、コンテナの中で作ったデータは **基本的に消えやすい**（必要なら[ボリューム](/terms/docker-volume/)で永続化する）
 
 ## Docker Imageとは
 
-Docker Image（イメージ）は、コンテナの元になる **「実行環境のテンプレート」** です。イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです。
+[Docker Image（コンテナイメージ）](/terms/container-image/)は、コンテナの元になる **「実行環境のテンプレート」** です。イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです。
 
 - **イメージ**: 料理のレシピ（テンプレート）
 - **コンテナ**: できあがった料理（動いている実体）
@@ -81,7 +80,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-`docker-compose-plugin` まで入れているので、Compose は `docker compose ...` の形式で使えます。
+`docker-compose-plugin` まで入れているので、[Docker Compose](/terms/docker-compose/) は `docker compose ...` の形式で使えます。
 
 ## 動作確認
 
