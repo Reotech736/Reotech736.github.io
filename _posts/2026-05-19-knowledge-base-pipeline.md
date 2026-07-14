@@ -16,8 +16,7 @@ toc: true
 技術メモは用語や概念を後から引くための辞書で、学習記録は日々の作業等を時系列で残すログです。  
 やりたかったことは、個人開発や業務で得た知識を「あとで記事にするかもしれないメモ」として溜めることです。ただし、ブログのリポジトリを直接編集する運用にすると、気軽さがなくなります。
 
-そこで、Obsidian を母艦にした `knowledge-vault-work` を作り、そこからブログ用 Markdown を生成するパイプラインを組みました。  
-さらに、思いついた瞬間に Discord からも追加できるように、専用の Discord Bot も作っています。
+そこで、[Obsidian](/terms/obsidian/) を母艦にした `knowledge-vault-work` を作り、そこからブログ用 [Markdown](/terms/markdown/) を生成するパイプラインを組みました。さらに、思いついた瞬間に Discord からも追加できるように、専用の Discord Bot も作っています。
 
 ## 作ったもの
 
@@ -46,15 +45,13 @@ flowchart LR
 ```
 
 ポイントは、ブログのためだけに Obsidian のノートを直接公開しないことです。  
-vault 側では自分が書きやすい形を保ち、公開対象だけを import script で Jekyll 用に変換しています。
+vault 側では自分が書きやすい形を保ち、公開対象だけを import script で [Jekyll](/terms/jekyll/) 用に変換しています。
 
 ## bare リポジトリを使う理由
 
-この構成では `bare/knowledge-vault.git` という bare リポジトリを挟んでいます。bare リポジトリは、作業ツリーを持たない Git リポジトリです。  
-普通のリポジトリのようにファイルを編集する場所ではなく、push を受け取るための受け口として使います。
+この構成では `bare/knowledge-vault.git` という [bareリポジトリ](/terms/bare-repository/)を挟んでいます。bareリポジトリは、作業ツリーを持たない Git リポジトリです。普通のリポジトリのようにファイルを編集する場所ではなく、push を受け取るための受け口として使います。
 
-今回の使い方では、`knowledge-vault-work` から bare リポジトリへ push すると、`post-receive` hook が動きます。  
-この hook からブログ側の publish script を起動して、公開用 Markdown の生成までつなげています。
+今回の使い方では、`knowledge-vault-work` から bare リポジトリへ push すると、[post-receiveフック](/terms/post-receive-hook/)が動きます。この hook からブログ側の publish script を起動して、公開用 Markdown の生成までつなげています。
 
 ## 公開パイプライン
 
@@ -88,7 +85,7 @@ sequenceDiagram
 ## Discord Bot から追加できるようにした
 
 Obsidian は腰を据えて整理するには便利ですが、スマホから一瞬で追加するには少し重いです。そこで、Discord から技術メモと学習記録を追加できる `discord-knowledge-vault-bot` を作りました。  
-Bot には次の 2 つの slash command を用意しています。
+Bot には次の 2 つの[スラッシュコマンド](/terms/slash-command/)を用意しています。
 
 - `/term_add`: `01_terms/<slug>.md` に技術メモを作成
 - `/study_log_add`: `03_study_logs/YYYY-MM-DD-study-log.md` に学習記録を作成
