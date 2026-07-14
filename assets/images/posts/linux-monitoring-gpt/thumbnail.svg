@@ -1,0 +1,51 @@
+---
+thumbnail_title_lines:
+  - text: "Custom GPTで"
+    size: 62
+  - text: "Linuxサーバを診断する"
+    size: 50
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 72
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#024450"/>
+      <stop offset="100%" stop-color="#7eb3bf"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1045" cy="100" r="95" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="1040" cy="535" r="155" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="80" y="90" width="245" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">LINUX MONITORING</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">Prometheus・AWS・Custom GPT Actions</text>
+
+  <g transform="translate(800 135)">
+    <rect x="0" y="0" width="320" height="360" rx="24" fill="#ffffff" fill-opacity="0.94"/>
+    <path d="M0 24A24 24 0 0 1 24 0H296A24 24 0 0 1 320 24V58H0Z" fill="#024450" fill-opacity="0.9"/>
+    <circle cx="28" cy="29" r="8" fill="#7eb3bf"/>
+    <circle cx="52" cy="29" r="8" fill="#3ba3c5"/>
+    <circle cx="76" cy="29" r="8" fill="#ffffff" fill-opacity="0.7"/>
+
+    <rect x="22" y="82" width="128" height="210" rx="12" fill="#024450" fill-opacity="0.92"/>
+    <path d="M49 125L66 142L49 159M82 159H118" fill="none" stroke="#7eb3bf" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+    <rect x="48" y="191" width="76" height="9" rx="4.5" fill="#7eb3bf"/>
+    <rect x="48" y="215" width="56" height="9" rx="4.5" fill="#7eb3bf" fill-opacity="0.72"/>
+    <rect x="48" y="239" width="66" height="9" rx="4.5" fill="#7eb3bf" fill-opacity="0.52"/>
+
+    <path d="M185 113h94a15 15 0 0 1 15 15v104a15 15 0 0 1-15 15h-47l-24 24v-24h-23a15 15 0 0 1-15-15V128a15 15 0 0 1 15-15Z" fill="#087b8a" fill-opacity="0.9"/>
+    <circle cx="198" cy="153" r="7" fill="#ffffff"/>
+    <rect x="214" y="146" width="57" height="13" rx="6.5" fill="#ffffff" fill-opacity="0.82"/>
+    <rect x="189" y="178" width="78" height="13" rx="6.5" fill="#ffffff" fill-opacity="0.68"/>
+    <rect x="189" y="205" width="58" height="13" rx="6.5" fill="#ffffff" fill-opacity="0.48"/>
+
+    <rect x="22" y="310" width="272" height="30" rx="15" fill="#087b8a" fill-opacity="0.2"/>
+    <rect x="42" y="320" width="88" height="10" rx="5" fill="#087b8a" fill-opacity="0.68"/>
+    <rect x="146" y="320" width="110" height="10" rx="5" fill="#3ba3c5" fill-opacity="0.78"/>
+  </g>
+</svg>

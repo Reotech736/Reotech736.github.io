@@ -22,3 +22,7 @@
   slug: nape-pro
 - name: tmux
   slug: tmux
+- name: AWS
+  slug: aws
+- name: ChatGPT
+  slug: chatgpt
