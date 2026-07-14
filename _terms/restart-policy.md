@@ -1,11 +1,11 @@
 ---
 title: "再起動ポリシー"
 slug: "restart-policy"
-sort_key: "restart-policy"
+sort_key: "さいきどうぽりしー"
 summary: "コンテナ停止後にDockerが再起動する条件を定める設定"
 category: "container"
 aliases: ["Restart Policy","Docker restart policy"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

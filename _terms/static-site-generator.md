@@ -1,11 +1,11 @@
 ---
 title: "静的サイトジェネレーター"
 slug: "static-site-generator"
-sort_key: "static-site-generator"
+sort_key: "せいてきさいとじぇねれーたー"
 summary: "テンプレートとコンテンツから配信用の静的ファイルを生成するツール"
 category: "web"
 aliases: ["Static Site Generator","SSG"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

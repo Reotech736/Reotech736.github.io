@@ -1,11 +1,11 @@
 ---
 title: "キーマップレイヤー"
 slug: "keymap-layer"
-sort_key: "keymap-layer"
+sort_key: "きーまっぷれいやー"
 summary: "同じ物理キーに別の割り当て集合を切り替えて持たせる仕組み"
 category: "hardware"
 aliases: ["Keymap Layer"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

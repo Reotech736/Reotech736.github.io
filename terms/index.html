@@ -11,7 +11,7 @@ permalink: /terms/
 </div>
 
 {% assign terms = site.terms | sort: "sort_key" %}
-{% assign latin_chars = "abcdefghijklmnopqrstuvwxyz" %}
+{% assign latin_initials = ".0123456789abcdefghijklmnopqrstuvwxyz" %}
 {% assign categories = site.terms | map: "category" | compact | uniq | sort %}
 <div class="terms-toolbar">
     <div class="terms-controls">
@@ -37,8 +37,8 @@ permalink: /terms/
     <h2 class="terms-group-title">アルファベット</h2>
     <ul class="terms-dictionary">
         {% for term in terms %}
-        {% assign term_initial = term.sort_key | default: term.slug | slice: 0, 1 | downcase %}
-        {% if latin_chars contains term_initial %}
+        {% assign term_initial = term.title | strip | slice: 0, 1 | downcase %}
+        {% if latin_initials contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
         {% assign category_key = term.category | default: "" %}
         {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "monitoring" %}Monitoring{% when "ai" %}AI{% when "shell" %}Shell{% when "uncategorized" %}{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
@@ -46,8 +46,8 @@ permalink: /terms/
         <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
                 {% assign category_label = category_label | strip %}
-                <span class="term-entry-category">{{ category_label }}</span>
                 <h2 class="term-entry-title">{{ term.title }}</h2>
+                <span class="term-entry-category">{{ category_label }}</span>
                 {% if term.updated %}
                 <p class="term-entry-meta">更新日 {{ term.updated | date: "%Y年%m月%d日" }}</p>
                 {% endif %}
@@ -62,8 +62,8 @@ permalink: /terms/
     <h2 class="terms-group-title">50音</h2>
     <ul class="terms-dictionary">
         {% for term in terms %}
-        {% assign term_initial = term.sort_key | default: term.slug | slice: 0, 1 | downcase %}
-        {% unless latin_chars contains term_initial %}
+        {% assign term_initial = term.title | strip | slice: 0, 1 | downcase %}
+        {% unless latin_initials contains term_initial %}
         {% assign term_aliases = term.aliases | default: empty | join: " " %}
         {% assign category_key = term.category | default: "" %}
         {% capture category_label %}{% case category_key %}{% when "aws" %}AWS{% when "container" %}Container{% when "monitoring" %}Monitoring{% when "ai" %}AI{% when "shell" %}Shell{% when "uncategorized" %}{% else %}{{ category_key | capitalize }}{% endcase %}{% endcapture %}
@@ -71,8 +71,8 @@ permalink: /terms/
         <li class="term-entry" data-term-item data-term-search="{{ term_search_text | strip | downcase | escape }}" data-term-category="{{ category_key | downcase | escape }}">
             <a class="term-entry-link" href="{{ term.url | relative_url }}">
                 {% assign category_label = category_label | strip %}
-                <span class="term-entry-category">{{ category_label }}</span>
                 <h2 class="term-entry-title">{{ term.title }}</h2>
+                <span class="term-entry-category">{{ category_label }}</span>
                 {% if term.updated %}
                 <p class="term-entry-meta">更新日 {{ term.updated | date: "%Y年%m月%d日" }}</p>
                 {% endif %}

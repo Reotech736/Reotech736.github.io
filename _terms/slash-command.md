@@ -1,7 +1,7 @@
 ---
 title: "スラッシュコマンド"
 slug: "slash-command"
-sort_key: "slash-command"
+sort_key: "すらっしゅこまんど"
 summary: "チャット画面でスラッシュから呼び出す構造化されたアプリケーション操作"
 category: "chat"
 aliases: ["Slash Command","Application Command"]

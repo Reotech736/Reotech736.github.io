@@ -1,11 +1,11 @@
 ---
 title: "バインドマウント"
 slug: "bind-mount"
-sort_key: "bind-mount"
+sort_key: "ばいんどまうんと"
 summary: "ホスト上の特定パスをコンテナ内のパスへ直接対応付ける方法"
 category: "container"
 aliases: ["Bind Mount","bind mount"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

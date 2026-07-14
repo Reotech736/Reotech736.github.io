@@ -1,11 +1,11 @@
 ---
 title: "ターミナルマルチプレクサ"
 slug: "terminal-multiplexer"
-sort_key: "terminal-multiplexer"
+sort_key: "たーみなるまるちぷれくさ"
 summary: "一つの端末上で複数の仮想端末と継続可能な作業状態を管理するソフトウェア"
 category: "shell"
 aliases: ["Terminal Multiplexer"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

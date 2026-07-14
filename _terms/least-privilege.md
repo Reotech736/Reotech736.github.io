@@ -1,11 +1,11 @@
 ---
 title: "最小権限"
 slug: "least-privilege"
-sort_key: "least-privilege"
+sort_key: "さいしょうけんげん"
 summary: "利用者やプログラムへ必要最小限の権限だけを与える原則"
 category: "security"
 aliases: ["最小権限の原則","Principle of Least Privilege"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

@@ -1,11 +1,11 @@
 ---
 title: "ビルドコンテキスト"
 slug: "build-context"
-sort_key: "build-context"
+sort_key: "びるどこんてきすと"
 summary: "コンテナイメージのビルド時にビルダーへ渡されるファイル群"
 category: "container"
 aliases: ["Build Context","build context"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

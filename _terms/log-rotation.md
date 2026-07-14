@@ -1,11 +1,11 @@
 ---
 title: "ログローテーション"
 slug: "log-rotation"
-sort_key: "log-rotation"
+sort_key: "ろぐろーてーしょん"
 summary: "ログファイルを定期的に切り替え古いものを圧縮・削除する運用"
 category: "operations"
 aliases: ["Log Rotation","log rotation"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

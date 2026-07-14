@@ -1,11 +1,11 @@
 ---
 title: "ネットワークドライブ"
 slug: "network-drive"
-sort_key: "network-drive"
+sort_key: "ねっとわーくどらいぶ"
 summary: "ネットワーク上の共有領域をローカルドライブのように扱う仕組み"
 category: "network"
 aliases: ["Network Drive"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

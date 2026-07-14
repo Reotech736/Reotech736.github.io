@@ -1,11 +1,11 @@
 ---
 title: "環境変数"
 slug: "environment-variable"
-sort_key: "environment-variable"
+sort_key: "かんきょうへんすう"
 summary: "プロセスへ外部から渡す名前と値の組で構成された設定情報"
 category: "os"
 aliases: ["Environment Variable"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

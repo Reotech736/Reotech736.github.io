@@ -1,11 +1,11 @@
 ---
 title: "ファームウェア"
 slug: "firmware"
-sort_key: "firmware"
+sort_key: "ふぁーむうぇあ"
 summary: "機器の内部で動作しハードウェアを制御するソフトウェア"
 category: "hardware"
 aliases: ["Firmware"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

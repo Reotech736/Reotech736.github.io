@@ -24,7 +24,7 @@ status: draft
 ---
 ```
 
-- `sort_key`は`slug`と異なる並び順が必要な場合に設定する。
+- 日本語で始まる公開用語の`sort_key`には、50音順で並べるためのひらがなを設定する。英数字で始まる用語は省略できる。
 - `aliases`は略称、正式名称、一般的な別表記だけに使う。
 - 既存カテゴリを優先する。主なカテゴリは`aws`、`container`、`shell`、`monitoring`、`ai`、`network`。
 - 公開を依頼されていない下書きは`publish: false`を維持する。

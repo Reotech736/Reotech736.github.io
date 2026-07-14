@@ -1,11 +1,11 @@
 ---
 title: "キーマップ"
 slug: "keymap"
-sort_key: "keymap"
+sort_key: "きーまっぷ"
 summary: "物理的な入力位置と実行されるキーや機能の対応関係"
 category: "hardware"
 aliases: ["Keymap","キー配列"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと
