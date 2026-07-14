@@ -1,11 +1,11 @@
 ---
 title: "デュアルブート"
 slug: "dual-boot"
-sort_key: "dual-boot"
+sort_key: "でゅあるぶーと"
 summary: "1台のコンピューターに複数のOSを入れ起動時に選択する構成"
 category: "os"
 aliases: ["Dual Boot"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

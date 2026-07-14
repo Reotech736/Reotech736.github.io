@@ -1,11 +1,11 @@
 ---
 title: "キーボードマクロ"
 slug: "keyboard-macro"
-sort_key: "keyboard-macro"
+sort_key: "きーぼーどまくろ"
 summary: "複数のキー入力を一つの操作として順番に再生する機能"
 category: "hardware"
 aliases: ["Keyboard Macro"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

@@ -1,11 +1,11 @@
 ---
 title: "コンテナレジストリ"
 slug: "container-registry"
-sort_key: "container-registry"
+sort_key: "こんてなれじすとり"
 summary: "コンテナイメージを保存し配布するためのサービス"
 category: "container"
 aliases: ["Container Registry","Docker Registry"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと

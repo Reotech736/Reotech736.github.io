@@ -1330,7 +1330,8 @@ footer p {
 
 .term-entry-link {
     display: grid;
-    grid-template-columns: 64px minmax(0, 1fr) auto;
+    grid-template-columns: minmax(0, 1fr) max-content auto;
+    grid-template-areas: "title category meta";
     gap: 0.85rem;
     align-items: center;
     padding: 0.58rem 0.2rem;
@@ -1350,14 +1351,18 @@ footer p {
 }
 
 .term-entry-category {
+    grid-area: category;
     color: var(--text-light);
     font-size: 0.68rem;
     font-weight: 600;
     letter-spacing: 0.03em;
     text-transform: uppercase;
+    white-space: nowrap;
+    justify-self: end;
 }
 
 .term-entry-title {
+    grid-area: title;
     color: var(--dark);
     font-size: 0.96rem;
     font-weight: 600;
@@ -1373,6 +1378,7 @@ footer p {
 }
 
 .term-entry-meta {
+    grid-area: meta;
     color: var(--text-light);
     font-size: 0.76rem;
     white-space: nowrap;
@@ -2036,12 +2042,9 @@ footer p {
     }
 
     .term-entry-link {
-        grid-template-columns: 90px minmax(0, 1fr);
-        grid-template-areas:
-            "category title"
-            "category meta";
+        grid-template-columns: minmax(0, 1fr) max-content;
+        grid-template-areas: "title category";
         column-gap: 0.7rem;
-        row-gap: 0.14rem;
         align-items: center;
         padding: 0.52rem 0.1rem;
     }
@@ -2051,16 +2054,16 @@ footer p {
         align-self: center;
         font-size: 0.64rem;
         letter-spacing: 0.04em;
-        white-space: nowrap;
-        padding-left: 1rem;
-        transform: translateY(1px);
+        padding-left: 0;
+        transform: none;
+        justify-self: end;
     }
 
     .term-entry-title {
         grid-area: title;
         font-size: 0.9rem;
         line-height: 1.2;
-        transform: translateY(1px);
+        transform: none;
     }
 
     .term-entry-meta {

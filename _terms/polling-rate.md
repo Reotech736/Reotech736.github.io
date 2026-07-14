@@ -1,11 +1,11 @@
 ---
 title: "ポーリングレート"
 slug: "polling-rate"
-sort_key: "polling-rate"
+sort_key: "ぽーりんぐれーと"
 summary: "入力機器がコンピューターへ状態を報告する頻度"
 category: "hardware"
 aliases: ["Polling Rate","Report Rate"]
-updated: 2026-07-14
+updated: 2026-07-15
 ---
 
 ## 一言でいうと
