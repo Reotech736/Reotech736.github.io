@@ -28,6 +28,3 @@ vendor/
 
 # workspace files
 workspace/
-
-# codex
-AGENTS.md

@@ -1,0 +1,4 @@
+interface:
+  display_name: "ブログサムネイル作成"
+  short_description: "ブログ規約に沿った1200×630 SVGサムネイルを作成"
+  default_prompt: "$create-blog-thumbnailを使って、この記事のSVGサムネイルを既存デザインに合わせて作成してください。"

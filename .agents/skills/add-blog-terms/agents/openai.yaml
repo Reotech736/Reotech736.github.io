@@ -1,0 +1,4 @@
+interface:
+  display_name: "ブログ技術メモ追加"
+  short_description: "技術メモの正本作成・記事リンク・importを一貫して実行"
+  default_prompt: "$add-blog-termsを使って、この記事の専門用語を技術メモへ追加し、初出リンクまで整備してください。"
