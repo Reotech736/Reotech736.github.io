@@ -34,11 +34,16 @@ class StudyLogImporter < MarkdownImporterBase
     lines << %(date: #{study_date.strftime("%Y-%m-%d")} 00:00:00 #{DEFAULT_TIMEZONE})
     lines << %(slug: #{yaml_string(slug)})
     lines << %(summary: #{yaml_string(summary)}) unless summary.nil? || summary.empty?
+    lines << "mermaid: true" if mermaid_code_fence?(output_body)
     lines << "---"
     lines << ""
     lines << output_body.rstrip
     lines << ""
     lines.join("\n")
+  end
+
+  def mermaid_code_fence?(body)
+    body.match?(/^[ \t]{0,3}(?:`{3,}|~{3,})mermaid[ \t]*$/)
   end
 end
 
