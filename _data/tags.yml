@@ -26,3 +26,7 @@
   slug: aws
 - name: ChatGPT
   slug: chatgpt
+- name: AI
+  slug: ai
+- name: 音声入力
+  slug: voice-input
