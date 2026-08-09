@@ -10,9 +10,9 @@ qiita:
   publish: true
   tags:
     - Ubuntu
-    - Samba
+    - samba
     - Windows
-    - SMB
+    - smb
 ---
 
 ## はじめに

@@ -10,7 +10,7 @@ qiita:
   publish: true
   tags:
     - Keychron
-    - キーボード
+    - Keyboard
     - Windows
     - キーマップ
 ---

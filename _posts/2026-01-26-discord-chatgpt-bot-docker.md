@@ -9,10 +9,10 @@ toc: true
 qiita:
   publish: true
   tags:
-    - Discord
+    - discord
     - Docker
     - Ubuntu
-    - Bot
+    - bot
 ---
 
 ## はじめに
