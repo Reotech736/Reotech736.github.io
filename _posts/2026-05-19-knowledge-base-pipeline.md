@@ -11,7 +11,7 @@ qiita:
   publish: true
   tags:
     - Obsidian
-    - Discord
+    - discord
     - Docker
     - ナレッジマネジメント
 ---

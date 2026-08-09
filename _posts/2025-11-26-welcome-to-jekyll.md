@@ -10,7 +10,7 @@ qiita:
   publish: true
   tags:
     - Jekyll
-    - GitHubPages
+    - GithubPages
     - GitHub
 ---
 

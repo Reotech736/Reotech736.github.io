@@ -9,7 +9,7 @@ toc: true
 qiita:
   publish: true
   tags:
-    - Minecraft
+    - minecraft
     - Docker
     - Ubuntu
     - サーバー
