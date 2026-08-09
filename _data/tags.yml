@@ -30,3 +30,7 @@
   slug: ai
 - name: 音声入力
   slug: voice-input
+- name: Qiita
+  slug: qiita
+- name: GitHub Actions
+  slug: github-actions

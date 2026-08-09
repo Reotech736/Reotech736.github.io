@@ -1,0 +1,56 @@
+---
+thumbnail_title_lines:
+  - text: "Jekyllブログの記事を"
+    size: 54
+  - text: "Qiita CLIで自動ミラー"
+    size: 50
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 74
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ba3c5"/>
+      <stop offset="100%" stop-color="#087b8a"/>
+    </linearGradient>
+    <linearGradient id="paper" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1045" cy="100" r="95" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="1040" cy="535" r="155" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="80" y="90" width="245" height="40" rx="20" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="100" y="118" fill="#ffffff" font-size="18" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="600">CONTENT WORKFLOW</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">Markdown・Qiita CLI・GitHub Actions</text>
+
+  <g transform="translate(790 135)">
+    <rect x="0" y="0" width="330" height="360" rx="28" fill="#ffffff" fill-opacity="0.16" stroke="#ffffff" stroke-opacity="0.35" stroke-width="3"/>
+
+    <g transform="translate(24 72)">
+      <path d="M12 0h94l34 34v144a14 14 0 0 1-14 14H12A14 14 0 0 1-2 178V14A14 14 0 0 1 12 0Z" fill="url(#paper)"/>
+      <path d="M106 0v24a10 10 0 0 0 10 10h24Z" fill="#7eb3bf"/>
+      <g fill="#087b8a">
+        <rect x="22" y="62" width="94" height="11" rx="5.5" fill-opacity="0.72"/>
+        <rect x="22" y="90" width="76" height="11" rx="5.5" fill-opacity="0.52"/>
+        <rect x="22" y="118" width="86" height="11" rx="5.5" fill-opacity="0.38"/>
+        <rect x="22" y="146" width="58" height="11" rx="5.5" fill-opacity="0.26"/>
+      </g>
+    </g>
+
+    <g fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M174 180h22"/>
+      <path d="M186 168l12 12-12 12"/>
+    </g>
+
+    <g transform="translate(218 112)">
+      <circle cx="52" cy="68" r="68" fill="#024450" fill-opacity="0.92" stroke="#ffffff" stroke-opacity="0.42" stroke-width="4"/>
+      <text x="52" y="91" text-anchor="middle" fill="#ffffff" font-size="70" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">Q</text>
+    </g>
+  </g>
+</svg>
