@@ -40,10 +40,12 @@ description: Jekyll技術ブログの記事に登場する専門用語を、know
 3. 記事では各用語の最初の意味のある出現だけを`/terms/<slug>/`へリンクする。
 4. 見出し、Mermaid、コードブロック、画像の代替テキスト、同じ語の繰り返しにはリンクを付けない。
 5. リンクのためだけに文章を不自然に書き換えない。
+6. 対象記事が`qiita.publish: true`の場合は、`ruby scripts/export-qiita.rb <対象記事>`を実行し、更新した`qiita/public/`の生成物も同じ変更へ含める。
 
 ## 検証する
 
 - `ruby scripts/import-terms.rb`を再実行して不要な差分が出ないことを確認する。
+- 対象記事がQiitaミラー対象の場合は、`ruby scripts/export-qiita.rb --check`を実行する。
 - `JEKYLL_ENV=production bundle exec jekyll build`を実行する。
 - `/terms/`、追加ページ、関連記事のリンクを確認する。
 - 未解決wiki link、重複slug、空のsummary、記事固有情報が一般説明へ混入していないか確認する。

@@ -36,6 +36,8 @@
 - ブログ本文は 1 文ごとに明示改行せず、2〜3 文程度の意味のまとまりを 1 段落にします。話題が変わる場合は空行で段落を分けます。
 - 同一段落内で軽く区切りたい場合だけ、Markdown のハード改行（行末スペース 2 つ）を使用します。記事本文では表示調整目的の単独 `<br>` 行を使わないでください。
 - YAML/HTML は既存に合わせて 2 スペースインデントを維持します。
+- Qiitaへミラーする記事だけ、Front Matterへ`qiita.publish: true`と1〜5個の`qiita.tags`を設定します。ブログの`tags`とは独立して扱い、ミラーするだけの理由でブログ側へ`Qiita`タグを追加しないでください。
+- `_posts/`を唯一の編集元とし、`qiita/public/`は`ruby scripts/export-qiita.rb`で生成します。生成物を直接編集せず、対象記事と同じPull Requestへ含めてください。
 - 新規タグ追加時は次を必須とします。  
   1. `_data/tags.yml` に `name` と `slug` を追加  
   2. `tags/<slug>.html` を作成
@@ -55,6 +57,7 @@
 - `bundle exec jekyll serve --host 0.0.0.0 --drafts` で表示確認
 - import script を変更した場合は、対応する `ruby scripts/import-*.rb` を実行して生成結果も確認
 - 技術メモを追加・更新した場合は `ruby scripts/import-terms.rb` を実行し、正本と `_terms/` の生成結果を確認
+- Qiitaミラー対象の記事または変換処理を変更した場合は、`ruby test/export_qiita_test.rb`と`ruby scripts/export-qiita.rb --check`を実行
 - 変更対象のページ（`/`, `/blog/`, `/study-logs/`, `/terms/`, `/tags/<slug>/`）でリンク・画像パス・コードブロックを確認
 
 ## コミット・PR ガイド
