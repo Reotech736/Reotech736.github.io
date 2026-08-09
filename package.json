@@ -1,0 +1,10 @@
+{
+  "name": "reotech736-blog",
+  "private": true,
+  "engines": {
+    "node": ">=22.22.1"
+  },
+  "devDependencies": {
+    "@qiita/qiita-cli": "1.10.0"
+  }
+}

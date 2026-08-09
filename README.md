@@ -21,6 +21,7 @@ https://reotech736.com/
 ### 必要な環境
 - Ruby (2.7以上推奨)
 - Bundler
+- Node.js 22.22.1以上（Qiita CLIを使用する場合）
 
 ### セットアップ手順
 
@@ -102,6 +103,30 @@ Pages の公開元は branch deploy ではなく `GitHub Actions` を使う前�
 
 **補足:** `--livereload` は環境によっては遅延や不安定化の原因になります。  
 LAN内の別PCから確認する用途では、`--livereload` なし（上記の推奨コマンド）を使ってください。
+
+## Qiitaミラー
+
+`_posts/`を正本として、`qiita.publish: true`を設定した記事だけをQiitaへミラーします。Qiita用Markdownは`qiita/public/`へ生成し、元記事と一緒にGit管理します。
+
+```bash
+# Qiita CLIをインストール
+npm install
+
+# Qiita用Markdownを生成
+ruby scripts/export-qiita.rb
+
+# 生成物が最新か確認
+ruby scripts/export-qiita.rb --check
+
+# Git管理対象外の作業ディレクトリへコピーしてQiita Previewを起動
+mkdir -p qiita-preview/public
+cp -R qiita/public/. qiita-preview/public/
+npx qiita preview --root qiita-preview --config qiita-preview
+```
+
+詳しい確認手順は`qiita-preview/README.md`を参照してください。
+
+mainブランチでは`.github/workflows/publish-qiita.yml`がQiita用Markdownを検証し、Qiita CLIで投稿・更新します。実行前にQiitaで`read_qiita`と`write_qiita`権限のアクセストークンを発行し、GitHub Actions Secretへ`QIITA_TOKEN`という名前で登録してください。トークンはリポジトリへ保存しないでください。
 
 ## 記事の作成方法
 
