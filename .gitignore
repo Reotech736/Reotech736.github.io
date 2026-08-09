@@ -26,5 +26,14 @@ vendor/
 .env
 .env.local
 
+# Node.js
+node_modules/
+
+# Qiita CLI
+qiita/public/.remote/
+qiita-preview/*
+!qiita-preview/README.md
+!qiita-preview/qiita.config.json
+
 # workspace files
 workspace/
