@@ -34,3 +34,5 @@
   slug: qiita
 - name: GitHub Actions
   slug: github-actions
+- name: Android
+  slug: android
