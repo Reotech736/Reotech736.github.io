@@ -1,13 +1,13 @@
 ---
-title: "Jekyllブログの記事をQiita CLIで自動ミラーする"
+title: Jekyllブログの記事をQiita CLIで自動ミラーする
 tags:
-  - "Qiita"
-  - "QiitaCLI"
-  - "GitHubActions"
-  - "Jekyll"
+  - Qiita
+  - QiitaCLI
+  - GitHubActions
+  - Jekyll
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T14:52:01+09:00'
+id: c684eb024ac38e96e12f
 organization_url_name: null
 slide: false
 ignorePublish: false
