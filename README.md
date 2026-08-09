@@ -108,12 +108,30 @@ LAN内の別PCから確認する用途では、`--livereload` なし（上記の
 
 `_posts/`を正本として、`qiita.publish: true`を設定した記事だけをQiitaへミラーします。Qiita用Markdownは`qiita/public/`へ生成し、元記事と一緒にGit管理します。
 
+ブログの`tags`と`qiita.tags`は別の設定です。記事の本文がQiitaに関係する場合だけブログ側へ`Qiita`タグを付け、単にQiitaへミラーするだけの記事には付けません。
+
+### 投稿フロー
+
+1. `_posts/`の記事を作成または更新する
+2. Qiitaにも掲載する記事だけ、Front Matterへ`qiita.publish: true`と1〜5個の`qiita.tags`を設定する
+3. Qiita用Markdownを生成し、`--check`とPreviewで内容を確認する
+4. `_posts/`と`qiita/public/`を同じPull Requestへ含める
+5. Pull Requestをmainへマージし、GitHub Actionsの成功と公開ページを確認する
+
+```yaml
+qiita:
+  publish: true
+  tags:
+    - JavaScript
+    - GitHubActions
+```
+
 ```bash
 # Qiita CLIをインストール
 npm install
 
-# Qiita用Markdownを生成
-ruby scripts/export-qiita.rb
+# 対象記事のQiita用Markdownを生成
+ruby scripts/export-qiita.rb _posts/YYYY-MM-DD-slug.md
 
 # 生成物が最新か確認
 ruby scripts/export-qiita.rb --check
@@ -126,7 +144,9 @@ npx qiita preview --root qiita-preview --config qiita-preview
 
 詳しい確認手順は`qiita-preview/README.md`を参照してください。
 
-mainブランチでは`.github/workflows/publish-qiita.yml`がQiita用Markdownを検証し、Qiita CLIで投稿・更新します。実行前にQiitaで`read_qiita`と`write_qiita`権限のアクセストークンを発行し、GitHub Actions Secretへ`QIITA_TOKEN`という名前で登録してください。トークンはリポジトリへ保存しないでください。
+mainブランチでは`.github/workflows/publish-qiita.yml`がQiita用Markdownを検証し、Qiita CLIで投稿・更新します。初回投稿後は、Qiita CLIが書き戻した`id`と`updated_at`をGitHub Actionsがmainへ自動コミットします。同じ内容で再実行した場合は`Nothing to publish`となり、新しい記事は作成されません。
+
+Qiitaで`read_qiita`と`write_qiita`権限のアクセストークンを発行し、GitHub Actions Secretへ`QIITA_TOKEN`という名前で登録しておく必要があります。トークンはリポジトリへ保存しないでください。
 
 ## 記事の作成方法
 
