@@ -147,7 +147,7 @@ class QiitaExporter
       "agreed_posting_campaign_term" => false
     }
 
-    body = rewrite_links(document.fetch(:body))
+    body = rewrite_links(document.fetch(:body), path)
     body = append_footer(body, canonical_url(source, path))
     render_qiita_document(data, body)
   end
@@ -177,7 +177,7 @@ class QiitaExporter
     raise QiitaExportError, "#{relative(path)}: invalid date: #{e.message}"
   end
 
-  def rewrite_links(body)
+  def rewrite_links(body, source_path)
     in_fence = false
     fence_character = nil
     fence_length = nil
@@ -197,10 +197,24 @@ class QiitaExporter
 
       next line if in_fence
 
-      rewritten = line.gsub(/(\]\()\/(?!\/)/, "\\1#{@site_url}/")
+      rewritten = rewrite_post_url_tags(line, source_path)
+      rewritten = rewritten.gsub(/(\]\()\/(?!\/)/, "\\1#{@site_url}/")
       rewritten = rewritten.gsub(/^(\s*\[[^\]]+\]:\s*)\/(?!\/)/, "\\1#{@site_url}/")
       rewritten.gsub(/((?:href|src)=[\"'])\/(?!\/)/i, "\\1#{@site_url}/")
     end.join
+  end
+
+  def rewrite_post_url_tags(line, source_path)
+    line.gsub(/\{%\s*post_url\s+(['"]?)([^'"\s%]+)\1\s*%\}/) do
+      reference = Regexp.last_match(2)
+      target_path = File.join(@posts_dir, "#{reference}.md")
+      unless File.file?(target_path)
+        raise QiitaExportError, "#{relative(source_path)}: post_url target not found: #{reference}"
+      end
+
+      target = parse_document(target_path)
+      canonical_url(target.fetch(:data), target_path)
+    end
   end
 
   def append_footer(body, canonical_url)

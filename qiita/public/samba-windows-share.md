@@ -1,18 +1,18 @@
 ---
-layout: post
 title: "Ubuntuの特定ディレクトリをWindowsエクスプローラーで開く（Samba/SMB）"
-thumbnail: /assets/images/posts/2026-01-18-samba-windows-share/thumbnail.svg
-date: 2026-01-18 02:30:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, Samba, Windows]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Ubuntu
-    - Samba
-    - Windows
-    - SMB
+tags:
+  - "Ubuntu"
+  - "Samba"
+  - "Windows"
+  - "SMB"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
@@ -24,11 +24,11 @@ qiita:
 - Windows（クライアント）IP: `192.168.2.95`（固定）
 - 共有したいディレクトリ: `/home/relion911`
 
-![Samba共有の構成図](/assets/images/posts/2026-01-18-samba-windows-share/samba-share-diagram.svg)
+![Samba共有の構成図](https://reotech736.com/assets/images/posts/2026-01-18-samba-windows-share/samba-share-diagram.svg)
 
 ## なぜ Samba（SMB）なのか
 
-WindowsからLinuxのファイルを扱う方法はいくつかありますが、今回は**[Samba](/terms/samba/)（[SMB](/terms/smb/)）**を選びました。
+WindowsからLinuxのファイルを扱う方法はいくつかありますが、今回は**[Samba](https://reotech736.com/terms/samba/)（[SMB](https://reotech736.com/terms/smb/)）**を選びました。
 
 ### Sambaのメリット
 
@@ -36,7 +36,7 @@ WindowsからLinuxのファイルを扱う方法はいくつかありますが�
 - エクスプローラーから普段のフォルダと同じ感覚で扱える
 - 家庭内LANの範囲なら導入と運用が**シンプル**
 
-[SFTP](/terms/sftp/)マウントも選択肢ですが、Windows側に追加ツールが必要だったり、操作感が重く感じることがありました。**「Windowsのエクスプローラーで普通に開ければ十分」**という用途ならSambaが最短です。
+[SFTP](https://reotech736.com/terms/sftp/)マウントも選択肢ですが、Windows側に追加ツールが必要だったり、操作感が重く感じることがありました。**「Windowsのエクスプローラーで普通に開ければ十分」**という用途ならSambaが最短です。
 
 ## 導入手順（Ubuntu側）
 
@@ -107,7 +107,7 @@ sudo systemctl enable --now smbd nmbd
 
 ### 6) UFWで接続元をWindowsだけに絞る（推奨）
 
-家庭内でも共有を開きっぱなしにするなら、[UFW](/terms/ufw/)で**アクセス元を絞る**のが安全です。
+家庭内でも共有を開きっぱなしにするなら、[UFW](https://reotech736.com/terms/ufw/)で**アクセス元を絞る**のが安全です。
 
 ```bash
 sudo ufw allow from 192.168.2.95 to any app Samba
@@ -129,11 +129,11 @@ sudo ufw status
 - ユーザー名: `relion911`
 - パスワード: `smbpasswd` で設定したもの
 
-![WindowsエクスプローラーからSamba共有へアクセス](/assets/images/posts/2026-01-18-samba-windows-share/windows-explorer-share.png)
+![WindowsエクスプローラーからSamba共有へアクセス](https://reotech736.com/assets/images/posts/2026-01-18-samba-windows-share/windows-explorer-share.png)
 
 ### 2) ネットワークドライブに割り当て（便利）
 
-エクスプローラー → 「PC」 → 「[ネットワークドライブ](/terms/network-drive/)の割り当て」
+エクスプローラー → 「PC」 → 「[ネットワークドライブ](https://reotech736.com/terms/network-drive/)の割り当て」
 
 - ドライブ例: `Z:`
 - フォルダ: `\\192.168.2.94\share`
@@ -163,7 +163,7 @@ Samba側で隠している場合は `hide dot files` などの設定が影響し
 
 ### 2) `.ssh` 配下の編集は注意
 
-[SSH](/terms/ssh/)は権限に厳しいため、Windows側の編集でパーミッションが変わると**ログインできなくなる**ことがあります。`.ssh` 配下はUbuntu側で**編集する運用が安全**です。
+[SSH](https://reotech736.com/terms/ssh/)は権限に厳しいため、Windows側の編集でパーミッションが変わると**ログインできなくなる**ことがあります。`.ssh` 配下はUbuntu側で**編集する運用が安全**です。
 
 ### 3) セキュリティ
 
@@ -171,10 +171,16 @@ Samba共有は便利な反面、開放範囲が広いと**リスクが上がり�
 
 - **UFWで特定IPだけ許可**
 - **インターネットへ直接公開しない**
-- 必要なら[VPN](/terms/vpn/)経由でアクセス
+- 必要なら[VPN](https://reotech736.com/terms/vpn/)経由でアクセス
 
 ## まとめ
 
 - WindowsエクスプローラーからLinuxのディレクトリを扱うなら、**Samba（SMB）が最短で導入できる**
 - Ubuntu側で共有設定を入れ、Windows側は `\\IPaddr\share` でアクセスする
 - **UFWで接続元を絞る**と家庭内運用でも安全性が上がる
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/01/18/samba-windows-share.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

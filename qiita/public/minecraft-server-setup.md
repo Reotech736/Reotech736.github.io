@@ -1,28 +1,28 @@
 ---
-layout: post
 title: "Minecraft serverをDockerで安全運用する"
-thumbnail: /assets/images/posts/2026-03-02-minecraft-server-setup/thumbnail.svg
-date: 2026-03-02 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, Docker, Minecraft]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Minecraft
-    - Docker
-    - Ubuntu
-    - サーバー
+tags:
+  - "Minecraft"
+  - "Docker"
+  - "Ubuntu"
+  - "サーバー"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-[前回の記事「Docker環境の構築」]({% post_url 2026-01-21-docker-dev-setup %})で Docker を導入したので、今回はその上で **Minecraft Java サーバを2ワールド構成で運用**できるようにしました。さらに、友人向けに SSH 操作を開放しつつ、サーバ全体に触れられないように **操作範囲を強制的に限定**しています。  
+[前回の記事「Docker環境の構築」](https://reotech736.com/2026/01/21/docker-dev-setup.html)で Docker を導入したので、今回はその上で **Minecraft Java サーバを2ワールド構成で運用**できるようにしました。さらに、友人向けに SSH 操作を開放しつつ、サーバ全体に触れられないように **操作範囲を強制的に限定**しています。  
 今回のゴールは次の3つです。
 
-- サバイバル/クリエイティブを [Docker Compose](/terms/docker-compose/) で分離運用する
+- サバイバル/クリエイティブを [Docker Compose](https://reotech736.com/terms/docker-compose/) で分離運用する
 - 起動・停止・ログ管理をスクリプト化して保守しやすくする
-- 友人用ユーザーに[最小権限](/terms/least-privilege/)だけを渡し、誤操作や悪用時の被害を抑える
+- 友人用ユーザーに[最小権限](https://reotech736.com/terms/least-privilege/)だけを渡し、誤操作や悪用時の被害を抑える
 
 マインクラフトのサーバ構成は、[minecraft-server（GitHub）](https://github.com/Reotech736/minecraft-server) で管理しています。
 
@@ -30,11 +30,11 @@ qiita:
 
 - Ubuntu Server 上で Docker Compose を使用
 - `mc-survival`（`25565`）と `mc-creative`（`25566`）を別コンテナで運用
-- ワールドデータは[Docker Composeのボリューム設定](/terms/docker-volume/)で `data-survival` / `data-creative` に分離して永続化
+- ワールドデータは[Docker Composeのボリューム設定](https://reotech736.com/terms/docker-volume/)で `data-survival` / `data-creative` に分離して永続化
 - 起動時にログ整理を自動判定するラッパースクリプトを利用
-- 友人用ユーザー `guest-minecraft` は [Tailscale](/terms/tailscale/) 経由 SSH + 許可コマンドのみ実行
+- 友人用ユーザー `guest-minecraft` は [Tailscale](https://reotech736.com/terms/tailscale/) 経由 SSH + 許可コマンドのみ実行
 
-![minecraft server architecture](/assets/images/posts/2026-03-02-minecraft-server-setup/minecraft-server-architecture.svg)
+![minecraft server architecture](https://reotech736.com/assets/images/posts/2026-03-02-minecraft-server-setup/minecraft-server-architecture.svg)
 
 ## Docker Compose で2ワールドを分離
 
@@ -82,17 +82,17 @@ services:
 ```
 
 `start-minecraft.sh` は、前回ログ整理から24時間以上経っていたら `cleanup-minecraft-logs.sh` を実行し、30日超の圧縮ログ（`*.gz`）を削除します。  
-加えて、コンテナログ側も `max-size: 10m` / `max-file: 5` で[ログローテーション](/terms/log-rotation/)しており、長期運用でディスクが詰まりにくい構成にしています。
+加えて、コンテナログ側も `max-size: 10m` / `max-file: 5` で[ログローテーション](https://reotech736.com/terms/log-rotation/)しており、長期運用でディスクが詰まりにくい構成にしています。
 
 ## 友人向け SSH は「実行できる操作」を固定
 
 「SSH を渡す = 何でもできる」状態にしないため、入口を固定しました。
 
 1. 友人用ユーザー `guest-minecraft` を作成
-2. パスワードログインを無効化し、[SSH公開鍵認証](/terms/ssh-public-key-authentication/)のみ許可
-3. [`authorized_keys`](/terms/authorized-keys/) で `command="/usr/local/bin/mc-guest-entrypoint"` を強制
+2. パスワードログインを無効化し、[SSH公開鍵認証](https://reotech736.com/terms/ssh-public-key-authentication/)のみ許可
+3. [`authorized_keys`](https://reotech736.com/terms/authorized-keys/) で `command="/usr/local/bin/mc-guest-entrypoint"` を強制
 4. `mc-guest-entrypoint` で許可コマンドをホワイトリスト化
-5. [`sudoers`](/terms/sudoers/) で `/usr/local/bin/mc-ctl` の限定サブコマンドだけ許可
+5. [`sudoers`](https://reotech736.com/terms/sudoers/) で `/usr/local/bin/mc-ctl` の限定サブコマンドだけ許可
 
 `authorized_keys` 例:
 
@@ -157,7 +157,7 @@ sudo ./scripts/admin/install-guest-minecraft.sh
 - 許可スクリプト自体のバグ
 - ホスト OS / Docker / SSH の脆弱性
 
-運用では、鍵ローテーション・OS更新・ログ監視を継続し、必要に応じて接続元制限（[UFW](/terms/ufw/) + Tailscale [ACL](/terms/access-control-list/)）を強化するのが現実的です。
+運用では、鍵ローテーション・OS更新・ログ監視を継続し、必要に応じて接続元制限（[UFW](https://reotech736.com/terms/ufw/) + Tailscale [ACL](https://reotech736.com/terms/access-control-list/)）を強化するのが現実的です。
 
 ## まとめ
 
@@ -168,3 +168,9 @@ sudo ./scripts/admin/install-guest-minecraft.sh
 - 友人には「必要な操作だけ」委譲し、ホスト全体の露出を最小化
 
 「動けばOK」で終わらせず、運用・保守・権限設計まで含めて形にできたのが一番の収穫でした。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/03/02/minecraft-server-setup.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

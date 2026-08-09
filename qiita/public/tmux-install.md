@@ -1,26 +1,25 @@
 ---
-layout: post
 title: "tmuxのインストールと基本操作｜SSH作業向けチートシート"
-thumbnail: /assets/images/posts/2026-07-05-tmux-install/thumbnail.svg
-date: 2026-07-05 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, tmux]
-mermaid: true
-toc: true
-qiita:
-  publish: true
-  tags:
-    - tmux
-    - Ubuntu
-    - Linux
-    - SSH
+tags:
+  - "tmux"
+  - "Ubuntu"
+  - "Linux"
+  - "SSH"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-自宅のLinuxサーバへ[SSH](/terms/ssh/)接続して作業していると、通信が切れたときに実行中のコマンドまで終了してしまうことがあります。時間のかかる処理を動かしている場合や、複数のターミナルを行き来する場合に備えて、[ターミナルマルチプレクサ](/terms/terminal-multiplexer/)の[tmux](/terms/tmux/)を導入しました。
+自宅のLinuxサーバへ[SSH](https://reotech736.com/terms/ssh/)接続して作業していると、通信が切れたときに実行中のコマンドまで終了してしまうことがあります。時間のかかる処理を動かしている場合や、複数のターミナルを行き来する場合に備えて、[ターミナルマルチプレクサ](https://reotech736.com/terms/terminal-multiplexer/)の[tmux](https://reotech736.com/terms/tmux/)を導入しました。
 
-この記事では、Ubuntuへのインストールから、[セッション](/terms/tmux-session/)の作成・デタッチ・再接続、[ウィンドウ](/terms/tmux-window/)と[ペイン](/terms/tmux-pane/)の操作までを整理します。最後に、普段使うコマンドとキー操作をチートシートとしてまとめます。
+この記事では、Ubuntuへのインストールから、[セッション](https://reotech736.com/terms/tmux-session/)の作成・デタッチ・再接続、[ウィンドウ](https://reotech736.com/terms/tmux-window/)と[ペイン](https://reotech736.com/terms/tmux-pane/)の操作までを整理します。最後に、普段使うコマンドとキー操作をチートシートとしてまとめます。
 
 今回の確認環境は次のとおりです。
 
@@ -365,3 +364,9 @@ Ctrl + b → 矢印キー
 
 - [tmux公式Wiki：Getting Started](https://github.com/tmux/tmux/wiki/Getting-Started)
 - [tmux公式Wiki：Installing](https://github.com/tmux/tmux/wiki/Installing)
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/07/05/tmux-install.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

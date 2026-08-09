@@ -1,31 +1,31 @@
 ---
-layout: post
 title: "Docker環境の構築"
-thumbnail: /assets/images/posts/2026-01-21-docker-dev-setup/thumbnail.svg
-date: 2026-01-21 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, Docker]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Docker
-    - Ubuntu
-    - Linux
+tags:
+  - "Docker"
+  - "Ubuntu"
+  - "Linux"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-Ubuntu に [Docker](/terms/docker/) をインストールして、[コンテナ](/terms/container/)を動かせる状態にするまでの手順をまとめます。Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます。この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）。
+Ubuntu に [Docker](https://reotech736.com/terms/docker/) をインストールして、[コンテナ](https://reotech736.com/terms/container/)を動かせる状態にするまでの手順をまとめます。Docker を触るのが初めてでも理解しやすいように、まず用語（Docker / コンテナ / イメージ）をざっくり説明してから進めます。この記事のゴールは「Docker 環境の構築」です（特定のアプリを Docker で動かす話ではありません）。
 
 ## Dockerとは
 
 Docker は、アプリを **「コンテナ」** という単位で動かすための仕組み（ツール群）です。アプリの実行に必要なもの（ライブラリや設定など）をまとめて扱えるので、環境差分によるトラブルを減らしやすくなります。  
 Docker を使うときの登場人物は大体この3つです。
 
-- **[Docker Engine](/terms/docker-engine/)（デーモン）**: バックグラウンドで動いてコンテナを起動・停止する本体
+- **[Docker Engine](https://reotech736.com/terms/docker-engine/)（デーモン）**: バックグラウンドで動いてコンテナを起動・停止する本体
 - **Docker CLI**: `docker` コマンド（エンジンに指示するための操作口）
-- **[Docker Registry](/terms/container-registry/)**: イメージの置き場（Docker Hub など）
+- **[Docker Registry](https://reotech736.com/terms/container-registry/)**: イメージの置き場（Docker Hub など）
 
 ## コンテナとは
 
@@ -34,11 +34,11 @@ Docker を使うときの登場人物は大体この3つです。
 
 - コンテナは **VM（仮想マシン）ではない**（ホストOSのカーネルを共有して動く）
 - その分、起動が速くて軽い
-- ただし、コンテナの中で作ったデータは **基本的に消えやすい**（必要なら[ボリューム](/terms/docker-volume/)で永続化する）
+- ただし、コンテナの中で作ったデータは **基本的に消えやすい**（必要なら[ボリューム](https://reotech736.com/terms/docker-volume/)で永続化する）
 
 ## Docker Imageとは
 
-[Docker Image（コンテナイメージ）](/terms/container-image/)は、コンテナの元になる **「実行環境のテンプレート」** です。イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです。
+[Docker Image（コンテナイメージ）](https://reotech736.com/terms/container-image/)は、コンテナの元になる **「実行環境のテンプレート」** です。イメージそのものは読み取り専用で、イメージから起動された実体がコンテナです。
 
 - **イメージ**: 料理のレシピ（テンプレート）
 - **コンテナ**: できあがった料理（動いている実体）
@@ -86,7 +86,7 @@ sudo apt-get update
 sudo apt-get install -y docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
 
-`docker-compose-plugin` まで入れているので、[Docker Compose](/terms/docker-compose/) は `docker compose ...` の形式で使えます。
+`docker-compose-plugin` まで入れているので、[Docker Compose](https://reotech736.com/terms/docker-compose/) は `docker compose ...` の形式で使えます。
 
 ## 動作確認
 
@@ -166,3 +166,9 @@ sudo systemctl status docker --no-pager
 
 Ubuntu に Docker（Engine / Buildx / Compose）を入れて、コンテナを動かすところまで確認しました。  
 次は、適当なイメージ（例: `ubuntu:24.04`）を `docker run --rm -it ...` で動かして、コンテナの操作感に慣れるのがおすすめです。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/01/21/docker-dev-setup.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

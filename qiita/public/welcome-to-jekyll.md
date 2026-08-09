@@ -1,22 +1,22 @@
 ---
-layout: post
 title: "Jekyll + GitHub Pagesでブログを始めました"
-thumbnail: /assets/images/posts/2025-11-26-welcome-to-jekyll/thumbnail.svg
-date: 2025-11-26 01:30:00 +0900
-author: Reo Komatsubara
-tags: [Jekyll, GitHub Pages, ブログ]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Jekyll
-    - GitHubPages
-    - GitHub
+tags:
+  - "Jekyll"
+  - "GitHubPages"
+  - "GitHub"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめまして
 
-[Jekyll](/terms/jekyll/) + [GitHub Pages](/terms/github-pages/)を使って技術ブログを始めました。エンジニアとして働く中で学んだことや、個人的に試してみた技術を記録する場所として、このブログを立ち上げることにしました。
+[Jekyll](https://reotech736.com/terms/jekyll/) + [GitHub Pages](https://reotech736.com/terms/github-pages/)を使って技術ブログを始めました。エンジニアとして働く中で学んだことや、個人的に試してみた技術を記録する場所として、このブログを立ち上げることにしました。
 
 ## なぜJekyllを選んだか
 
@@ -24,7 +24,7 @@ qiita:
 
 ### シンプルで高速
 
-[静的サイトジェネレーター](/terms/static-site-generator/)なので、データベースが不要でページの読み込みが高速です。サーバー側の処理がないため、セキュリティ面でも安心できます。
+[静的サイトジェネレーター](https://reotech736.com/terms/static-site-generator/)なので、データベースが不要でページの読み込みが高速です。サーバー側の処理がないため、セキュリティ面でも安心できます。
 
 ### GitHub Pagesとの相性
 
@@ -32,7 +32,7 @@ GitHub Pagesで無料ホスティングができ、Gitでバージョン管理�
 
 ### Markdownで記事を書ける
 
-普段から[Markdown](/terms/markdown/)を使っているため、慣れた環境で記事を執筆できます。コードブロックやリストなども簡単に書けるので、技術記事に最適です。
+普段から[Markdown](https://reotech736.com/terms/markdown/)を使っているため、慣れた環境で記事を執筆できます。コードブロックやリストなども簡単に書けるので、技術記事に最適です。
 
 ### カスタマイズ性
 
@@ -70,3 +70,9 @@ HTML/CSS/JavaScriptを使って自由にカスタマイズできます。テー�
 
 これから技術的な学びや気づきをこのブログで共有していきます。  
 よろしくお願いします。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2025/11/26/welcome-to-jekyll.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

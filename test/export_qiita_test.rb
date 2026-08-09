@@ -18,6 +18,13 @@ class QiitaExporterTest < Minitest::Test
   end
 
   def test_exports_front_matter_links_html_and_footer_without_rewriting_code
+    write_post("2026-08-07-related.md", <<~MARKDOWN)
+      ---
+      title: Related
+      date: 2026-08-07
+      ---
+      Related body
+    MARKDOWN
     path = write_post("2026-08-08-example.md", <<~MARKDOWN)
       ---
       title: "Example"
@@ -30,9 +37,11 @@ class QiitaExporterTest < Minitest::Test
       [用語](/terms/example/)
       ![画像](/assets/example.png)
       <a href="/about/">About</a>
+      [関連記事]({% post_url 2026-08-07-related %})
 
       ```markdown
       [変換しない](/inside-code/)
+      {% post_url 2026-08-07-related %}
       ```
     MARKDOWN
 
@@ -44,7 +53,9 @@ class QiitaExporterTest < Minitest::Test
     assert_includes output, "[用語](https://example.com/terms/example/)"
     assert_includes output, "![画像](https://example.com/assets/example.png)"
     assert_includes output, '<a href="https://example.com/about/">About</a>'
+    assert_includes output, "[関連記事](https://example.com/2026/08/07/related.html)"
     assert_includes output, "[変換しない](/inside-code/)"
+    assert_includes output, "{% post_url 2026-08-07-related %}"
     assert_includes output, "https://example.com/2026/08/08/example.html"
     assert_equal 1, output.scan(QiitaExporter::FOOTER_MARKER).length
   end

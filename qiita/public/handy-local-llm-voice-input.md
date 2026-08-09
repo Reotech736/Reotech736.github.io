@@ -1,24 +1,23 @@
 ---
-layout: post
 title: "HandyとローカルLLMで音声入力環境を構築しようとした話"
-thumbnail: /assets/images/posts/handy-local-llm-voice-input/thumbnail.svg
-date: 2026-08-04 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Windows, AI, 音声入力]
-mermaid: true
-toc: true
-qiita:
-  publish: true
-  tags:
-    - 音声入力
-    - LLM
-    - Windows
-    - AI
+tags:
+  - "音声入力"
+  - "LLM"
+  - "Windows"
+  - "AI"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-Windowsで使っている[Handy](/terms/handy/)の音声入力へ、用途別の文章整形を加える仕組みを作りました。[自動音声認識（ASR）](/terms/automatic-speech-recognition/)の後段に[ローカルLLM](/terms/local-llm/)を置き、AIへの指示、業務連絡、友人向けチャットに合う文体へ整える構成です。
+Windowsで使っている[Handy](https://reotech736.com/terms/handy/)の音声入力へ、用途別の文章整形を加える仕組みを作りました。[自動音声認識（ASR）](https://reotech736.com/terms/automatic-speech-recognition/)の後段に[ローカルLLM](https://reotech736.com/terms/local-llm/)を置き、AIへの指示、業務連絡、友人向けチャットに合う文体へ整える構成です。
 
 構成は実機で動きました。しかし、待ち時間に見合う改善を安定して得られなかったため、現在はHandyのWhisper Mediumだけで文字起こしする運用に戻しています。
 
@@ -37,11 +36,11 @@ Handyは、ショートカットで録音し、端末内で音声を文字へ変
 | Friend | 元の口調を保ちながら読みやすくする |
 | Raw | Handyの文字起こしをそのまま使う |
 
-文章整形には、Windows上でQwen3を実行する[Ollama](/terms/ollama/)を利用しました。Handy自体は変更せず、Custom Post-Processing Providerと公開CLIから連携します。
+文章整形には、Windows上でQwen3を実行する[Ollama](https://reotech736.com/terms/ollama/)を利用しました。Handy自体は変更せず、Custom Post-Processing Providerと公開CLIから連携します。
 
 ## 全体構成
 
-自作キーボードのroBaはF13〜F18をWindowsへ送り、AutoHotkey v2がプロファイル選択とHandyを操作します。Handyからlocalhostの[OpenAI互換API](/terms/openai-compatible-api/)へ文字起こしを渡し、`voice-profiles`がOllamaへ文章整形を依頼する構成です。
+自作キーボードのroBaはF13〜F18をWindowsへ送り、AutoHotkey v2がプロファイル選択とHandyを操作します。Handyからlocalhostの[OpenAI互換API](https://reotech736.com/terms/openai-compatible-api/)へ文字起こしを渡し、`voice-profiles`がOllamaへ文章整形を依頼する構成です。
 
 ```mermaid
 flowchart LR
@@ -70,7 +69,7 @@ F16のRaw Pathは`voice-profiles`とLLMを完全に迂回します。APIやLLM�
 
 Handyの後処理プロバイダーを`Custom`にすると、任意のlocalhost APIを呼び出せます。ここへ`voice-profiles`が提供する最小限のOpenAI互換APIを設定しました。
 
-![Handyの後処理設定でCustom Provider、localhostのBase URL、voice-profiles-pocモデルを選択している](/assets/images/posts/handy-local-llm-voice-input/handy-custom-post-processing.png)
+![Handyの後処理設定でCustom Provider、localhostのBase URL、voice-profiles-pocモデルを選択している](https://reotech736.com/assets/images/posts/handy-local-llm-voice-input/handy-custom-post-processing.png)
 
 APIは`127.0.0.1`だけで待ち受け、文字起こし本文を通常ログへ保存しません。LLM出力は自動送信せず、入力欄へ貼り付けた後に人が確認します。
 
@@ -119,7 +118,7 @@ sequenceDiagram
 
 Handyには複数の音声認識モデルがあります。日本語中の英字・数字と動作の安定性を比較し、今回はWhisper Mediumを選びました。
 
-![Handyのモデル選択画面にNemotron Streaming 3.5、Cohere Transcribe、Whisper Mediumなどが並んでいる](/assets/images/posts/handy-local-llm-voice-input/handy-model-selection.png)
+![Handyのモデル選択画面にNemotron Streaming 3.5、Cohere Transcribe、Whisper Mediumなどが並んでいる](https://reotech736.com/assets/images/posts/handy-local-llm-voice-input/handy-model-selection.png)
 
 | モデル | 実機での観察 |
 | --- | --- |
@@ -131,7 +130,7 @@ Handyには複数の音声認識モデルがあります。日本語中の英字
 
 ### ローカルLLMを選ぶ
 
-Radeon 780MでLLMを動かすため、Ollamaの実験的な[Vulkan](/terms/vulkan/)経路を利用しました。Ollamaの[Windows向け資料](https://docs.ollama.com/windows)と[GPU対応資料](https://docs.ollama.com/gpu)でも、WindowsのAMD Radeon対応とVulkanの位置付けを確認できます。
+Radeon 780MでLLMを動かすため、Ollamaの実験的な[Vulkan](https://reotech736.com/terms/vulkan/)経路を利用しました。Ollamaの[Windows向け資料](https://docs.ollama.com/windows)と[GPU対応資料](https://docs.ollama.com/gpu)でも、WindowsのAMD Radeon対応とVulkanの位置付けを確認できます。
 
 | モデル | 常駐後の処理時間 | 判断 |
 | --- | ---: | --- |
@@ -140,7 +139,7 @@ Radeon 780MでLLMを動かすため、Ollamaの実験的な[Vulkan](/terms/vulka
 
 Qwen3 8Bの推論中は、Radeon 780MのGPU使用率が約80%まで上がりました。内蔵GPUでモデル全体を動かせていることは確認できました。
 
-![WindowsタスクマネージャーでQwen3推論中のRadeon 780Mが約80パーセント使用されている](/assets/images/posts/handy-local-llm-voice-input/radeon-780m-llm-usage.png)
+![WindowsタスクマネージャーでQwen3推論中のRadeon 780Mが約80パーセント使用されている](https://reotech736.com/assets/images/posts/handy-local-llm-voice-input/radeon-780m-llm-usage.png)
 
 短い固定入力では約2秒でしたが、これはOllama単体の測定です。詳細は[Milestone 1 ローカルLLM基盤 実測記録](https://github.com/Reotech736/voice-profiles/blob/main/docs/verification/milestone-1-results.md)に残しています。
 
@@ -192,3 +191,9 @@ HandyやローカルLLM全般が使えないという結論ではありません
 Handy、AutoHotkey、localhostのAPI、Ollama、Qwen3を組み合わせた音声入力環境は動きました。しかし、実経路では平均5.551秒、自動品質合格3 / 12となり、日常利用にはHandy単体の方が合っていました。
 
 「動いた」と「毎日使える」を分けて評価できたことが、今回の一番の成果です。固定評価と再開条件を残したので、環境が進歩したときに同じ基準で試し直せます。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/08/04/handy-local-llm-voice-input.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。
