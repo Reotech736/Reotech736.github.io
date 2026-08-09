@@ -1,0 +1,74 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">今後2回のYOLO26比較ロードマップ</title>
+  <desc id="desc">次回はYOLO26n、s、mを320と640で比較し、次々回は選んだ基準モデルをFP32、FP16、INT8で比較する計画</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#024450"/>
+      <stop offset="100%" stop-color="#087b8a"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#7eb3bf"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <text x="80" y="86" fill="#ffffff" font-size="48" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">今後の比較は2段階</text>
+  <text x="80" y="132" fill="#d9eef2" font-size="24" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">最初にモデル規模と入力解像度、次に数値精度の影響を切り分ける</text>
+
+  <g font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">
+    <rect x="80" y="190" width="650" height="520" rx="28" fill="#ffffff" fill-opacity="0.96"/>
+    <rect x="80" y="190" width="650" height="78" rx="28" fill="#3ba3c5"/>
+    <text x="115" y="242" fill="#024450" font-size="30" font-weight="700">次回：モデル規模 × 入力解像度</text>
+
+    <text x="180" y="330" text-anchor="middle" fill="#405a64" font-size="24" font-weight="700">モデル</text>
+    <text x="405" y="330" text-anchor="middle" fill="#405a64" font-size="24" font-weight="700">320 × 320</text>
+    <text x="615" y="330" text-anchor="middle" fill="#405a64" font-size="24" font-weight="700">640 × 640</text>
+
+    <rect x="115" y="355" width="130" height="76" rx="16" fill="#024450"/>
+    <text x="180" y="404" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700">26n</text>
+    <rect x="295" y="355" width="220" height="76" rx="16" fill="#d9eef2"/>
+    <text x="405" y="404" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+    <rect x="535" y="355" width="160" height="76" rx="16" fill="#d9eef2"/>
+    <text x="615" y="404" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+
+    <rect x="115" y="451" width="130" height="76" rx="16" fill="#036982"/>
+    <text x="180" y="500" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700">26s</text>
+    <rect x="295" y="451" width="220" height="76" rx="16" fill="#d9eef2"/>
+    <text x="405" y="500" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+    <rect x="535" y="451" width="160" height="76" rx="16" fill="#d9eef2"/>
+    <text x="615" y="500" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+
+    <rect x="115" y="547" width="130" height="76" rx="16" fill="#087b8a"/>
+    <text x="180" y="596" text-anchor="middle" fill="#ffffff" font-size="27" font-weight="700">26m</text>
+    <rect x="295" y="547" width="220" height="76" rx="16" fill="#d9eef2"/>
+    <text x="405" y="596" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+    <rect x="535" y="547" width="160" height="76" rx="16" fill="#d9eef2"/>
+    <text x="615" y="596" text-anchor="middle" fill="#024450" font-size="25">計測</text>
+    <text x="405" y="674" text-anchor="middle" fill="#405a64" font-size="22">COCO品質・PC処理時間・モデルサイズ</text>
+
+    <path d="M755 450H845" fill="none" stroke="#7eb3bf" stroke-width="8" marker-end="url(#arrow)"/>
+
+    <rect x="875" y="190" width="645" height="520" rx="28" fill="#ffffff" fill-opacity="0.96"/>
+    <rect x="875" y="190" width="645" height="78" rx="28" fill="#7eb3bf"/>
+    <text x="910" y="242" fill="#024450" font-size="30" font-weight="700">次々回：数値精度を下げた影響</text>
+    <text x="1197" y="323" text-anchor="middle" fill="#405a64" font-size="23">基準モデルと解像度は次回結果から選定</text>
+
+    <rect x="930" y="365" width="165" height="108" rx="20" fill="#024450"/>
+    <text x="1012" y="410" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="700">FP32</text>
+    <text x="1012" y="446" text-anchor="middle" fill="#d9eef2" font-size="19">基準</text>
+    <rect x="1115" y="365" width="165" height="108" rx="20" fill="#036982"/>
+    <text x="1197" y="410" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="700">FP16</text>
+    <text x="1197" y="446" text-anchor="middle" fill="#d9eef2" font-size="19">低精度化</text>
+    <rect x="1300" y="365" width="165" height="108" rx="20" fill="#087b8a"/>
+    <text x="1382" y="410" text-anchor="middle" fill="#ffffff" font-size="28" font-weight="700">INT8</text>
+    <text x="1382" y="446" text-anchor="middle" fill="#d9eef2" font-size="19">量子化</text>
+
+    <text x="1197" y="538" text-anchor="middle" fill="#024450" font-size="26" font-weight="700">同じ評価条件で比較</text>
+    <text x="1197" y="585" text-anchor="middle" fill="#405a64" font-size="22">AP 50-95 / 処理時間 / スループット</text>
+    <text x="1197" y="623" text-anchor="middle" fill="#405a64" font-size="22">モデルサイズ / runtime failure</text>
+    <text x="1197" y="674" text-anchor="middle" fill="#6b7d84" font-size="19">INT8 calibration dataは評価用val2017と分離</text>
+  </g>
+
+  <rect x="250" y="770" width="1100" height="82" rx="22" fill="#ffffff" fill-opacity="0.15" stroke="#7eb3bf" stroke-width="3"/>
+  <text x="800" y="822" text-anchor="middle" fill="#ffffff" font-size="27" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">この2段階を終えてから、Android実機へ渡す構成を決める</text>
+</svg>

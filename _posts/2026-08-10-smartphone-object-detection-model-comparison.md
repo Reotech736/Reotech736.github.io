@@ -31,12 +31,16 @@ qiita:
 | [COCO](/terms/coco-dataset/) | 人や車の位置を正解データとして持つ、評価用にも使われる画像集 |
 | [IoU](/terms/intersection-over-union/) | 予測した枠と正解の枠がどれくらい重なるかを0〜1で表す値 |
 | [AP 50-95](/terms/average-precision/) | 見逃しと誤検出のバランスをまとめた品質指標。大きいほど良い |
+| [入力解像度](/terms/input-resolution/) | モデルへ渡す画像の縦横サイズ。今回は320×320 |
+| [モデル量子化](/terms/model-quantization/) | 数値をINT8などで表し、モデルの小型化や高速化を狙う変換 |
+| [スループット](/terms/throughput/) | 1秒間に処理できる画像数など、一定時間内の処理量 |
+| YOLO26n / s / m | 同じYOLO26系列の規模違い。nからs、mへ大きくなる |
 
 このほか、`p50`は測定値を小さい順に並べた中央、`p95`は95%の測定値が収まる境界を表します。
 
 ## 今回やったこと
 
-目標は、スマートフォンで人と車を検出するモデルをいきなり決めることではありません。まずPC上で候補を絞り、Android実機で試す1つを決めることです。
+目標は、スマートフォンで人と車を検出するモデルをいきなり決めることではありません。まずPC上で候補を絞り、次の比較で基準にするモデルを決めることです。
 
 | 項目 | 今回の条件 |
 | --- | --- |
@@ -45,7 +49,24 @@ qiita:
 | モデルへの入力 | 320×320ピクセル相当 |
 | 品質評価 | COCO val2017の全5,000画像 |
 | 速度測定 | Windows PCのCPU |
-| Android実機 | まだ未検証 |
+| Android実機 | まだ未検証。追加のPC比較後に実施 |
+
+### 640pxから320pxへ変えた理由
+
+YOLO26の公式性能表やD-FINE-Nのnative条件は640pxです。一方、今回の候補間比較では、共通の入力を320×320へ変更しました。
+
+| 選定理由 | 320pxで先に測る意味 |
+| --- | --- |
+| スマートフォン向けの軽い基準を作る | 小さい入力から始め、必要な品質に届くか確認できる |
+| 異なる候補を同じ条件で比べる | モデルごとのnative条件を混ぜず、入力サイズを固定できる |
+| 段階的に切り分ける | まずモデル差を見て、その後に320と640の差を測れる |
+| 再現しやすくする | 同じshape、評価画像、前処理を記録できる |
+
+640×640は409,600画素、320×320は102,400画素なので、モデルへ入る画素数は4分の1です。ただし、処理時間まで必ず4分の1になるわけではありません。また、小さな対象の情報が減って品質が下がる可能性もあるため、320pxを最終条件と決めたわけではありません。
+
+![YOLO26n、D-FINE-N、PicoDet-Sから利用条件を確認し、共通320pxでONNX一致、COCO品質、PC速度を比較した流れ](/assets/images/posts/smartphone-object-detection-model-comparison/evaluation-flow.svg)
+
+この図のように、今回はモデル差を見るための共通基準として320pxを選びました。次回はYOLO26系列の中で、320と640を直接比べます。
 
 比較は次の順番で進めました。
 
@@ -53,7 +74,7 @@ qiita:
 2. 変換前と変換後で検出結果が変わらないか確認する
 3. 5,000画像で、人と車を見つける品質を比べる
 4. PC上の処理時間を比べる
-5. POCO X8 Proへ渡す候補を決める
+5. 次のモデル規模・解像度比較で基準にする候補を決める
 
 ### 3候補の扱い
 
@@ -135,7 +156,7 @@ YOLO26nの方が、PC上の推論時間は短い結果でした。ただし、�
 
 | 候補 | 変換・実行 | 320pxの品質 | PC速度 | 次の工程 |
 | --- | --- | --- | --- | --- |
-| YOLO26n | parity 185 / 185 | 3候補中で最良 | 最速 | POCO X8 Proで検証 |
+| YOLO26n | parity 185 / 185 | 3候補中で最良 | 最速 | 次回比較の基準 |
 | D-FINE-N | checker、ORT、parity 277 / 277に合格 | 今回の条件に届かず | YOLO26nより遅い | 今回は渡さない |
 | PicoDet-S | 実行前に除外 | 未測定 | 未測定 | 条件確認後に再検討可能 |
 
@@ -143,17 +164,43 @@ D-FINE-Nは「失敗して動かなかった」候補ではありません。Apa
 
 ## まだ分かっていないこと
 
-Android実機ではまだ検証していません。次の工程では、PC結果とは別に以下を測ります。
+今回分かったのは、YOLO26n 320pxが比較基準として有力なことです。Androidへ渡すモデル、入力解像度、数値精度はまだ決めていません。
 
-| POCO X8 Proで確認すること | 確認する理由 |
-| --- | --- |
-| モデルを読み込んで推論できるか | PCとAndroidでは対応環境が異なるため |
-| カメラを含む実効fps | 推論だけでなく撮影と描画にも時間がかかるため |
-| 処理時間のp50 / p95 | 普段の速さと遅い場面の両方を見るため |
-| 10分連続実行時の温度と速度 | 発熱で性能が下がる可能性があるため |
-| メモリ使用量 | アプリとして安定して動かせるかを見るため |
+### 次回はYOLO26n / s / mと320 / 640を比較する
 
-次はPOCO X8 Proだけで完結するlocal-only検証へ進みます。モデルやAPKは第三者へ配布せず、Android上で動くことと、配布できることは分けて扱います。
+次回は、FP32のままモデル規模と入力解像度だけを変えます。6条件を同じPC環境とCOCO val2017で測り、どこから品質向上より処理負荷の増加が大きくなるかを確認します。
+
+| モデル | 320×320 | 640×640 |
+| --- | --- | --- |
+| YOLO26n | 計測 | 計測 |
+| YOLO26s | 計測 | 計測 |
+| YOLO26m | 計測 | 計測 |
+
+主に比較するのは、person / carのAP 50-95、Detection Pointの誤差、ORT CPUのp50 / p95、1秒間の処理量、モデルサイズ、runtime failureです。モデルと入力解像度以外の前処理、評価画像、threshold、実行環境は固定します。
+
+### 次々回はFP32 / FP16 / INT8を比較する
+
+ベースにするモデルと入力解像度は、次回の結果を見てから決めます。その1条件を固定し、数値精度だけを変えて品質と処理性能への影響を調べます。
+
+| 数値精度 | 位置付け | 確認したいこと |
+| --- | --- | --- |
+| FP32 | 変換前の基準 | 品質と処理時間の基準値 |
+| FP16 | 浮動小数点の低精度化 | モデルサイズ、対応runtime、品質、速度 |
+| INT8 | 整数量子化 | calibration後の品質低下と高速化の有無 |
+
+FP16はINT8の整数量子化とは別の変換です。また、ONNX RuntimeのCPU実行はFP16演算をそのまま扱えないため、FP16は対応するExecution Provider上でfull graphを実行できるかも記録します。INT8も、端末やCPUが対応していなければ速くなるとは限りません。
+
+![次回にYOLO26n、s、mの320と640を比較し、次々回に選定モデルのFP32、FP16、INT8を比較するロードマップ](/assets/images/posts/smartphone-object-detection-model-comparison/future-evaluation-roadmap.svg)
+
+2つの比較を終えてから、Android実機へ渡すモデル、入力解像度、数値精度を決めます。
+
+### データセットはCOCOのままでよいか
+
+候補間の共通評価には、引き続きCOCO val2017全5,000画像を使います。今回の結果と連続して比べられ、YOLO26の公式性能値もCOCOを基準としているためです。
+
+ただし、COCOだけでスマートフォンの実利用まで保証はできません。距離や遮蔽、実際のカメラ映像への適合は十分に表せないため、モデル選定後は匿名化した実機カメラ画像を別の補助評価へ加えます。
+
+INT8のstatic quantizationでは、値の範囲を決めるcalibration dataが別途必要です。評価結果への混入を避けるため、val2017は品質評価専用に維持し、calibrationにはCOCO train2017から固定した別subsetなどを使います。使用画像、抽出条件、seedは再現できるよう記録します。
 
 ## 参考資料
 
@@ -163,11 +210,15 @@ Android実機ではまだ検証していません。次の工程では、PC結�
 - [D-FINE checkpoint配布repositoryのLICENSE](https://github.com/Peterande/storage/blob/39a3115d4b1183b9035e333e57655f018272ebbe/LICENSE)
 - [PicoDet Model Zoo](https://github.com/PaddlePaddle/PaddleDetection/blob/b25522a0f4bde8c80603f3ba5e3472059972e3b5/configs/picodet/README_en.md)
 - [COCO Dataset](https://cocodataset.org/)
+- [Ultralytics YOLO26](https://docs.ultralytics.com/models/yolo26/)
 - [ONNX Runtime Mobile](https://onnxruntime.ai/docs/tutorials/mobile/)
+- [ONNX Runtime Quantization](https://onnxruntime.ai/docs/performance/model-optimizations/quantization.html)
+- [ONNX Runtime Float16 and Mixed Precision](https://onnxruntime.ai/docs/performance/model-optimizations/float16.html)
+- [ONNX Runtime Performance Tuning](https://onnxruntime.ai/docs/performance/tune-performance/)
 
 ## まとめ
 
-PC上の比較では、YOLO26nが品質、推論速度、framework/ORT parityの総合で最も良い結果でした。そのため、**YOLO26nをPOCO X8 Proで試す第一候補**にします。
+PC上の比較では、YOLO26nが品質、推論速度、framework/ORT parityの総合で最も良い結果でした。そのため、**YOLO26n 320pxを次の比較で使う基準候補**にします。Androidへ渡すモデルを確定したわけではありません。
 
 ただし、YOLO26nのsourceとcheckpoint licenseはAGPL-3.0です。高性能だから条件を無視したのではなく、現在の個人・非商用・private・第三者非配布の技術実験に限る候補としました。
 
@@ -177,4 +228,4 @@ PC上の比較では、YOLO26nが品質、推論速度、framework/ORT parityの
 - API・SaaSやrepositoryの公開
 - 商用利用、組織・法人での利用
 
-ここまでで決めたのは、Android実機へ渡す候補だけです。スマートフォンで実用的に動くかどうかは、次のPOCO X8 Pro実機検証で確認します。
+次回はYOLO26n / s / mの320 / 640を比較し、次々回は選んだ条件をFP32 / FP16 / INT8で比較します。その結果からAndroidへ渡す構成を決め、最後にPOCO X8 Proでカメラを含む実効fps、発熱、メモリを確認します。
