@@ -1,25 +1,24 @@
 ---
-layout: post
 title: "初めてのIaCで学んだAWS CloudFormation"
-thumbnail: /assets/images/posts/first-cloudformation-iac/thumbnail.svg
-date: 2026-07-16 00:00:00 +0900
-author: Reo Komatsubara
-tags: [AWS]
-mermaid: true
-toc: true
-qiita:
-  publish: true
-  tags:
-    - AWS
-    - CloudFormation
-    - IaC
+tags:
+  - "AWS"
+  - "CloudFormation"
+  - "IaC"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-前回、自宅Linuxサーバの監視値をCustom GPTから確認できる環境を作りました。AWS側にはAMP、IAM、API Gateway、Lambda、Cognitoなど複数のリソースがあり、これらを手作業ではなく[Infrastructure as Code（IaC）](/terms/infrastructure-as-code/)で構築しました。
+前回、自宅Linuxサーバの監視値をCustom GPTから確認できる環境を作りました。AWS側にはAMP、IAM、API Gateway、Lambda、Cognitoなど複数のリソースがあり、これらを手作業ではなく[Infrastructure as Code（IaC）](https://reotech736.com/terms/infrastructure-as-code/)で構築しました。
 
-使用したのは[AWS CloudFormation](/terms/aws-cloudformation/)です。これが私にとって初めてのIaCだったため、使う前に疑問だったことと、実際に使って分かったことを初心者目線でまとめます。
+使用したのは[AWS CloudFormation](https://reotech736.com/terms/aws-cloudformation/)です。これが私にとって初めてのIaCだったため、使う前に疑問だったことと、実際に使って分かったことを初心者目線でまとめます。
 
 この記事の要点は次の4つです。
 
@@ -73,7 +72,7 @@ Linux監視環境では、役割を分けて2つのスタックを使いまし�
 | `linux-monitoring-gpt-amp` | AMP workspace、Agent用IAMユーザー |
 | `linux-monitoring-gpt-diagnostic-api` | API Gateway、Lambda、Cognito、IAM |
 
-![CloudFormationコンソールで、Linux Monitoring GPT用の2スタックが正常な状態になっている一覧。2026年7月16日確認時点の画面](/assets/images/posts/first-cloudformation-iac/cloudformation-stacks.png)
+![CloudFormationコンソールで、Linux Monitoring GPT用の2スタックが正常な状態になっている一覧。2026年7月16日確認時点の画面](https://reotech736.com/assets/images/posts/first-cloudformation-iac/cloudformation-stacks.png)
 
 スタック名と状態がまとまっているため、AWS側の構成をどの単位で管理しているか分かりやすくなりました。
 
@@ -84,7 +83,7 @@ Linux監視環境では、役割を分けて2つのスタックを使いまし�
 - `AmpWorkspace`: Linuxサーバの監視メトリクスを保存するAMP workspace
 - `AgentUser`: 対象workspaceへの`aps:RemoteWrite`だけを許可するIAMユーザー
 
-![CloudFormationのlinux-monitoring-gpt-ampスタックで、AmpWorkspaceとAgentUserの2リソースがCREATE_COMPLETEになっている。Physical IDは非表示](/assets/images/posts/first-cloudformation-iac/amp-stack-resources.png)
+![CloudFormationのlinux-monitoring-gpt-ampスタックで、AmpWorkspaceとAgentUserの2リソースがCREATE_COMPLETEになっている。Physical IDは非表示](https://reotech736.com/assets/images/posts/first-cloudformation-iac/amp-stack-resources.png)
 
 テンプレートの中心部分は次のようになっています。
 
@@ -128,7 +127,7 @@ IAMユーザーを作るため、変更セット作成時には`CAPABILITY_NAMED
 
 診断API側では、LambdaやAPI Gatewayを簡潔に書けるAWS Serverless Application Model（AWS SAM）を使いました。SAMはCloudFormationの拡張で、デプロイ時にはCloudFormationが扱うリソースへ変換されます。
 
-![AWS SAMでデプロイしたlinux-monitoring-gpt-diagnostic-apiスタックに、API Gateway、Lambda、Cognito、IAMなどのリソースが並んでいる。Physical IDは非表示](/assets/images/posts/first-cloudformation-iac/diagnostic-api-stack-resources.png)
+![AWS SAMでデプロイしたlinux-monitoring-gpt-diagnostic-apiスタックに、API Gateway、Lambda、Cognito、IAMなどのリソースが並んでいる。Physical IDは非表示](https://reotech736.com/assets/images/posts/first-cloudformation-iac/diagnostic-api-stack-resources.png)
 
 最初は2リソースだったスタック管理を、API Gateway、Lambda、Cognitoを含む構成へ広げられました。SAMとCloudFormationの関係は、AWS公式の[AWS SAM概要](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html)でも説明されています。
 
@@ -167,3 +166,9 @@ IAMユーザーを作るため、変更セット作成時には`CAPABILITY_NAMED
 - コンソールで直接変更した場合はドリフトを意識する
 
 便利さだけでなく、どこまでを管理し、何を確認するべきかも具体的に理解できました。今後もテンプレートを小さく変更し、差分を確認してから適用する流れを続けます。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/07/16/first-cloudformation-iac.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

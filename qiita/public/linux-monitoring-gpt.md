@@ -1,24 +1,23 @@
 ---
-layout: post
 title: "Custom GPTでLinuxサーバを診断する"
-thumbnail: /assets/images/posts/linux-monitoring-gpt/thumbnail.svg
-date: 2026-07-14 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, Docker, AWS, ChatGPT]
-mermaid: true
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Linux
-    - Docker
-    - ChatGPT
-    - 監視
+tags:
+  - "Linux"
+  - "Docker"
+  - "ChatGPT"
+  - "監視"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-自宅Linuxサーバの状態を、ChatGPTから「今どうなっている？」と確認できるようにしました。ただし、GPTへSSH接続やサーバ操作の権限は渡していません。[Prometheus](/terms/prometheus/)で収集した監視値だけを返す小さなAPIを用意し、[Custom GPTのActions](/terms/custom-gpt-actions/)から呼び出す構成です。
+自宅Linuxサーバの状態を、ChatGPTから「今どうなっている？」と確認できるようにしました。ただし、GPTへSSH接続やサーバ操作の権限は渡していません。[Prometheus](https://reotech736.com/terms/prometheus/)で収集した監視値だけを返す小さなAPIを用意し、[Custom GPTのActions](https://reotech736.com/terms/custom-gpt-actions/)から呼び出す構成です。
 
 この記事では、CPU使用率とメモリ使用率を自然言語で確認できるようになるまでの構成と、安全性のために絞った公開範囲をまとめます。実装は[linux-monitoring-gpt](https://github.com/Reotech736/linux-monitoring-gpt)で公開しています。
 
@@ -26,13 +25,13 @@ qiita:
 
 Custom GPTにサーバの状態を尋ねると、現在の監視値を日本語で要約します。
 
-![Custom GPTがLinuxサーバのCPU・メモリ・ディスク使用率、ロードアベレージ、稼働時間、アラートの有無を日本語で要約している。2026年7月14日確認時点の画面](/assets/images/posts/linux-monitoring-gpt/chatgpt-diagnostic-result.png)
+![Custom GPTがLinuxサーバのCPU・メモリ・ディスク使用率、ロードアベレージ、稼働時間、アラートの有無を日本語で要約している。2026年7月14日確認時点の画面](https://reotech736.com/assets/images/posts/linux-monitoring-gpt/chatgpt-diagnostic-result.png)
 
 取得できる主な項目は次のとおりです。
 
 | 項目 | 内容 |
 | --- | --- |
-| 到達可否 | [Node Exporter](/terms/node-exporter/)を監視上確認できるか |
+| 到達可否 | [Node Exporter](https://reotech736.com/terms/node-exporter/)を監視上確認できるか |
 | CPU使用率 | 5分平均の使用率 |
 | メモリ使用率 | 利用可能メモリから算出した使用率 |
 | 補助情報 | 最大ディスク使用率、5分ロード、稼働時間、アラート |
@@ -75,7 +74,7 @@ flowchart LR
 
 ## この構成にした理由
 
-最初は[Grafana](/terms/grafana/)だけで確認する構成も考えました。時系列を詳しく見るにはGrafanaが適していますが、外出先からスマホで「CPUは高いか」「メモリは足りているか」を確認するには、ダッシュボードを開いて読み取る手間があります。
+最初は[Grafana](https://reotech736.com/terms/grafana/)だけで確認する構成も考えました。時系列を詳しく見るにはGrafanaが適していますが、外出先からスマホで「CPUは高いか」「メモリは足りているか」を確認するには、ダッシュボードを開いて読み取る手間があります。
 
 今回検討した選択肢と判断は次のとおりです。
 
@@ -83,10 +82,10 @@ flowchart LR
 | --- | --- |
 | Grafanaだけを使う | 詳細な時系列には向く一方、短い状態確認には情報量が多い |
 | Node ExporterやPrometheusを公開する | 監視用ポートをインターネットへ出す必要があり、公開範囲が広くなる |
-| GPTから[AMP](/terms/amazon-managed-service-for-prometheus/)やサーバへ直接接続する | GPTに必要以上の接続先・権限・クエリ自由度を渡すことになる |
-| 任意[PromQL](/terms/promql/)を受け付けるAPI | 便利だが、想定外の高コストなクエリや情報の露出を防ぎにくい |
+| GPTから[AMP](https://reotech736.com/terms/amazon-managed-service-for-prometheus/)やサーバへ直接接続する | GPTに必要以上の接続先・権限・クエリ自由度を渡すことになる |
+| 任意[PromQL](https://reotech736.com/terms/promql/)を受け付けるAPI | 便利だが、想定外の高コストなクエリや情報の露出を防ぎにくい |
 
-そのため、GPTには状態確認に必要な値だけを返すAPIを渡し、監視基盤の詳細操作はGrafanaとAWS側へ残すことにしました。取得元のメトリクスをAMPへ保存しているため、インターネット接続とChatGPTが使える環境であれば、外出先のスマホからでも状態を確認できます。利用時は[Cognito OAuth](/terms/cognito-oauth/)で認証するため、GPTのリンクを知っているだけでは監視値を取得できません。
+そのため、GPTには状態確認に必要な値だけを返すAPIを渡し、監視基盤の詳細操作はGrafanaとAWS側へ残すことにしました。取得元のメトリクスをAMPへ保存しているため、インターネット接続とChatGPTが使える環境であれば、外出先のスマホからでも状態を確認できます。利用時は[Cognito OAuth](https://reotech736.com/terms/cognito-oauth/)で認証するため、GPTのリンクを知っているだけでは監視値を取得できません。
 
 ## 実装の流れ
 
@@ -94,7 +93,7 @@ flowchart LR
 
 Node Exporterはsystemdサービスとして動かし、`127.0.0.1:9100`だけで待ち受けます。Dockerコンテナ内ではなくホスト上で動かすことで、CPU、メモリ、ディスクなどOS全体の状態を素直に取得できます。
 
-Prometheus AgentはDocker Composeで動かし、Node Exporterから必要なメトリクスだけを収集してAMPへ送信します。送信時はHTTPSと[AWS Signature Version 4（SigV4）](/terms/aws-signature-version-4/)で通信とリクエストを保護します。最初の成功条件は、AMP上で次の値が`1`になることでした。
+Prometheus AgentはDocker Composeで動かし、Node Exporterから必要なメトリクスだけを収集してAMPへ送信します。送信時はHTTPSと[AWS Signature Version 4（SigV4）](https://reotech736.com/terms/aws-signature-version-4/)で通信とリクエストを保護します。最初の成功条件は、AMP上で次の値が`1`になることでした。
 
 ```promql
 up{host_id="home-server", job="node-exporter"}
@@ -104,7 +103,7 @@ up{host_id="home-server", job="node-exporter"}
 
 GPTは現在値を短く確認するための入口です。推移や負荷の変化は、ローカルPrometheusとGrafanaで確認します。
 
-![Home Server Overview。Node Exporterの稼働状態、CPU使用率、メモリ使用率、最大ディスク使用率、ロードアベレージを表示している](/assets/images/posts/linux-monitoring-gpt/grafana-home-server-overview.png)
+![Home Server Overview。Node Exporterの稼働状態、CPU使用率、メモリ使用率、最大ディスク使用率、ロードアベレージを表示している](https://reotech736.com/assets/images/posts/linux-monitoring-gpt/grafana-home-server-overview.png)
 
 Grafanaのダッシュボードには、次の値をまとめました。
 
@@ -125,8 +124,8 @@ Custom GPTがサーバやAMPへ直接接続するのではなく、`GET /hosts/h
 
 | 確認箇所 | 役割 |
 | --- | --- |
-| [API Gateway](/terms/api-gateway/) | アクセストークン、client ID、`linux-monitoring/status.read`スコープを検証 |
-| [AWS Lambda](/terms/aws-lambda/) | Cognitoグループを確認し、対象ホストの閲覧を許可 |
+| [API Gateway](https://reotech736.com/terms/api-gateway/) | アクセストークン、client ID、`linux-monitoring/status.read`スコープを検証 |
+| [AWS Lambda](https://reotech736.com/terms/aws-lambda/) | Cognitoグループを確認し、対象ホストの閲覧を許可 |
 | API | 固定クエリの読み取り結果だけを返す |
 
 未認証はHTTP 401、閲覧グループ外はHTTP 403、AMPの照会失敗はHTTP 502として扱います。認証、認可、監視データの取得失敗を分けて確認できるようにしました。
@@ -146,7 +145,7 @@ curl http://127.0.0.1:9100/metrics
 
 CognitoはApp Clientを作るだけではmanaged login画面を使えず、login brandingの設定も必要でした。また、callback URLは公開GPTのURLから推測せず、GPT Editorに表示された値をそのまま登録する必要があります。
 
-OAuth Client Secretや[AWS Identity and Access Management（IAM）](/terms/iam/)認証情報は、Git、OpenAPIスキーマ、記事本文、画面キャプチャへ保存しません。
+OAuth Client Secretや[AWS Identity and Access Management（IAM）](https://reotech736.com/terms/iam/)認証情報は、Git、OpenAPIスキーマ、記事本文、画面キャプチャへ保存しません。
 
 ## 現在の使い分けと今後
 
@@ -169,3 +168,9 @@ Custom GPTにサーバ操作権限を渡さなくても、読み取り専用API�
 - AMPへ保存したメトリクスを使い、外出先からもChatGPTで状態を確認する
 
 監視と公開範囲を少しずつ広げることで、自宅サーバの状態を安全に確認できる仕組みになりました。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/07/14/linux-monitoring-gpt.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

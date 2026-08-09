@@ -1,23 +1,23 @@
 ---
-layout: post
 title: "Discord Bot を Docker で常駐運用する"
-thumbnail: /assets/images/posts/2026-01-26-discord-chatgpt-bot-docker/thumbnail.svg
-date: 2026-01-26 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Ubuntu, Docker, Discord]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Discord
-    - Docker
-    - Ubuntu
-    - Bot
+tags:
+  - "Discord"
+  - "Docker"
+  - "Ubuntu"
+  - "Bot"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-[前回の記事「Docker環境の構築」]({% post_url 2026-01-21-docker-dev-setup %})で Docker 環境までは構築できたので、今回は **実際のアプリをコンテナ化**します。題材は「Discord 上で動く ChatGPT Bot（Node.js）」です（厳密には “Discord サーバ” ではなく “Discord Bot” のコンテナ化です）。  
+[前回の記事「Docker環境の構築」](https://reotech736.com/2026/01/21/docker-dev-setup.html)で Docker 環境までは構築できたので、今回は **実際のアプリをコンテナ化**します。題材は「Discord 上で動く ChatGPT Bot（Node.js）」です（厳密には “Discord サーバ” ではなく “Discord Bot” のコンテナ化です）。  
 この記事のゴールは次の 3 つです。
 
 - いままでターミナルで直接起動していた Bot を Docker コンテナとして常駐させる
@@ -34,7 +34,7 @@ qiita:
 Docker 化すると、起動と管理が **「コンテナ」** という単位に揃うので、運用がかなり楽になります。
 
 - 起動・停止・ログ確認が `docker ...` に統一される
-- `--restart unless-stopped` という[再起動ポリシー](/terms/restart-policy/)で自動起動できるため、サーバ再起動後も復旧しやすい
+- `--restart unless-stopped` という[再起動ポリシー](https://reotech736.com/terms/restart-policy/)で自動起動できるため、サーバ再起動後も復旧しやすい
 - アプリの実行環境（Node.js / 依存関係）がイメージとして固定される
 - 秘密情報（トークン）と設定（settings.json）をホスト側で管理し、差し替えできる
 
@@ -52,11 +52,11 @@ Docker 化すると、起動と管理が **「コンテナ」** という単位�
 今回、構築予定の全体像です。黄色がホスト（Ubuntu Server + Docker Engine）、緑が Bot コンテナです。  
 `.env` と `settings.json` はホスト側で管理して、起動時に渡す/マウントします。
 
-![discord-chatgpt-bot architecture](/assets/images/posts/2026-01-26-discord-chatgpt-bot-docker/discord-chatgpt-bot-architecture.svg)
+![discord-chatgpt-bot architecture](https://reotech736.com/assets/images/posts/2026-01-26-discord-chatgpt-bot-docker/discord-chatgpt-bot-architecture.svg)
 
 ## Dockerfile（コンテナの設計図）
 
-今回の [Dockerfile](/terms/dockerfile/) は「Node.js の公式イメージをベースに、依存関係を入れて起動する」というシンプルな形です。ポイントは **キャッシュが効く順序**と、**root ではなく node ユーザーで動かす**ことです。
+今回の [Dockerfile](https://reotech736.com/terms/dockerfile/) は「Node.js の公式イメージをベースに、依存関係を入れて起動する」というシンプルな形です。ポイントは **キャッシュが効く順序**と、**root ではなく node ユーザーで動かす**ことです。
 
 ```Dockerfile
 FROM node:18-slim
@@ -88,7 +88,7 @@ CMD ["npm", "start"]
 
 ## `.dockerignore`（ビルドに不要なものを除外する）
 
-Docker はビルド時に “[ビルドコンテキスト](/terms/build-context/)” としてディレクトリ一式を送るので、不要なものは最初から[`.dockerignore`](/terms/dockerignore/)で除外します。とくに `.env` と `node_modules` を入れないのが重要です。
+Docker はビルド時に “[ビルドコンテキスト](https://reotech736.com/terms/build-context/)” としてディレクトリ一式を送るので、不要なものは最初から[`.dockerignore`](https://reotech736.com/terms/dockerignore/)で除外します。とくに `.env` と `node_modules` を入れないのが重要です。
 
 ```txt
 node_modules
@@ -106,7 +106,7 @@ workspace
 
 ## 環境変数の渡し方（そして Dockerfile に含めない理由）
 
-この Bot に必要な[環境変数](/terms/environment-variable/)は `DISCORD_TOKEN` と `OPENAI_API_KEY` です。これらは **Dockerfile に書かず、起動時に渡します**。例：`.env`
+この Bot に必要な[環境変数](https://reotech736.com/terms/environment-variable/)は `DISCORD_TOKEN` と `OPENAI_API_KEY` です。これらは **Dockerfile に書かず、起動時に渡します**。例：`.env`
 
 ```env
 DISCORD_TOKEN=xxxxxxxx
@@ -134,7 +134,7 @@ docker run -d --name discord-chatgpt-bot \
 ## 設定ファイルの永続化（`settings.json`）
 
 この Bot はモデル選択や履歴 ON/OFF を `settings.json` に保存します。コンテナは作り直す前提の仕組みなので、ファイルをコンテナ内に置きっぱなしにすると消えます。  
-そこで、`settings.json` はホスト側に置いて、コンテナに **[バインドマウント](/terms/bind-mount/)**します。
+そこで、`settings.json` はホスト側に置いて、コンテナに **[バインドマウント](https://reotech736.com/terms/bind-mount/)**します。
 
 ```bash
 -v "$PWD/settings.json:/app/settings.json"
@@ -146,7 +146,7 @@ docker run -d --name discord-chatgpt-bot \
 
 ## ビルドと起動（手順まとめ）
 
-今回は単一のBotを`docker run`で起動します。複数のサービスをまとめて構成管理する場合は、[Docker Compose](/terms/docker-compose/)を使う方法もあります。
+今回は単一のBotを`docker run`で起動します。複数のサービスをまとめて構成管理する場合は、[Docker Compose](https://reotech736.com/terms/docker-compose/)を使う方法もあります。
 
 ### 1) イメージをビルド
 
@@ -207,3 +207,9 @@ docker run -d --name discord-chatgpt-bot \
 
 ターミナルでの手動起動をやめて Docker 化すると、「起動・停止・ログ・自動復旧」の運用が揃って管理がかなり楽になります。  
 さらに `.env`（秘密情報）と `settings.json`（永続化が必要な設定）をイメージから分離できるので、保守性と安全性が一段上がります。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/01/26/discord-chatgpt-bot-docker.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

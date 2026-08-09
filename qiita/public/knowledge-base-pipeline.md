@@ -1,36 +1,35 @@
 ---
-layout: post
 title: "Obsidian & Discord-bot で個人用ナレッジベースを構築する"
-thumbnail: /assets/images/posts/2026-05-19-knowledge-base-pipeline/thumbnail.svg
-date: 2026-05-19 00:00:00 +0900
-author: Reo Komatsubara
-tags: [ブログ, Discord, Docker]
-mermaid: true
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Obsidian
-    - Discord
-    - Docker
-    - ナレッジマネジメント
+tags:
+  - "Obsidian"
+  - "Discord"
+  - "Docker"
+  - "ナレッジマネジメント"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-このブログに、個人用のナレッジベースとして [技術メモ](/terms/) と [学習記録](/study-logs/) を追加しました。
+このブログに、個人用のナレッジベースとして [技術メモ](https://reotech736.com/terms/) と [学習記録](https://reotech736.com/study-logs/) を追加しました。
 
 技術メモは用語や概念を後から引くための辞書で、学習記録は日々の作業等を時系列で残すログです。  
 やりたかったことは、個人開発や業務で得た知識を「あとで記事にするかもしれないメモ」として溜めることです。ただし、ブログのリポジトリを直接編集する運用にすると、気軽さがなくなります。
 
-そこで、[Obsidian](/terms/obsidian/) を母艦にした `knowledge-vault-work` を作り、そこからブログ用 [Markdown](/terms/markdown/) を生成するパイプラインを組みました。さらに、思いついた瞬間に Discord からも追加できるように、専用の Discord Bot も作っています。
+そこで、[Obsidian](https://reotech736.com/terms/obsidian/) を母艦にした `knowledge-vault-work` を作り、そこからブログ用 [Markdown](https://reotech736.com/terms/markdown/) を生成するパイプラインを組みました。さらに、思いついた瞬間に Discord からも追加できるように、専用の Discord Bot も作っています。
 
 ## 作ったもの
 
 今回追加した入口は次の 2 つです。
 
-- [技術メモ](/terms/): AWS、Docker、Shell などの用語を整理する辞書
-- [学習記録](/study-logs/): 日々の学びや作業ログを残す場所
+- [技術メモ](https://reotech736.com/terms/): AWS、Docker、Shell などの用語を整理する辞書
+- [学習記録](https://reotech736.com/study-logs/): 日々の学びや作業ログを残す場所
 
 元データはブログリポジトリではなく、Obsidian で扱う `knowledge-vault-work` に置いています。  
 ブログ側の `_terms/` と `_study_logs/` は生成物として扱い、source of truth は vault 側に寄せています。
@@ -52,13 +51,13 @@ flowchart LR
 ```
 
 ポイントは、ブログのためだけに Obsidian のノートを直接公開しないことです。  
-vault 側では自分が書きやすい形を保ち、公開対象だけを import script で [Jekyll](/terms/jekyll/) 用に変換しています。
+vault 側では自分が書きやすい形を保ち、公開対象だけを import script で [Jekyll](https://reotech736.com/terms/jekyll/) 用に変換しています。
 
 ## bare リポジトリを使う理由
 
-この構成では `bare/knowledge-vault.git` という [bareリポジトリ](/terms/bare-repository/)を挟んでいます。bareリポジトリは、作業ツリーを持たない Git リポジトリです。普通のリポジトリのようにファイルを編集する場所ではなく、push を受け取るための受け口として使います。
+この構成では `bare/knowledge-vault.git` という [bareリポジトリ](https://reotech736.com/terms/bare-repository/)を挟んでいます。bareリポジトリは、作業ツリーを持たない Git リポジトリです。普通のリポジトリのようにファイルを編集する場所ではなく、push を受け取るための受け口として使います。
 
-今回の使い方では、`knowledge-vault-work` から bare リポジトリへ push すると、[post-receiveフック](/terms/post-receive-hook/)が動きます。この hook からブログ側の publish script を起動して、公開用 Markdown の生成までつなげています。
+今回の使い方では、`knowledge-vault-work` から bare リポジトリへ push すると、[post-receiveフック](https://reotech736.com/terms/post-receive-hook/)が動きます。この hook からブログ側の publish script を起動して、公開用 Markdown の生成までつなげています。
 
 ## 公開パイプライン
 
@@ -92,14 +91,14 @@ sequenceDiagram
 ## Discord Bot から追加できるようにした
 
 Obsidian は腰を据えて整理するには便利ですが、スマホから一瞬で追加するには少し重いです。そこで、Discord から技術メモと学習記録を追加できる `discord-knowledge-vault-bot` を作りました。  
-Bot には次の 2 つの[スラッシュコマンド](/terms/slash-command/)を用意しています。
+Bot には次の 2 つの[スラッシュコマンド](https://reotech736.com/terms/slash-command/)を用意しています。
 
 - `/term_add`: `01_terms/<slug>.md` に技術メモを作成
 - `/study_log_add`: `03_study_logs/YYYY-MM-DD-study-log.md` に学習記録を作成
 
 `/term_add` の modal は次のような形です。
 
-![Discord modal for adding term](/assets/images/posts/2026-05-19-knowledge-base-pipeline/discord-modal.png)
+![Discord modal for adding term](https://reotech736.com/assets/images/posts/2026-05-19-knowledge-base-pipeline/discord-modal.png)
 
 Discord の modal は Text Input を最大 5 つまでしか置けません。  
 そのため、技術メモでは入力欄を次の 5 つに絞りました。
@@ -144,3 +143,9 @@ Discord 側も、modal の 5 入力制限の中でどこまで気持ちよく書
 
 今回の機能追加で、ブログは単なる記事置き場ではなく、日々の学びを溜めていくナレッジベースとして使えるようになりました。  
 Obsidian、bare リポジトリ、publish pipeline、Discord Bot を組み合わせることで、書く場所と公開する場所を分離しつつ、必要なものだけをブログに出せる構成になっています。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/05/19/knowledge-base-pipeline.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。

@@ -1,25 +1,25 @@
 ---
-layout: post
 title: "Nape Proのキーマップ設定方法｜Keychron Launcherを初心者向けに解説"
-thumbnail: /assets/images/posts/2026-06-28-nape-pro-keymap-guide/thumbnail.svg
-date: 2026-06-28 00:00:00 +0900
-author: Reo Komatsubara
-tags: [Windows, Keychron, Nape Pro]
-toc: true
-qiita:
-  publish: true
-  tags:
-    - Keychron
-    - キーボード
-    - Windows
-    - キーマップ
+tags:
+  - "Keychron"
+  - "キーボード"
+  - "Windows"
+  - "キーマップ"
+private: false
+updated_at: ""
+id: null
+organization_url_name: null
+slide: false
+ignorePublish: false
+posting_campaign_uuid: null
+agreed_posting_campaign_term: false
 ---
 
 ## はじめに
 
-Nape Proは、トラックボールの周囲に複数のボタンとダイヤルを備えたデバイスです。初期設定のままでも使えますが、[Keychron Launcher](https://launcher.keychron.com/)でボタンの役割を変えると、コピー＆ペーストや[レイヤー](/terms/keymap-layer/)切り替え、[マクロ](/terms/keyboard-macro/)などを手元に集約できます。
+Nape Proは、トラックボールの周囲に複数のボタンとダイヤルを備えたデバイスです。初期設定のままでも使えますが、[Keychron Launcher](https://launcher.keychron.com/)でボタンの役割を変えると、コピー＆ペーストや[レイヤー](https://reotech736.com/terms/keymap-layer/)切り替え、[マクロ](https://reotech736.com/terms/keyboard-macro/)などを手元に集約できます。
 
-この記事では、[キーマップ](/terms/keymap/)を初めて変更する人に向けて、接続から基本的な割り当て、`MO`・`TG`・`TO`を使ったレイヤー、マクロやトラックボールジェスチャーまで順番に説明します。自分で設定をやり直すときの備忘録も兼ねています。
+この記事では、[キーマップ](https://reotech736.com/terms/keymap/)を初めて変更する人に向けて、接続から基本的な割り当て、`MO`・`TG`・`TO`を使ったレイヤー、マクロやトラックボールジェスチャーまで順番に説明します。自分で設定をやり直すときの備忘録も兼ねています。
 
 この記事の画面と動作は、2026年6月28日時点の次の環境で確認しています。
 
@@ -28,7 +28,7 @@ Nape Proは、トラックボールの周囲に複数のボタンとダイヤル
 - Keychron Link-KM（USBドングル）: V0.1.3
 - OS: Windows
 
-Launcherや[ファームウェア](/terms/firmware/)の更新により、項目名や画面構成が変わる可能性があります。
+Launcherや[ファームウェア](https://reotech736.com/terms/firmware/)の更新により、項目名や画面構成が変わる可能性があります。
 
 ## 本体のボタンを確認する
 
@@ -59,9 +59,9 @@ Nape Proには、有線・2.4GHz・Bluetoothの3つの接続モードがあり�
 3. Chromium系ブラウザでKeychron Launcherを開く
 4. 接続ボタンを押し、表示されたNape Proを選択する
 
-![Keychron Launcherの接続機器選択画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/launcher-connect.png)
+![Keychron Launcherの接続機器選択画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/launcher-connect.png)
 
-Chrome、Edge、Operaなど、[WebHID](/terms/webhid/)に対応したブラウザを使用します。ブラウザからデバイスへの接続許可を求められたら、Nape Proを選択して接続します。
+Chrome、Edge、Operaなど、[WebHID](https://reotech736.com/terms/webhid/)に対応したブラウザを使用します。ブラウザからデバイスへの接続許可を求められたら、Nape Proを選択して接続します。
 
 ### 2.4GHz接続
 
@@ -75,15 +75,15 @@ Chrome、Edge、Operaなど、[WebHID](/terms/webhid/)に対応したブラウ�
 
 到着時点では、本体とUSBドングルのファームウェアが最新とは限りません。今回の個体も本体はV1.1.6だったため、V1.2.5へ更新しました。
 
-![Nape Pro本体のファームウェア更新中画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-device-update.png)
+![Nape Pro本体のファームウェア更新中画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-device-update.png)
 
 更新中はケーブルを抜いたり、ブラウザを再読み込みしたりしないでください。書き込みが完了したら、本体の現在バージョンと最新バージョンが一致していることを確認します。
 
-![Nape Pro本体が最新バージョンになった画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-device-current.png)
+![Nape Pro本体が最新バージョンになった画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-device-current.png)
 
 USBドングルは、本体とは別の「受信機のアップデート」から確認します。今回使用したKeychron Link-KMはV0.1.3が最新でした。
 
-![USBドングルが最新バージョンになった画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-receiver-current.png)
+![USBドングルが最新バージョンになった画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/firmware-receiver-current.png)
 
 記事と同じバージョンへ無理にそろえるのではなく、Launcherに表示される「最新」を基準にしてください。
 
@@ -99,7 +99,7 @@ USBドングルは、本体とは別の「受信機のアップデート」か�
 
 「基本」にはクリック、進む・戻る、スクロール、英数字、ファンクションキー、修飾キーなどが並んでいます。
 
-![カスタマイズの基本キー一覧](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-basic.png)
+![カスタマイズの基本キー一覧](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-basic.png)
 
 設定はデバイスへ反映されるため、変更前の割り当てをスクリーンショットで残しておくと復旧しやすくなります。画面右側の「リセット」は影響が大きいため、押す前に対象レイヤーと現在の設定を確認してください。
 
@@ -117,7 +117,7 @@ LauncherではLayer 0〜7を編集できます。各レイヤーへ移る方法�
 
 `MO`はキーボードの`Fn`キーに近く、初心者にも状態を把握しやすい方法です。`TG`や`TO`は便利ですが、現在どのレイヤーにいるか分からなくなると操作できなくなるため、戻るためのキーも同時に用意してください。
 
-レイヤーの基本動作は、[QMK Firmware](/terms/qmk/)の[Layersドキュメント](https://docs.qmk.fm/feature_layers)でも確認できます。
+レイヤーの基本動作は、[QMK Firmware](https://reotech736.com/terms/qmk/)の[Layersドキュメント](https://docs.qmk.fm/feature_layers)でも確認できます。
 
 ## MO(1)を使った実用レイヤー例
 
@@ -130,7 +130,7 @@ LauncherではLayer 0〜7を編集できます。各レイヤーへ移る方法�
 3. 「レイヤー」カテゴリを開く
 4. `MO(1)`を選択する
 
-![Layer 0のM1へMO(1)を割り当てた状態](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/layer-0-mo1.png)
+![Layer 0のM1へMO(1)を割り当てた状態](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/layer-0-mo1.png)
 
 この例では`M1`の左クリックを`MO(1)`で上書きしています。Nape Pro単体で左クリックを使いたい場合は、`M1`ではなく、既定の「戻る」が割り当てられている`01`などをレイヤーキーにする方が安全です。
 
@@ -149,7 +149,7 @@ LauncherではLayer 0〜7を編集できます。各レイヤーへ移る方法�
 | `M1` | 透過 |
 | `M2` | `Esc` |
 
-![Layer 1へ編集操作を設定した完成状態](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/layer-1-example.png)
+![Layer 1へ編集操作を設定した完成状態](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/layer-1-example.png)
 
 Layer 1側の`M1`には、下向き三角で表示される透過キーを設定しています。これによりLayer 1でもLayer 0の`MO(1)`が引き継がれ、`M1`を離したときにLayer 0へ戻れます。
 
@@ -165,7 +165,7 @@ Layer 1側の`M1`には、下向き三角で表示される透過キーを設定
 
 OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に合わせてトラックボールの移動方向を補正する機能です。`0°`・`45°`・`90°`・`135°`・`180°`・`225°`・`270°`・`315°`から直接指定する機能と、「8方向を切り替え」をボタンへ割り当てられます。
 
-![OctaShiftの割り当て一覧](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-octashift.png)
+![OctaShiftの割り当て一覧](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-octashift.png)
 
 付属説明書では、角度ごとのインジケーター色を次のように案内しています。
 
@@ -186,7 +186,7 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 
 `Ctrl`・`Shift`・`Alt/Option`・`Win/Command`と通常キーを組み合わせ、1回の操作として割り当てます。Windowsなら`Ctrl+C`、`Ctrl+V`、`Win+Shift+S`など、同時押しするだけで完結する操作に向いています。
 
-![ショートカット作成画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-shortcut.png)
+![ショートカット作成画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-shortcut.png)
 
 単純なキーの同時押しは、後述するマクロではなくショートカットを使う方が設定内容を読み取りやすくなります。
 
@@ -194,7 +194,7 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 
 短く押したときと、長く押したときで別の機能を実行します。例えば、短く押すと`Esc`、長押しすると`Ctrl`というように、使用頻度の高い2操作を1つのボタンへまとめられます。
 
-![タップとホールドの設定画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-tap-hold.png)
+![タップとホールドの設定画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-tap-hold.png)
 
 押し方の判定が加わるため、クリックのように即時性が必要な操作には向きません。最初は`Esc`や修飾キーなど、多少の判定時間があっても困りにくい操作で試してください。
 
@@ -202,15 +202,15 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 
 `01〜04`・`M1`・`M2`から複数のボタンを組み合わせ、その組み合わせを押したときだけ別の操作を実行できます。Launcherの画面では最大30件の同時押し設定を登録でき、タップ時とホールド時の出力を分けられます。
 
-![同時押しの設定画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-combo.png)
+![同時押しの設定画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-combo.png)
 
 通常操作と同時押し判定が競合しやすいため、頻繁に単独で使うボタン同士は避けます。登録後は、単独押しと同時押しの両方が意図どおり動くことを確認してください。
 
 ### トラックボール
 
-トラックボールカテゴリでは、[DPI](/terms/dpi/)・[ポーリングレート](/terms/polling-rate/)の切り替えや、トラックボールジェスチャーを割り当てられます。ジェスチャーでは上・下・左・右へボールを動かしたときのキーを指定できます。
+トラックボールカテゴリでは、[DPI](https://reotech736.com/terms/dpi/)・[ポーリングレート](https://reotech736.com/terms/polling-rate/)の切り替えや、トラックボールジェスチャーを割り当てられます。ジェスチャーでは上・下・左・右へボールを動かしたときのキーを指定できます。
 
-![トラックボールジェスチャーの設定画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-trackball.png)
+![トラックボールジェスチャーの設定画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/customize-trackball.png)
 
 ジェスチャーモード中は通常のカーソル移動として扱われないため、ジェスチャーを有効にするボタンと解除方法を先に確認しておきます。
 
@@ -221,13 +221,13 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 今回の例では、`()`を入力してから左矢印を押し、カーソルを括弧の中へ移動するマクロを作成しました。
 
 <video controls preload="metadata" style="display: block; width: 100%; height: auto;">
-  <source src="/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-recording.mp4" type="video/mp4">
-  <a href="/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-recording.mp4">マクロのレコーディング例を再生する</a>
+  <source src="https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-recording.mp4" type="video/mp4">
+  <a href="https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-recording.mp4">マクロのレコーディング例を再生する</a>
 </video>
 
 レコーディング機能を開始し、`Shift+8`、`Shift+9`、左矢印の順に操作すると、押下と解放がコードとして保存されます。
 
-![括弧を入力してカーソルを戻すマクロのコード](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-code.png)
+![括弧を入力してカーソルを戻すマクロのコード](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-code.png)
 
 この例のコードは、次の順番を表しています。
 
@@ -241,7 +241,7 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 
 マクロを作成しただけでは、物理ボタンからは実行できません。「カスタマイズ」の「マクロ」カテゴリを開き、作成した`M0`を実行したいボタンへ割り当てます。
 
-![作成したM0マクロを04へ割り当てた例](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-assignment.png)
+![作成したM0マクロを04へ割り当てた例](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/macro-assignment.png)
 
 マクロはアクティブなウィンドウへそのままキー入力を送ります。削除、送信、終了などを含むマクロは誤操作の影響が大きいため、まずメモ帳で確認してください。
 
@@ -249,7 +249,7 @@ OctaShiftは8方向ジェスチャーではなく、Nape Proを置く角度に�
 
 DPIはトラックボールを同じ距離だけ動かしたときのカーソル移動量です。値を上げるほど少ないボール操作でカーソルが大きく動き、値を下げるほど細かく狙いやすくなります。
 
-![DPIとポーリングレートの設定画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/dpi-settings.png)
+![DPIとポーリングレートの設定画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/dpi-settings.png)
 
 初期プリセットとインジケーター色は次のとおりです。
 
@@ -269,7 +269,7 @@ DPIはトラックボールを同じ距離だけ動かしたときのカーソ�
 
 アドバンスモードでは、キー割り当て以外の動作を変更します。
 
-![アドバンスモードの設定画面](/assets/images/posts/2026-06-28-nape-pro-keymap-guide/advanced-mode.png)
+![アドバンスモードの設定画面](https://reotech736.com/assets/images/posts/2026-06-28-nape-pro-keymap-guide/advanced-mode.png)
 
 - オートスリープモード開始時間: 無操作からスリープへ入るまでの時間
 - 常にジェスチャーモードを有効にする: トラックボールを常時ジェスチャー入力として使い、カーソル移動を無効化
@@ -305,3 +305,9 @@ DPIはトラックボールを同じ距離だけ動かしたときのカーソ�
 Nape Proの設定は、最初からすべてを変更するより、単一キー、レイヤー、ショートカット、マクロの順に試すと理解しやすくなります。特に`MO`は、押している間だけ別レイヤーを使うため、初めてでも現在の状態を把握しやすい機能です。
 
 一方、`TG`・`TO`・同時押し・タップ／ホールド・常時ジェスチャーは、設定次第で通常操作へ戻りにくくなります。変更前のスクリーンショットを残し、メモ帳などで一つずつ動作確認しながら、自分の操作に合うキーマップへ調整していくのが安全です。
+
+---
+
+この記事は[Reo's Tech Blogの同名記事](https://reotech736.com/2026/06/28/nape-pro-keymap-guide.html)にも掲載しています。
+
+Reo's Tech Blogでは、個人開発や日々の技術的な取り組みを記録しています。興味がありましたら、[ほかの記事もご覧ください](https://reotech736.com/)。
