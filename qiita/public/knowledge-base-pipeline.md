@@ -1,13 +1,13 @@
 ---
-title: "Obsidian & Discord-bot で個人用ナレッジベースを構築する"
+title: Obsidian & Discord-bot で個人用ナレッジベースを構築する
 tags:
-  - "Obsidian"
-  - "Discord"
-  - "Docker"
-  - "ナレッジマネジメント"
+  - Obsidian
+  - discord
+  - Docker
+  - ナレッジマネジメント
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: f0695e60c4240306d32e
 organization_url_name: null
 slide: false
 ignorePublish: false

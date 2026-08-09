@@ -1,12 +1,12 @@
 ---
-title: "初めてのIaCで学んだAWS CloudFormation"
+title: 初めてのIaCで学んだAWS CloudFormation
 tags:
-  - "AWS"
-  - "CloudFormation"
-  - "IaC"
+  - AWS
+  - CloudFormation
+  - IaC
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 419f33652c99a1dc3e87
 organization_url_name: null
 slide: false
 ignorePublish: false

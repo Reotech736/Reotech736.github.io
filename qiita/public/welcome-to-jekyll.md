@@ -1,12 +1,12 @@
 ---
-title: "Jekyll + GitHub Pagesでブログを始めました"
+title: Jekyll + GitHub Pagesでブログを始めました
 tags:
-  - "Jekyll"
-  - "GitHubPages"
-  - "GitHub"
+  - Jekyll
+  - GithubPages
+  - GitHub
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: f89a49e9a51ff0875ef4
 organization_url_name: null
 slide: false
 ignorePublish: false

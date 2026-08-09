@@ -1,13 +1,13 @@
 ---
-title: "Ubuntuの特定ディレクトリをWindowsエクスプローラーで開く（Samba/SMB）"
+title: Ubuntuの特定ディレクトリをWindowsエクスプローラーで開く（Samba/SMB）
 tags:
-  - "Ubuntu"
-  - "Samba"
-  - "Windows"
-  - "SMB"
+  - Ubuntu
+  - samba
+  - Windows
+  - smb
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 4f218fdb9798cba87e88
 organization_url_name: null
 slide: false
 ignorePublish: false

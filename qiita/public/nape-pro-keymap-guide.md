@@ -1,13 +1,13 @@
 ---
-title: "Nape Proのキーマップ設定方法｜Keychron Launcherを初心者向けに解説"
+title: Nape Proのキーマップ設定方法｜Keychron Launcherを初心者向けに解説
 tags:
-  - "Keychron"
-  - "キーボード"
-  - "Windows"
-  - "キーマップ"
+  - Keychron
+  - Keyboard
+  - Windows
+  - キーマップ
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 043fa280ce61be2b425d
 organization_url_name: null
 slide: false
 ignorePublish: false

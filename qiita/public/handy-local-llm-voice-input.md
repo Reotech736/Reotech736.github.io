@@ -1,13 +1,13 @@
 ---
-title: "HandyとローカルLLMで音声入力環境を構築しようとした話"
+title: HandyとローカルLLMで音声入力環境を構築しようとした話
 tags:
-  - "音声入力"
-  - "LLM"
-  - "Windows"
-  - "AI"
+  - 音声入力
+  - LLM
+  - Windows
+  - AI
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: a85985fc5f361d6bba12
 organization_url_name: null
 slide: false
 ignorePublish: false

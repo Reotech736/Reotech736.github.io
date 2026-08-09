@@ -1,12 +1,12 @@
 ---
-title: "Ubuntu開発環境の構築"
+title: Ubuntu開発環境の構築
 tags:
-  - "Ubuntu"
-  - "Linux"
-  - "開発環境"
+  - Ubuntu
+  - Linux
+  - 開発環境
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: f190addafb53c2af46a3
 organization_url_name: null
 slide: false
 ignorePublish: false

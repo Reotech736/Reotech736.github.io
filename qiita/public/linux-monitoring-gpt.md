@@ -1,13 +1,13 @@
 ---
-title: "Custom GPTでLinuxサーバを診断する"
+title: Custom GPTでLinuxサーバを診断する
 tags:
-  - "Linux"
-  - "Docker"
-  - "ChatGPT"
-  - "監視"
+  - Linux
+  - Docker
+  - ChatGPT
+  - 監視
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 2dd5c6d383e0d55c98ba
 organization_url_name: null
 slide: false
 ignorePublish: false

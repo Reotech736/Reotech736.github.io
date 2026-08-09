@@ -1,13 +1,13 @@
 ---
-title: "tmuxのインストールと基本操作｜SSH作業向けチートシート"
+title: tmuxのインストールと基本操作｜SSH作業向けチートシート
 tags:
-  - "tmux"
-  - "Ubuntu"
-  - "Linux"
-  - "SSH"
+  - tmux
+  - Ubuntu
+  - Linux
+  - SSH
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: f8539166b0dcad5e23bc
 organization_url_name: null
 slide: false
 ignorePublish: false

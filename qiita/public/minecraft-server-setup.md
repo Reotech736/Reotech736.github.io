@@ -1,13 +1,13 @@
 ---
-title: "Minecraft serverをDockerで安全運用する"
+title: Minecraft serverをDockerで安全運用する
 tags:
-  - "Minecraft"
-  - "Docker"
-  - "Ubuntu"
-  - "サーバー"
+  - minecraft
+  - Docker
+  - Ubuntu
+  - サーバー
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 3983bfb803efc44fad97
 organization_url_name: null
 slide: false
 ignorePublish: false

@@ -1,13 +1,13 @@
 ---
-title: "Discord Bot を Docker で常駐運用する"
+title: Discord Bot を Docker で常駐運用する
 tags:
-  - "Discord"
-  - "Docker"
-  - "Ubuntu"
-  - "Bot"
+  - discord
+  - Docker
+  - Ubuntu
+  - bot
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 0457b1dbc066fa3da0f5
 organization_url_name: null
 slide: false
 ignorePublish: false

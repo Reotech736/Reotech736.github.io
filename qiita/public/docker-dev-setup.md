@@ -1,12 +1,12 @@
 ---
-title: "Docker環境の構築"
+title: Docker環境の構築
 tags:
-  - "Docker"
-  - "Ubuntu"
-  - "Linux"
+  - Docker
+  - Ubuntu
+  - Linux
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-09T15:15:53+09:00'
+id: 4612af3fe817dffc5d31
 organization_url_name: null
 slide: false
 ignorePublish: false
