@@ -1,0 +1,67 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">品質とPC推論時間の比較</title>
+  <desc id="desc">YOLO26のn、s、mと320、640ピクセルの6条件について、personとcarの平均APとPC ONNX Runtime推論p50を示し、n 640とs 640を次の候補として強調</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <g font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">
+    <text x="80" y="82" fill="#024450" font-size="46" font-weight="700">品質とPC推論時間</text>
+    <text x="80" y="128" fill="#405a64" font-size="24">左上ほど高品質・短時間</text>
+
+    <rect x="1070" y="55" width="430" height="82" rx="22" fill="#fff8e1" stroke="#d7a62a" stroke-width="3"/>
+    <text x="1285" y="90" text-anchor="middle" fill="#024450" font-size="22" font-weight="700">量子化比較へ残す条件</text>
+    <text x="1285" y="120" text-anchor="middle" fill="#405a64" font-size="21">n / 640・s / 640</text>
+
+    <g stroke="#b9d5db" stroke-width="2">
+      <path d="M220 220H1420M220 400H1420M220 580H1420M220 760H1420"/>
+      <path d="M220 220V760M445 220V760M671 220V760M969 220V760M1194 220V760M1420 220V760"/>
+    </g>
+
+    <path d="M220 190V760H1450" fill="none" stroke="#024450" stroke-width="4"/>
+
+    <g fill="#405a64" font-size="20">
+      <text x="195" y="767" text-anchor="end">30</text>
+      <text x="195" y="587" text-anchor="end">40</text>
+      <text x="195" y="407" text-anchor="end">50</text>
+      <text x="195" y="227" text-anchor="end">60</text>
+
+      <text x="220" y="800" text-anchor="middle">5</text>
+      <text x="445" y="800" text-anchor="middle">10</text>
+      <text x="671" y="800" text-anchor="middle">20</text>
+      <text x="969" y="800" text-anchor="middle">50</text>
+      <text x="1194" y="800" text-anchor="middle">100</text>
+      <text x="1420" y="800" text-anchor="middle">200</text>
+    </g>
+
+    <text x="820" y="855" text-anchor="middle" fill="#405a64" font-size="23">PC ORT推論 p50（ms・対数目盛）</text>
+    <text x="70" y="490" text-anchor="middle" fill="#405a64" font-size="23" transform="rotate(-90 70 490)">person・car 平均AP</text>
+
+    <g stroke="#ffffff" stroke-width="4">
+      <circle cx="264" cy="739" r="15" fill="#036982"/>
+      <circle cx="556" cy="569" r="17" fill="#087b8a"/>
+      <circle cx="637" cy="489" r="18" fill="#036982"/>
+      <circle cx="879" cy="464" r="20" fill="#3ba3c5"/>
+      <circle cx="973" cy="332" r="21" fill="#087b8a"/>
+      <circle cx="1328" cy="251" r="23" fill="#3ba3c5"/>
+    </g>
+
+    <g fill="none" stroke="#d7a62a" stroke-width="7">
+      <circle cx="637" cy="489" r="30"/>
+      <circle cx="973" cy="332" r="33"/>
+    </g>
+
+    <g fill="#024450" font-size="21" font-weight="700">
+      <text x="285" y="714">n / 320</text>
+      <text x="472" y="615">s / 320</text>
+      <text x="660" y="474">n / 640</text>
+      <text x="795" y="445">m / 320</text>
+      <text x="1005" y="305">s / 640</text>
+      <text x="1240" y="305">m / 640</text>
+    </g>
+  </g>
+</svg>

@@ -18,7 +18,7 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [YOLO26のモデル規模・入力解像度を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
 Windows PCのONNX Runtimeでモデルの推論区間を100回測り、p50とp95をモデル規模・入力解像度ごとに比較した。
 
 ## 関連

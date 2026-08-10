@@ -43,6 +43,6 @@
     <path d="M800 245V665" fill="none" stroke="#7eb3bf" stroke-width="4" stroke-dasharray="10 12"/>
 
     <rect x="260" y="760" width="1080" height="92" rx="24" fill="#024450"/>
-    <text x="800" y="818" text-anchor="middle" fill="#ffffff" font-size="30" font-weight="800">PCの18.03ms ≠ Androidのfps</text>
+    <text x="800" y="818" text-anchor="middle" fill="#ffffff" font-size="30" font-weight="800">PC推論時間 ≠ Androidのfps</text>
   </g>
 </svg>
