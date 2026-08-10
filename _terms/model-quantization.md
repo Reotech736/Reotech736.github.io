@@ -23,11 +23,18 @@ FP16は浮動小数点のbit数を減らす低精度変換で、INT8の整数量
 ### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 今後の検証として、選定したYOLO26のモデルと入力解像度を基準に、FP32、FP16、INT8の品質と処理性能を比較する計画を示している。
 
-### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+### [YOLO26のモデル規模・入力解像度による性能差を比較した](/2026/08/10/yolo26-scale-resolution-comparison.html)
 YOLO26n・640pxとYOLO26s・640pxを残し、FP32、FP16、INT8で品質と処理性能を測ってから1条件へ絞る計画を示している。
+
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+YOLO26n・640pxとYOLO26s・640pxをQDQ形式のstatic INT8へ変換し、FP32からの品質、PC推論時間、ONNX容量、実行時メモリの変化を比較している。
 
 ## 関連
 - [ONNX](/terms/onnx/)
 - [ONNX Runtime](/terms/onnx-runtime/)
 - [Average Precision（AP）](/terms/average-precision/)
 - [スループット](/terms/throughput/)
+- [量子化キャリブレーション](/terms/quantization-calibration/)
+- [量子化ドリフト](/terms/quantization-drift/)
+- [Static Quantization](/terms/static-quantization/)
+- [QDQ](/terms/qdq/)

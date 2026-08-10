@@ -21,6 +21,9 @@ Common Objects in Contextの略で、[物体検出](/terms/object-detection/)や
 ### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 COCO val2017の全5,000画像を共通の品質評価に使い、人と車の検出結果を比較している。
 
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+train2017から固定した512画像を量子化キャリブレーションに使い、別のval2017全5,000画像でpersonとcarの品質を評価している。
+
 ## 関連
 - [物体検出](/terms/object-detection/)
 - [バウンディングボックス](/terms/bounding-box/)

@@ -1,0 +1,60 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">static INT8量子化と品質評価の流れ</title>
+  <desc id="desc">COCO train2017の512画像で量子化パラメータを決め、別のCOCO val2017全5000画像で品質を評価する流れ</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#087b8a"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Noto Sans JP', sans-serif; fill: #17333a; }
+      .label { font: 700 24px 'Noto Sans JP', sans-serif; fill: #17333a; }
+      .body { font: 500 20px 'Noto Sans JP', sans-serif; fill: #38545b; }
+      .small { font: 500 17px 'Noto Sans JP', sans-serif; fill: #5b7177; }
+    </style>
+  </defs>
+  <rect width="1200" height="560" rx="28" fill="url(#bg)"/>
+  <text x="600" y="54" text-anchor="middle" class="title">calibrationと品質評価を分離</text>
+
+  <rect x="50" y="100" width="270" height="135" rx="18" fill="#d9eef2" stroke="#087b8a" stroke-width="3"/>
+  <text x="185" y="145" text-anchor="middle" class="label">COCO train2017</text>
+  <text x="185" y="181" text-anchor="middle" class="body">seed 17・512画像</text>
+  <text x="185" y="211" text-anchor="middle" class="small">代表画像を固定</text>
+
+  <rect x="395" y="100" width="310" height="135" rx="18" fill="#ffffff" stroke="#087b8a" stroke-width="3"/>
+  <text x="550" y="145" text-anchor="middle" class="label">calibration</text>
+  <text x="550" y="181" text-anchor="middle" class="body">scale / zero point</text>
+  <text x="550" y="211" text-anchor="middle" class="small">学習のやり直しではない</text>
+
+  <rect x="780" y="100" width="370" height="135" rx="18" fill="#ffffff" stroke="#3ba3c5" stroke-width="3"/>
+  <text x="965" y="145" text-anchor="middle" class="label">static INT8 ONNX</text>
+  <text x="965" y="181" text-anchor="middle" class="body">QDQ・S8S8・MinMax</text>
+  <text x="965" y="211" text-anchor="middle" class="small">n・s共通の512画像</text>
+
+  <path d="M320 168 H382" fill="none" stroke="#087b8a" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M705 168 H767" fill="none" stroke="#087b8a" stroke-width="4" marker-end="url(#arrow)"/>
+
+  <line x1="50" y1="280" x2="1150" y2="280" stroke="#aac6cc" stroke-width="2" stroke-dasharray="9 9"/>
+  <text x="600" y="312" text-anchor="middle" class="small">評価データはcalibrationに使わない</text>
+
+  <rect x="50" y="345" width="270" height="135" rx="18" fill="#e5edf7" stroke="#356f9a" stroke-width="3"/>
+  <text x="185" y="390" text-anchor="middle" class="label">COCO val2017</text>
+  <text x="185" y="426" text-anchor="middle" class="body">全5,000画像</text>
+  <text x="185" y="456" text-anchor="middle" class="small">品質評価専用</text>
+
+  <rect x="395" y="345" width="310" height="135" rx="18" fill="#ffffff" stroke="#356f9a" stroke-width="3"/>
+  <text x="550" y="390" text-anchor="middle" class="label">FP32とINT8を評価</text>
+  <text x="550" y="426" text-anchor="middle" class="body">personとcarのAP</text>
+  <text x="550" y="456" text-anchor="middle" class="small">同じ物差しで比較</text>
+
+  <rect x="780" y="345" width="370" height="135" rx="18" fill="#ffffff" stroke="#7eb3bf" stroke-width="3"/>
+  <text x="965" y="390" text-anchor="middle" class="label">品質を確認</text>
+  <text x="965" y="426" text-anchor="middle" class="body">gate・drift</text>
+  <text x="965" y="456" text-anchor="middle" class="small">情報漏れを防ぐ</text>
+
+  <path d="M320 413 H382" fill="none" stroke="#356f9a" stroke-width="4" marker-end="url(#arrow)"/>
+  <path d="M705 413 H767" fill="none" stroke="#356f9a" stroke-width="4" marker-end="url(#arrow)"/>
+</svg>

@@ -18,8 +18,11 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+### [YOLO26のモデル規模・入力解像度による性能差を比較した](/2026/08/10/yolo26-scale-resolution-comparison.html)
 Windows PCのONNX Runtimeでモデルの推論区間を100回測り、p50とp95をモデル規模・入力解像度ごとに比較した。
+
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+初回aggregateとは別に各条件を5回ずつ新しいプロセスとORT sessionで測り、INT8とFP32の推論p50の範囲が重なるかを確認している。
 
 ## 関連
 - [スループット](/terms/throughput/)

@@ -1,0 +1,66 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">品質・PC速度・ONNX容量のtrade-off</title>
+  <desc id="desc">YOLO26nとsのFP32とINT8について、personとcarの平均AP、PC ORT推論p50、ONNX容量を比較し、INT8化後の2条件が品質gateに不合格だったことを示す</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0 L12 6 L0 12 Z" fill="#7b9096"/>
+    </marker>
+  </defs>
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <g font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">
+    <text x="80" y="80" fill="#024450" font-size="46" font-weight="700">品質・速度・容量</text>
+    <text x="80" y="125" fill="#405a64" font-size="24">左上ほど高品質・短時間 / 点の大きさ＝容量</text>
+    <rect x="1110" y="55" width="400" height="75" rx="20" fill="#ffffff" stroke="#7eb3bf" stroke-width="3"/>
+    <text x="1310" y="87" text-anchor="middle" fill="#024450" font-size="21" font-weight="700">○ FP32 / × INT8</text>
+    <text x="1310" y="116" text-anchor="middle" fill="#405a64" font-size="19">×＝gate不合格</text>
+
+    <g stroke="#b9d5db" stroke-width="2">
+      <path d="M190 205H1460M190 340H1460M190 475H1460M190 610H1460M190 745H1460"/>
+      <path d="M190 205V745M385 205V745M580 205V745M775 205V745M970 205V745M1165 205V745M1360 205V745"/>
+    </g>
+    <path d="M190 180V745H1480" fill="none" stroke="#024450" stroke-width="4"/>
+
+    <g fill="#405a64" font-size="20">
+      <text x="165" y="752" text-anchor="end">40</text>
+      <text x="165" y="617" text-anchor="end">44</text>
+      <text x="165" y="482" text-anchor="end">48</text>
+      <text x="165" y="347" text-anchor="end">52</text>
+      <text x="165" y="212" text-anchor="end">56</text>
+      <text x="190" y="785" text-anchor="middle">0</text>
+      <text x="385" y="785" text-anchor="middle">20</text>
+      <text x="580" y="785" text-anchor="middle">40</text>
+      <text x="775" y="785" text-anchor="middle">60</text>
+      <text x="970" y="785" text-anchor="middle">80</text>
+      <text x="1165" y="785" text-anchor="middle">100</text>
+      <text x="1360" y="785" text-anchor="middle">120</text>
+    </g>
+    <text x="825" y="840" text-anchor="middle" fill="#405a64" font-size="23">PC推論p50（ms）←短い</text>
+    <text x="62" y="480" text-anchor="middle" fill="#405a64" font-size="23" transform="rotate(-90 62 480)">平均AP → 高い</text>
+
+    <path d="M394 577 L705 682" fill="none" stroke="#7b9096" stroke-width="5" marker-end="url(#arrow)"/>
+    <path d="M725 278 L1320 393" fill="none" stroke="#7b9096" stroke-width="5" marker-end="url(#arrow)"/>
+
+    <circle cx="394" cy="577" r="18" fill="#036982" stroke="#ffffff" stroke-width="4"/>
+    <circle cx="725" cy="278" r="31" fill="#087b8a" stroke="#ffffff" stroke-width="4"/>
+
+    <g stroke="#3ba3c5" stroke-width="12" stroke-linecap="round">
+      <path d="M690 667L718 695M718 667L690 695"/>
+      <path d="M1310 378L1338 406M1338 378L1310 406"/>
+    </g>
+
+    <g fill="#024450" font-size="22" font-weight="700">
+      <text x="245" y="485">n・FP32</text>
+      <text x="245" y="516" font-size="19" font-weight="500">45.0 AP / 9.48 MiB</text>
+      <text x="752" y="600">n・INT8</text>
+      <text x="752" y="631" font-size="19" font-weight="500">42.0 AP / 2.95 MiB</text>
+      <text x="540" y="165">s・FP32</text>
+      <text x="540" y="196" font-size="19" font-weight="500">53.8 AP / 36.52 MiB</text>
+      <text x="1170" y="290">s・INT8</text>
+      <text x="1170" y="321" font-size="19" font-weight="500">50.4 AP / 9.83 MiB</text>
+    </g>
+  </g>
+</svg>

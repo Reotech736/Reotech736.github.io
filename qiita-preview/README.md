@@ -16,7 +16,7 @@ Qiitaのアクセストークンは、このディレクトリやリポジトリ
 
 ```bash
 mkdir -p qiita-preview/public
-cp -R qiita/public/. qiita-preview/public/
+rsync -a --delete qiita/public/ qiita-preview/public/
 ```
 
 Qiita Previewを起動します。
@@ -95,7 +95,7 @@ ss -ltnp | rg ':8888'
 ```bash
 ruby scripts/export-qiita.rb
 mkdir -p qiita-preview/public
-cp -R qiita/public/. qiita-preview/public/
+rsync -a --delete qiita/public/ qiita-preview/public/
 ```
 
 `qiita-preview/`内のMarkdownは直接編集しません。投稿対象としてGit管理するファイルは`qiita/public/`です。

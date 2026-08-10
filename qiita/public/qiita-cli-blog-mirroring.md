@@ -1,13 +1,13 @@
 ---
-title: Jekyllブログの記事をQiita CLIで自動ミラーする
+title: "Jekyllブログの記事をQiita CLIで自動ミラーする"
 tags:
-  - Qiita
-  - QiitaCLI
-  - GitHubActions
-  - Jekyll
+  - "Qiita"
+  - "QiitaCLI"
+  - "GitHubActions"
+  - "Jekyll"
 private: false
-updated_at: '2026-08-09T14:52:01+09:00'
-id: c684eb024ac38e96e12f
+updated_at: "2026-08-09T14:52:01+09:00"
+id: "c684eb024ac38e96e12f"
 organization_url_name: null
 slide: false
 ignorePublish: false
@@ -122,7 +122,7 @@ ruby scripts/export-qiita.rb
 ruby scripts/export-qiita.rb --dry-run
 ruby scripts/export-qiita.rb --check
 mkdir -p qiita-preview/public
-cp -R qiita/public/. qiita-preview/public/
+rsync -a --delete qiita/public/ qiita-preview/public/
 npx qiita preview --root qiita-preview --config qiita-preview
 ```
 
