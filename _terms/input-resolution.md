@@ -18,8 +18,11 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 スマートフォン向けの軽い基準条件として320×320を採用し、今後は320と640の品質・処理時間を比較する。
+
+### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+YOLO26n・s・mを320×320と640×640で比較し、品質、PC上の処理時間、モデルサイズ、実行時メモリの変化を確認した。
 
 ## 関連
 - [物体検出](/terms/object-detection/)

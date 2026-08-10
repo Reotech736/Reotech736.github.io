@@ -18,7 +18,7 @@ ONNX形式のAIモデルをPCやスマートフォンで実行するためのソ
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 ONNX RuntimeのPC向けCPU実行を使い、変換後のモデルが動くこと、変換前と結果が一致すること、推論時間を確認している。
 
 ## 関連

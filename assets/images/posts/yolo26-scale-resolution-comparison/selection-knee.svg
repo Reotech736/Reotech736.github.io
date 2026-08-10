@@ -1,0 +1,43 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">量子化比較へ残す2条件</title>
+  <desc id="desc">YOLO26n 640を軽量側、YOLO26s 640を品質側として、両方をFP32、FP16、INT8の比較へ残す判断</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <g font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">
+    <text x="90" y="92" fill="#024450" font-size="48" font-weight="700">量子化比較へ残す2条件</text>
+    <text x="90" y="140" fill="#405a64" font-size="25">軽量側と品質側を、結果を見る前に絞りすぎない</text>
+
+    <rect x="120" y="225" width="600" height="390" rx="30" fill="#ffffff" stroke="#087b8a" stroke-width="6"/>
+    <rect x="880" y="225" width="600" height="390" rx="30" fill="#ffffff" stroke="#3ba3c5" stroke-width="6"/>
+
+    <rect x="255" y="265" width="330" height="54" rx="27" fill="#087b8a"/>
+    <rect x="1015" y="265" width="330" height="54" rx="27" fill="#3ba3c5"/>
+    <text x="420" y="302" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700">軽量側の基準</text>
+    <text x="1180" y="302" text-anchor="middle" fill="#ffffff" font-size="25" font-weight="700">品質側の候補</text>
+
+    <text x="420" y="385" text-anchor="middle" fill="#024450" font-size="44" font-weight="800">n / 640</text>
+    <text x="1180" y="385" text-anchor="middle" fill="#024450" font-size="44" font-weight="800">s / 640</text>
+
+    <g fill="#405a64" font-size="25">
+      <text x="200" y="455">person AP</text><text x="650" y="455" text-anchor="end" font-weight="700">52.86</text>
+      <text x="200" y="510">car AP</text><text x="650" y="510" text-anchor="end" font-weight="700">37.22</text>
+      <text x="200" y="565">PC p50</text><text x="650" y="565" text-anchor="end" font-weight="700">18.03 ms</text>
+
+      <text x="960" y="455">person AP</text><text x="1410" y="455" text-anchor="end" font-weight="700">60.98</text>
+      <text x="960" y="510">car AP</text><text x="1410" y="510" text-anchor="end" font-weight="700">46.63</text>
+      <text x="960" y="565">PC p50</text><text x="1410" y="565" text-anchor="end" font-weight="700">50.58 ms</text>
+    </g>
+
+    <rect x="190" y="675" width="1220" height="82" rx="24" fill="#ffffff" stroke="#7eb3bf" stroke-width="3"/>
+    <text x="800" y="727" text-anchor="middle" fill="#024450" font-size="27" font-weight="700">n / 640 と s / 640 × FP32・FP16・INT8</text>
+
+    <rect x="355" y="795" width="890" height="60" rx="30" fill="#024450"/>
+    <text x="800" y="835" text-anchor="middle" fill="#ffffff" font-size="24" font-weight="700">量子化後の品質と負荷を見てから1条件へ絞る</text>
+  </g>
+</svg>

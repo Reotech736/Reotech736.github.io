@@ -18,8 +18,11 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 今後の低精度化検証で、処理時間と合わせて1秒間に処理できる画像数を比較する計画を示している。
+
+### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+YOLO26n・640pxとYOLO26s・640pxをFP32、FP16、INT8で比較し、INT8化によって単位時間あたりの処理量が変わるかを実測する計画を示している。
 
 ## 関連
 - [ONNX Runtime](/terms/onnx-runtime/)
