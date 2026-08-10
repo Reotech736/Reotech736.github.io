@@ -21,6 +21,9 @@ AP 50-95は、予測枠と正解枠の重なりを示す[IoU](/terms/intersectio
 ### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 COCO val2017全5,000画像のpersonとcarについてAP 50-95を計算し、320pxでの候補選定に使っている。
 
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+同じモデルのFP32からclass別APが2.0 pointsを超えて低下しないことを品質gateとし、static INT8モデルをAndroid実機評価へ渡すか判断している。
+
 ## 関連
 - [物体検出](/terms/object-detection/)
 - [IoU](/terms/intersection-over-union/)

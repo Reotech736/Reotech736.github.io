@@ -18,8 +18,11 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+### [YOLO26のモデル規模・入力解像度による性能差を比較した](/2026/08/10/yolo26-scale-resolution-comparison.html)
 各条件を新しいプロセスで起動し、モデル読み込み前から推論までを5ミリ秒間隔で測って最大ワーキングセットを比較した。
+
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+INT8化でONNXファイルは小さくなっても、Windows上のpeak working setはnとsのどちらでも減らなかったことを確認している。
 
 ## 関連
 - [ONNX Runtime](/terms/onnx-runtime/)

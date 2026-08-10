@@ -21,6 +21,9 @@ updated: 2026-08-10
 ### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 人と車の検出枠だけでなく、枠の下端中央が正解位置からどれくらいずれるかも比較している。
 
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+FP32とINT8で検出枠の位置や件数がどう変わったかを比較し、画像範囲へclipした後に幅または高さが0以下となった無効bboxも数えている。
+
 ## 関連
 - [物体検出](/terms/object-detection/)
 - [IoU](/terms/intersection-over-union/)

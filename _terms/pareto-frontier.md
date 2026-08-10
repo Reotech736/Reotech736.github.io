@@ -18,8 +18,11 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [YOLO26のモデル規模・入力解像度による性能差を比較](/2026/08/10/yolo26-scale-resolution-comparison.html)
+### [YOLO26のモデル規模・入力解像度による性能差を比較した](/2026/08/10/yolo26-scale-resolution-comparison.html)
 検出品質とPC上の推論レイテンシを比べたところ6条件すべてが境界に残ったため、軽量側のn・640pxと品質側のs・640pxを次の候補に残した。
+
+### [YOLO26n・sのFP32とstatic INT8を比較した](/2026/08/10/yolo26-fp32-static-int8-comparison.html)
+容量を含む複数指標でINT8条件が境界に残っても最低品質は保証されないため、固定quality gateを先に適用して候補を選んでいる。
 
 ## 関連
 - [レイテンシ](/terms/latency/)
