@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="570" viewBox="0 0 1200 570" role="img" aria-labelledby="title desc">
+  <title id="title">Android実機へ渡す条件</title>
+  <desc id="desc">FP32とINT8の4条件へ固定品質gateを適用し、YOLO26nの640px FP32をPOCO X8 Proへ渡す判断</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#087b8a"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Noto Sans JP', sans-serif; fill: #024450; }
+      .label { font: 700 22px 'Noto Sans JP', sans-serif; fill: #024450; }
+      .body { font: 500 18px 'Noto Sans JP', sans-serif; fill: #405a64; }
+      .status { font: 700 17px 'Noto Sans JP', sans-serif; fill: #ffffff; }
+    </style>
+  </defs>
+  <rect width="1200" height="570" rx="28" fill="url(#bg)"/>
+  <text x="600" y="52" text-anchor="middle" class="title">品質gateを先に適用</text>
+
+  <rect x="200" y="82" width="800" height="72" rx="20" fill="#ffffff" stroke="#7eb3bf" stroke-width="3"/>
+  <text x="600" y="126" text-anchor="middle" class="label">AP低下：class別2.0 points以内</text>
+
+  <rect x="35" y="190" width="255" height="180" rx="20" fill="#ffffff" stroke="#087b8a" stroke-width="4"/>
+  <text x="162" y="230" text-anchor="middle" class="label">n・FP32</text>
+  <text x="162" y="265" text-anchor="middle" class="body">20.96 ms</text>
+  <text x="162" y="294" text-anchor="middle" class="body">9.48 MiB</text>
+  <rect x="82" y="318" width="160" height="36" rx="18" fill="#087b8a"/>
+  <text x="162" y="342" text-anchor="middle" class="status">次へ渡す</text>
+
+  <rect x="325" y="190" width="255" height="180" rx="20" fill="#ffffff" stroke="#3ba3c5" stroke-width="3"/>
+  <text x="452" y="230" text-anchor="middle" class="label">n・INT8</text>
+  <text x="452" y="265" text-anchor="middle" class="body">容量 −68.9%</text>
+  <text x="452" y="294" text-anchor="middle" class="body">52.79 ms</text>
+  <rect x="360" y="318" width="185" height="36" rx="18" fill="#7eb3bf"/>
+  <text x="452" y="342" text-anchor="middle" class="status">AP gate不合格</text>
+
+  <rect x="615" y="190" width="255" height="180" rx="20" fill="#ffffff" stroke="#036982" stroke-width="3"/>
+  <text x="742" y="230" text-anchor="middle" class="label">s・FP32</text>
+  <text x="742" y="265" text-anchor="middle" class="body">54.88 ms</text>
+  <text x="742" y="294" text-anchor="middle" class="body">36.52 MiB</text>
+  <rect x="650" y="318" width="185" height="36" rx="18" fill="#7eb3bf"/>
+  <text x="742" y="342" text-anchor="middle" class="status">今回は見送り</text>
+
+  <rect x="905" y="190" width="255" height="180" rx="20" fill="#ffffff" stroke="#3ba3c5" stroke-width="3"/>
+  <text x="1032" y="230" text-anchor="middle" class="label">s・INT8</text>
+  <text x="1032" y="265" text-anchor="middle" class="body">容量 −73.1%</text>
+  <text x="1032" y="294" text-anchor="middle" class="body">115.97 ms</text>
+  <rect x="940" y="318" width="185" height="36" rx="18" fill="#7eb3bf"/>
+  <text x="1032" y="342" text-anchor="middle" class="status">AP gate不合格</text>
+
+  <path d="M162 370 V430 H300" fill="none" stroke="#087b8a" stroke-width="4" marker-end="url(#arrow)"/>
+  <rect x="315" y="400" width="570" height="118" rx="24" fill="#ffffff" stroke="#087b8a" stroke-width="4"/>
+  <text x="600" y="443" text-anchor="middle" class="label">実機へ渡す条件</text>
+  <text x="600" y="486" text-anchor="middle" class="title">YOLO26n（640px・FP32）</text>
+</svg>

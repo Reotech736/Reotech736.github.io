@@ -138,7 +138,7 @@ ruby scripts/export-qiita.rb --check
 
 # Git管理対象外の作業ディレクトリへコピーしてQiita Previewを起動
 mkdir -p qiita-preview/public
-cp -R qiita/public/. qiita-preview/public/
+rsync -a --delete qiita/public/ qiita-preview/public/
 npx qiita preview --root qiita-preview --config qiita-preview
 ```
 

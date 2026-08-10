@@ -123,7 +123,7 @@ ruby scripts/export-qiita.rb
 ruby scripts/export-qiita.rb --dry-run
 ruby scripts/export-qiita.rb --check
 mkdir -p qiita-preview/public
-cp -R qiita/public/. qiita-preview/public/
+rsync -a --delete qiita/public/ qiita-preview/public/
 npx qiita preview --root qiita-preview --config qiita-preview
 ```
 

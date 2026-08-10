@@ -1,0 +1,44 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="560" viewBox="0 0 1200 560" role="img" aria-labelledby="title desc">
+  <title id="title">FP32とINT8のONNX graph node構成</title>
+  <desc id="desc">FP32は384 node、INT8は1000 nodeで、INT8にはQuantizeLinear 206、DequantizeLinear 410、量子化対象106、FP32のままのnode 278がある</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="10" markerHeight="10" refX="8" refY="5" orient="auto">
+      <path d="M0 0 L10 5 L0 10 Z" fill="#607b82"/>
+    </marker>
+    <style>
+      .title { font: 700 34px 'Noto Sans JP', sans-serif; fill: #17333a; }
+      .label { font: 700 24px 'Noto Sans JP', sans-serif; fill: #17333a; }
+      .body { font: 600 19px 'Noto Sans JP', sans-serif; fill: #ffffff; }
+      .small { font: 500 17px 'Noto Sans JP', sans-serif; fill: #5b7177; }
+    </style>
+  </defs>
+  <rect width="1200" height="560" rx="28" fill="url(#bg)"/>
+  <text x="600" y="54" text-anchor="middle" class="title">INT8 graphは全部が8 bitではない</text>
+
+  <text x="245" y="112" text-anchor="middle" class="label">FP32 graph</text>
+  <rect x="115" y="145" width="260" height="300" rx="18" fill="#356f9a"/>
+  <text x="245" y="275" text-anchor="middle" class="body">384 node</text>
+  <text x="245" y="310" text-anchor="middle" class="body">FP32基準</text>
+
+  <path d="M405 295 H520" fill="none" stroke="#607b82" stroke-width="5" marker-end="url(#arrow)"/>
+  <text x="462" y="240" text-anchor="middle" class="small">QDQ追加</text>
+
+  <text x="835" y="112" text-anchor="middle" class="label">INT8 QDQ：1,000 node</text>
+  <rect x="590" y="145" width="490" height="92" rx="14" fill="#3ba3c5"/>
+  <text x="835" y="184" text-anchor="middle" class="body">QuantizeLinear：206</text>
+  <text x="835" y="215" text-anchor="middle" class="body">実数から整数へ</text>
+  <rect x="590" y="244" width="490" height="150" rx="14" fill="#087b8a"/>
+  <text x="835" y="304" text-anchor="middle" class="body">DequantizeLinear：410</text>
+  <text x="835" y="340" text-anchor="middle" class="body">整数から実数へ戻す</text>
+  <rect x="590" y="401" width="230" height="95" rx="14" fill="#087b8a"/>
+  <text x="705" y="440" text-anchor="middle" class="body">量子化対象：106</text>
+  <text x="705" y="470" text-anchor="middle" class="body">Conv 102 + MatMul 4</text>
+  <rect x="830" y="401" width="250" height="95" rx="14" fill="#73878c"/>
+  <text x="955" y="440" text-anchor="middle" class="body">FP32のまま：278</text>
+  <text x="955" y="470" text-anchor="middle" class="body">decode・構造演算など</text>
+
+</svg>
