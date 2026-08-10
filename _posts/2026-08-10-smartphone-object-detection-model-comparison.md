@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた"
+title: "スマートフォン向け物体検出モデル3候補をPCで比較した"
 thumbnail: /assets/images/posts/smartphone-object-detection-model-comparison/thumbnail.svg
 date: 2026-08-10 00:00:00 +0900
 author: Reo Komatsubara

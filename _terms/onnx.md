@@ -18,7 +18,7 @@ ONNXはファイル形式と仕様であり、それ自体がモデルを実行�
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 PC上で物体検出モデルをONNXへ変換し、変換前後の検出結果が一致するかを確認している。
 
 ## 関連

@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="900" viewBox="0 0 1600 900" role="img" aria-labelledby="title desc">
+  <title id="title">PC測定とAndroid実機</title>
+  <desc id="desc">今回PCで測定したONNX推論、COCO品質、モデルサイズ、実行時メモリと、Androidで今後測るカメラ入力、前処理、画面描画、スケジューリング、発熱を区別する</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#f4fbfc"/>
+      <stop offset="100%" stop-color="#d9eef2"/>
+    </linearGradient>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M0 0L12 6L0 12Z" fill="#087b8a"/>
+    </marker>
+  </defs>
+
+  <rect width="1600" height="900" rx="34" fill="url(#bg)"/>
+  <g font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif">
+    <text x="90" y="92" fill="#024450" font-size="48" font-weight="700">PC測定とAndroid実機</text>
+    <text x="90" y="140" fill="#405a64" font-size="25">分かったこと / これから測ること</text>
+
+    <rect x="90" y="215" width="610" height="485" rx="30" fill="#ffffff" stroke="#087b8a" stroke-width="5"/>
+    <rect x="900" y="215" width="610" height="485" rx="30" fill="#ffffff" stroke="#7eb3bf" stroke-width="5" stroke-dasharray="14 10"/>
+
+    <circle cx="170" cy="285" r="36" fill="#087b8a"/>
+    <path d="M151 285l14 14 27-31" fill="none" stroke="#ffffff" stroke-width="8" stroke-linecap="round" stroke-linejoin="round"/>
+    <text x="225" y="297" fill="#024450" font-size="33" font-weight="800">PCで確認済み</text>
+
+    <circle cx="980" cy="285" r="36" fill="#7eb3bf"/>
+    <text x="980" y="297" text-anchor="middle" fill="#ffffff" font-size="34" font-weight="800">?</text>
+    <text x="1035" y="297" fill="#024450" font-size="33" font-weight="800">Androidで確認予定</text>
+
+    <g fill="#405a64" font-size="27">
+      <text x="150" y="380">● ONNX Runtimeの推論時間</text>
+      <text x="150" y="455">● COCOでの検出品質</text>
+      <text x="150" y="530">● ONNXファイルサイズ</text>
+      <text x="150" y="605">● PCプロセスのmemory</text>
+
+      <text x="960" y="365">○ CameraXからの画像入力</text>
+      <text x="960" y="425">○ 回転・resize・色変換</text>
+      <text x="960" y="485">○ bboxとラベルの描画</text>
+      <text x="960" y="545">○ Android scheduling</text>
+      <text x="960" y="605">○ 発熱・10分間の速度低下</text>
+    </g>
+
+    <path d="M800 245V665" fill="none" stroke="#7eb3bf" stroke-width="4" stroke-dasharray="10 12"/>
+
+    <rect x="260" y="760" width="1080" height="92" rx="24" fill="#024450"/>
+    <text x="800" y="818" text-anchor="middle" fill="#ffffff" font-size="30" font-weight="800">PCの18.03ms ≠ Androidのfps</text>
+  </g>
+</svg>

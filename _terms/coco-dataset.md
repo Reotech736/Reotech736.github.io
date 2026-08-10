@@ -18,7 +18,7 @@ Common Objects in Contextの略で、[物体検出](/terms/object-detection/)や
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 COCO val2017の全5,000画像を共通の品質評価に使い、人と車の検出結果を比較している。
 
 ## 関連

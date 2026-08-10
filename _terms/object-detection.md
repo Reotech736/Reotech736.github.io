@@ -18,7 +18,7 @@ updated: 2026-08-10
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 スマートフォンのカメラ映像から人と車を見つける候補として、3つのモデルをPC上で比較している。
 
 ## 関連

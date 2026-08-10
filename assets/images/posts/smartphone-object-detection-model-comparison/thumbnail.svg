@@ -1,9 +1,9 @@
 ---
 thumbnail_title_lines:
-  - text: "物体検出モデルをPCで比較"
-    size: 54
-  - text: "次の比較条件を決めた"
-    size: 50
+  - text: "物体検出モデル3候補を"
+    size: 52
+  - text: "PCで比較"
+    size: 56
 thumbnail_title_start_y: 250
 thumbnail_title_line_gap: 74
 ---

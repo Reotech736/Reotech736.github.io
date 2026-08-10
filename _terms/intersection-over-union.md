@@ -18,7 +18,7 @@ Intersection over Unionの略で、2つの[バウンディングボックス](/t
 
 ## 関連記事での使用例
 
-### [スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた](/2026/08/10/smartphone-object-detection-model-comparison.html)
+### [スマートフォン向け物体検出モデル3候補をPCで比較した](/2026/08/10/smartphone-object-detection-model-comparison.html)
 変換前後の検出枠の一致確認と、COCOでの品質評価にIoUを使っている。
 
 ## 関連
