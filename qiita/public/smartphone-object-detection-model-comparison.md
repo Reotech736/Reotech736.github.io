@@ -1,14 +1,14 @@
 ---
-title: "スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた"
+title: スマートフォン向け物体検出モデルをPCで比較し、実機検証候補を決めた
 tags:
-  - "Android"
-  - "ONNX"
-  - "YOLO"
-  - "物体検出"
-  - "機械学習"
+  - Android
+  - ONNX
+  - YOLO
+  - 物体検出
+  - 機械学習
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-10T15:31:04+09:00'
+id: bde95cdf3c6ff09a9228
 organization_url_name: null
 slide: false
 ignorePublish: false
