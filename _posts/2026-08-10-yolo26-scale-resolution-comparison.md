@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "YOLO26のモデル規模・入力解像度による性能差を比較"
+title: "YOLO26のモデル規模・入力解像度による性能差を比較した"
 thumbnail: /assets/images/posts/yolo26-scale-resolution-comparison/thumbnail.svg
 date: 2026-08-10 05:30:00 +0900
 author: Reo Komatsubara
