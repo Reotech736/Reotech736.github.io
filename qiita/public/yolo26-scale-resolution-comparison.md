@@ -1,14 +1,14 @@
 ---
-title: "YOLO26のモデル規模・入力解像度による性能差を比較した"
+title: YOLO26のモデル規模・入力解像度による性能差を比較した
 tags:
-  - "Android"
-  - "ONNX"
-  - "YOLO"
-  - "物体検出"
-  - "機械学習"
+  - Android
+  - ONNX
+  - YOLO
+  - 物体検出
+  - 機械学習
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-17T09:07:29+09:00'
+id: be25d4724ce4a79dc390
 organization_url_name: null
 slide: false
 ignorePublish: false

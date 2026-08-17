@@ -1,14 +1,14 @@
 ---
-title: "YOLO26n・sのFP32とstatic INT8を比較した"
+title: YOLO26n・sのFP32とstatic INT8を比較した
 tags:
-  - "Android"
-  - "ONNX"
-  - "YOLO"
-  - "量子化"
-  - "機械学習"
+  - Android
+  - ONNX
+  - YOLO
+  - 量子化
+  - 機械学習
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-08-17T09:07:29+09:00'
+id: 8df27c15430b35b97cad
 organization_url_name: null
 slide: false
 ignorePublish: false
