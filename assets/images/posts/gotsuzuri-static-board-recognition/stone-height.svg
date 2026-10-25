@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="500" viewBox="0 0 1000 500" role="img" aria-labelledby="title desc">
+  <title id="title">盤面の交点と石上面の見かけ位置</title>
+  <desc id="desc">横から見た模式図。カメラから石上面への視線と、盤面の交点への視線は異なる。射影変換で扱う盤面と石の高さを分ける。</desc>
+  <rect width="1000" height="500" rx="20" fill="#eef5f6"/>
+  <g font-family="Noto Sans JP, Meiryo, sans-serif" fill="#183632">
+    <text x="40" y="53" font-size="27" font-weight="700">盤面に合わせても、石上面は同じ位置に見えない</text>
+    <rect x="70" y="125" width="106" height="68" rx="12" fill="#036982"/>
+    <circle cx="155" cy="158" r="18" fill="#dceef0"/>
+    <text x="70" y="105" font-size="21">カメラ</text>
+    <path d="M200 350H920" stroke="#658b91" stroke-width="6"/>
+    <rect x="200" y="354" width="720" height="27" fill="#d2b484"/>
+    <ellipse cx="655" cy="333" rx="67" ry="17" fill="#183632"/>
+    <circle cx="655" cy="350" r="7" fill="#036982"/>
+    <circle cx="655" cy="316" r="7" fill="#d89922"/>
+    <path d="M176 162L655 350" stroke="#036982" stroke-width="3" stroke-dasharray="9 7"/>
+    <path d="M176 162L655 316" stroke="#d89922" stroke-width="3"/>
+    <path d="M695 316H755M695 350H755M740 316V350" stroke="#526f75" stroke-width="2"/>
+    <text x="765" y="340" font-size="20">石の高さ</text>
+    <text x="530" y="285" font-size="21" fill="#996510">見かけの石上面</text>
+    <path d="M655 356V390" stroke="#036982" stroke-width="2"/>
+    <text x="560" y="422" font-size="21">盤面の交点（基準）</text>
+    <text x="40" y="468" font-size="18" fill="#526f75">説明用の模式図。実写の石の形・位置・ずれ量を再現したものではありません。</text>
+  </g>
+</svg>
