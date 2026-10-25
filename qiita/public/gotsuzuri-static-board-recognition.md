@@ -1,14 +1,14 @@
 ---
-title: "実盤の囲碁を棋譜に残したい。「碁つづり」を作り始めました"
+title: 実盤の囲碁を棋譜に残したい。「碁つづり」を作り始めました
 tags:
-  - "Android"
-  - "Kotlin"
-  - "CameraX"
-  - "画像認識"
-  - "IGO"
+  - Android
+  - Kotlin
+  - CameraX
+  - 画像認識
+  - Igo
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-10-25T12:24:30+09:00'
+id: 7a5004f177cb8d2b5961
 organization_url_name: null
 slide: false
 ignorePublish: false
