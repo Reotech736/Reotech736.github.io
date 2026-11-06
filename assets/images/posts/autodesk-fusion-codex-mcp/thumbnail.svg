@@ -1,0 +1,47 @@
+---
+thumbnail_title_lines:
+  - text: "Autodesk Fusionを"
+    size: 56
+  - text: "CodexとMCP連携"
+    size: 56
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 72
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#3ba3c5"/>
+      <stop offset="100%" stop-color="#087b8a"/>
+    </linearGradient>
+    <linearGradient id="cubeTop" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#ffffff" stop-opacity="0.96"/>
+      <stop offset="100%" stop-color="#d9eef2" stop-opacity="0.9"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1060" cy="105" r="100" fill="#ffffff" fill-opacity="0.12"/>
+  <circle cx="1030" cy="540" r="165" fill="#ffffff" fill-opacity="0.08"/>
+
+  <rect x="80" y="70" width="250" height="42" rx="21" fill="#ffffff" fill-opacity="0.18"/>
+  <text x="105" y="99" fill="#ffffff" font-size="23" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" font-weight="700">3D CAD × AI</text>
+
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+
+  <text x="80" y="445" fill="#ffffff" font-size="26" font-family="Noto Sans JP, 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif" opacity="0.9">ローカルMCPで10 mm角の立方体を作成</text>
+
+  <g stroke="#024450" stroke-width="6" stroke-linejoin="round">
+    <path d="M935 175 L1085 255 L935 335 L785 255 Z" fill="url(#cubeTop)"/>
+    <path d="M785 255 L935 335 L935 505 L785 425 Z" fill="#b8dce4"/>
+    <path d="M935 335 L1085 255 L1085 425 L935 505 Z" fill="#7eb3bf"/>
+  </g>
+
+  <g fill="none" stroke="#ffffff" stroke-width="5" stroke-linecap="round" opacity="0.95">
+    <path d="M748 190 C700 190 700 260 748 260"/>
+    <path d="M1122 360 C1170 360 1170 430 1122 430"/>
+  </g>
+  <circle cx="748" cy="190" r="9" fill="#ffffff"/>
+  <circle cx="748" cy="260" r="9" fill="#ffffff"/>
+  <circle cx="1122" cy="360" r="9" fill="#ffffff"/>
+  <circle cx="1122" cy="430" r="9" fill="#ffffff"/>
+</svg>
