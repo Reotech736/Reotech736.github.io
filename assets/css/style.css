@@ -249,6 +249,13 @@ section p {
     margin: 1.5rem auto;
 }
 
+.post-content img[src*="/autodesk-fusion-codex-mcp/codex-"] {
+    box-sizing: border-box;
+    border: 1px solid var(--border);
+    border-radius: 0.5rem;
+    box-shadow: 0 0.25rem 0.75rem rgba(2, 68, 80, 0.16);
+}
+
 .post-content table {
     width: 100%;
     border-collapse: collapse;
