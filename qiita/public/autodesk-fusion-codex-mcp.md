@@ -1,14 +1,14 @@
 ---
-title: "Autodesk FusionをCodexとMCP連携して立方体を作る"
+title: Autodesk FusionをCodexとMCP連携して立方体を作る
 tags:
-  - "AutodeskFusion"
-  - "MCP"
-  - "ChatGPT"
-  - "Codex"
-  - "3DCAD"
+  - AutodeskFusion
+  - MCP
+  - ChatGPT
+  - codex
+  - 3DCAD
 private: false
-updated_at: "2026-11-06T23:57:16+09:00"
-id: "18a3421ffd4626f8d0bc"
+updated_at: '2026-11-10T01:54:35+09:00'
+id: 18a3421ffd4626f8d0bc
 organization_url_name: null
 slide: false
 ignorePublish: false

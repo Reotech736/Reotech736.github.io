@@ -1,14 +1,14 @@
 ---
-title: "AI学習の前に、正解データを疑う 碁つづりのGT作成記録"
+title: AI学習の前に、正解データを疑う 碁つづりのGT作成記録
 tags:
-  - "Android"
-  - "機械学習"
-  - "画像認識"
-  - "個人開発"
-  - "IGO"
+  - Android
+  - 機械学習
+  - 画像認識
+  - 個人開発
+  - Igo
 private: false
-updated_at: ""
-id: null
+updated_at: '2026-11-10T01:54:35+09:00'
+id: 6679b0abc9e7d3d9714d
 organization_url_name: null
 slide: false
 ignorePublish: false
