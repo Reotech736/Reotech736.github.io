@@ -25,7 +25,7 @@ qiita:
 
 隣の石を別の交点へ割り当ててしまう問題を減らそうと、石候補をまとめて交点へ対応づける方法をPCで試しました。
 
-![手動でずれを補正した結果、一部の奥側の石は改善したが盤全体では誤判定や不明が増え、採用を見送った流れ](/assets/images/posts/gotsuzuri-ground-truth-preparation/correction-result.svg)
+![手動でずれを補正した結果、一部の奥側の石は改善したが盤全体では誤判定や不明が増え、採用を見送った流れ](/assets/images/posts/gotsuzuri-ground-truth-preparation/correction-result.svg?v=20261110)
 
 手動補正を試した結果。一部で改善しても盤全体では悪化したため、既存の判定を置き換えるのを見送りました。
 
@@ -35,7 +35,7 @@ qiita:
 
 同じ配置を上方と固定位置から撮り、各交点を「空・黒・白・判別不能」に分類します。追加分は6配置・12枚。まばらな配置だけでなく、黒白が隣り合う配置や盤端の石も用意しました。
 
-![写真の四隅を合わせ、交点を分類するGT作成画面](/assets/images/posts/gotsuzuri-ground-truth-preparation/gt-labeling.png)
+![写真の四隅を合わせ、交点を分類するGT作成画面](/assets/images/posts/gotsuzuri-ground-truth-preparation/gt-labeling.png?v=20261110)
 
 GT作成ツール画面。
 
@@ -53,7 +53,7 @@ GTを作る際に、自分でもラベリングを誤っていたところがあ
 
 こうした誤りを減らせるよう、GTの全体確認用ツールを作りました。写真の横に真上から見たGT図を表示し、石の並びを見比べられます。
 
-![修正済みの写真とGT模式図を並べた全体確認ツール。上辺の判別不能を橙の×で表示](/assets/images/posts/gotsuzuri-ground-truth-preparation/gt-review.png)
+![修正済みの写真とGT模式図を並べた全体確認ツール。上辺の判別不能を橙の×で表示](/assets/images/posts/gotsuzuri-ground-truth-preparation/gt-review.png?v=20261110)
 
 GTの全体確認ツール。写真と図の両方で、21枚のラベルを見直しました。
 
@@ -72,7 +72,7 @@ GTの全体確認ツール。写真と図の両方で、21枚のラベルを見�
 | 学習や方式の比較に使う開発用 | 15枚 | 7配置 |
 | 方法を決めた後の最終確認用 | 6枚 | 3配置 |
 
-![同じ配置の上方写真と斜め写真を同じグループにまとめ、学習と検証を配置単位で分ける図](/assets/images/posts/gotsuzuri-ground-truth-preparation/group-split.svg)
+![同じ配置の上方写真と斜め写真を同じグループにまとめ、学習と検証を配置単位で分ける図](/assets/images/posts/gotsuzuri-ground-truth-preparation/group-split.svg?v=20261110)
 
 開発用7配置で行う比較の例。最終確認用の3配置は方法を決めるまで使いません。
 
