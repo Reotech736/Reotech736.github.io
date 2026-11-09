@@ -1,0 +1,27 @@
+---
+thumbnail_title_lines:
+  - text: "AI学習の前に、正解を確認"
+    size: 50
+  - text: "碁つづりのGT作成記録"
+    size: 50
+thumbnail_title_start_y: 250
+thumbnail_title_line_gap: 74
+---
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs><linearGradient id="bg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#036982"/><stop offset="100%" stop-color="#024450"/></linearGradient></defs>
+  <rect width="1200" height="630" fill="url(#bg)"/>
+  <circle cx="1045" cy="100" r="95" fill="#fff" fill-opacity=".12"/>
+  <circle cx="1040" cy="535" r="155" fill="#fff" fill-opacity=".08"/>
+  <rect x="80" y="90" width="260" height="40" rx="20" fill="#fff" fill-opacity=".18"/>
+  <text x="100" y="118" fill="#fff" font-size="18" font-family="Noto Sans JP, sans-serif">GOTSUZURI / ANDROID</text>
+  {% include thumbnail-title-lines.svg lines=page.thumbnail_title_lines start_y=page.thumbnail_title_start_y line_gap=page.thumbnail_title_line_gap %}
+  <text x="80" y="430" fill="#fff" font-size="26" font-family="Noto Sans JP, sans-serif">碁つづりのGT作成と、21枚の確認</text>
+  <g transform="translate(820 205)">
+    <rect width="280" height="280" rx="16" fill="#dceef0" stroke="#024450" stroke-width="6"/>
+    <path d="M40 40H240M40 90H240M40 140H240M40 190H240M40 240H240M40 40V240M90 40V240M140 40V240M190 40V240M240 40V240" stroke="#54848c" stroke-width="2"/>
+    <circle cx="90" cy="90" r="20" fill="#18252c"/><circle cx="140" cy="90" r="20" fill="#fff" stroke="#54848c"/>
+    <circle cx="140" cy="140" r="20" fill="#18252c"/>
+    <circle cx="210" cy="220" r="58" fill="#024450" stroke="#fff" stroke-width="5"/>
+    <text x="210" y="222" text-anchor="middle" dominant-baseline="middle" fill="#fff" font-size="44" font-weight="700" font-family="Noto Sans JP, sans-serif">GT</text>
+  </g>
+</svg>

@@ -1,14 +1,14 @@
 ---
-title: 実盤の囲碁を棋譜に残したい。「碁つづり」を作り始めました
+title: "実盤の囲碁を棋譜に残したい「碁つづり」を作り始めました"
 tags:
-  - Android
-  - Kotlin
-  - CameraX
-  - 画像認識
-  - Igo
+  - "Android"
+  - "Kotlin"
+  - "CameraX"
+  - "画像認識"
+  - "IGO"
 private: false
-updated_at: '2026-11-06T23:57:16+09:00'
-id: 7a5004f177cb8d2b5961
+updated_at: "2026-11-06T23:57:16+09:00"
+id: "7a5004f177cb8d2b5961"
 organization_url_name: null
 slide: false
 ignorePublish: false
@@ -85,6 +85,12 @@ Kotlinと[Jetpack Compose](https://reotech736.com/terms/jetpack-compose/)で画�
 まずは問題が出た場所の石について、画像上で見える中心を少数記録する予定です。石の色を読み違えたのか、正しい色を読んでも隣の交点に割り当てたのかを切り分けます。そのうえで別の配置の正解データも用意し、小さなモデルをPCで学習・評価してみたいと考えています。
 
 今はまだ、AIの学習を始める前の段階です。自宅で石を並べながら、認識を改善していく過程も記録していく予定です。
+
+## 続きの記事
+
+その後のGT作成と、ラベルの誤りを減らす工夫をまとめました。
+
+[AI学習の前に、正解データを疑う 碁つづりのGT作成記録](https://reotech736.com/2026/11/10/gotsuzuri-ground-truth-preparation.html)
 
 ---
 
